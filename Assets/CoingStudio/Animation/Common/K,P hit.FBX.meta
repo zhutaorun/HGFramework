@@ -1,0 +1,210 @@
+fileFormatVersion: 2
+guid: cbf65659f1ecf224d9d051f4bc8d130a
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: ARM_L001
+    100002: ARM_R001
+    100004: Bip001
+    100006: Bip001 Footsteps
+    100008: Bip001 Head
+    100010: Bip001 HeadNub
+    100012: Bip001 L Calf
+    100014: Bip001 L Clavicle
+    100016: Bip001 L Finger0
+    100018: Bip001 L Finger0Nub
+    100020: Bip001 L Foot
+    100022: Bip001 L Forearm
+    100024: Bip001 L Hand
+    100026: Bip001 L Thigh
+    100028: Bip001 L Toe0
+    100030: Bip001 L Toe0Nub
+    100032: Bip001 L UpperArm
+    100034: Bip001 Neck
+    100036: Bip001 Pelvis
+    100038: Bip001 Ponytail1
+    100040: Bip001 Ponytail1Nub
+    100042: Bip001 R Calf
+    100044: Bip001 R Clavicle
+    100046: Bip001 R Finger0
+    100048: Bip001 R Finger0Nub
+    100050: Bip001 R Foot
+    100052: Bip001 R Forearm
+    100054: Bip001 R Hand
+    100056: Bip001 R Thigh
+    100058: Bip001 R Toe0
+    100060: Bip001 R Toe0Nub
+    100062: Bip001 R UpperArm
+    100064: Bip001 Spine
+    100066: BODY001
+    100068: FOOT_L001
+    100070: FOOT_R001
+    100072: GAUNTLET_L001
+    100074: GAUNTLET_R001
+    100076: HAND_L001
+    100078: HAND_R001
+    100080: HEAD001
+    100082: //RootNode
+    100084: Particle View 001
+    100086: WP_003
+    100088: WP_004
+    400000: ARM_L001
+    400002: ARM_R001
+    400004: Bip001
+    400006: Bip001 Footsteps
+    400008: Bip001 Head
+    400010: Bip001 HeadNub
+    400012: Bip001 L Calf
+    400014: Bip001 L Clavicle
+    400016: Bip001 L Finger0
+    400018: Bip001 L Finger0Nub
+    400020: Bip001 L Foot
+    400022: Bip001 L Forearm
+    400024: Bip001 L Hand
+    400026: Bip001 L Thigh
+    400028: Bip001 L Toe0
+    400030: Bip001 L Toe0Nub
+    400032: Bip001 L UpperArm
+    400034: Bip001 Neck
+    400036: Bip001 Pelvis
+    400038: Bip001 Ponytail1
+    400040: Bip001 Ponytail1Nub
+    400042: Bip001 R Calf
+    400044: Bip001 R Clavicle
+    400046: Bip001 R Finger0
+    400048: Bip001 R Finger0Nub
+    400050: Bip001 R Foot
+    400052: Bip001 R Forearm
+    400054: Bip001 R Hand
+    400056: Bip001 R Thigh
+    400058: Bip001 R Toe0
+    400060: Bip001 R Toe0Nub
+    400062: Bip001 R UpperArm
+    400064: Bip001 Spine
+    400066: BODY001
+    400068: FOOT_L001
+    400070: FOOT_R001
+    400072: GAUNTLET_L001
+    400074: GAUNTLET_R001
+    400076: HAND_L001
+    400078: HAND_R001
+    400080: HEAD001
+    400082: //RootNode
+    400084: Particle View 001
+    400086: WP_003
+    400088: WP_004
+    4300000: FOOT_R001
+    4300002: ARM_R001
+    4300004: WP_003
+    4300006: HEAD001
+    4300008: BODY001
+    4300010: ARM_L001
+    4300012: GAUNTLET_L001
+    4300014: HAND_L001
+    4300016: HAND_R001
+    4300018: GAUNTLET_R001
+    4300020: FOOT_L001
+    4300022: WP_004
+    7400000: K,P hit
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: ARM_L001
+    13700002: ARM_R001
+    13700004: BODY001
+    13700006: FOOT_L001
+    13700008: FOOT_R001
+    13700010: GAUNTLET_L001
+    13700012: GAUNTLET_R001
+    13700014: HAND_L001
+    13700016: HAND_R001
+    13700018: HEAD001
+    13700020: WP_003
+    13700022: WP_004
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: K,P hit
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

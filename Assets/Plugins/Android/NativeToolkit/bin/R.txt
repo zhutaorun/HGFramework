@@ -1,0 +1,3 @@
+int drawable ic_notification 0x7f020000
+int drawable ic_notification_large 0x7f020001
+int raw sound_notification 0x7f030000

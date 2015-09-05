@@ -1,0 +1,65 @@
+ManifestFileVersion: 0
+CRC: 2822546619
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b1e663fff65b7b67ede349f84e30978d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1033bf7ddfd4c6d43e7a6382c0a0a61a
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+Assets:
+- Assets/LuaProject/Demo/SelectHero/SelectHero.lua.txt
+- Assets/LuaProject/Demo/Fight/PCController.lua.txt
+- Assets/LuaProject/Demo/Fight/FightHero.lua.txt
+- Assets/LuaProject/CJson/cjson/util.lua.txt
+- Assets/LuaProject/CJson/json2lua.lua.txt
+- Assets/LuaProject/Thrift/TMemoryBuffer.lua.txt
+- Assets/LuaProject/luas.txt
+- Assets/LuaProject/Thrift/TProtocol.lua.txt
+- Assets/LuaProject/Demo/Loading.lua.txt
+- Assets/LuaProject/Lib/middleclass.lua.txt
+- Assets/LuaProject/Demo/SelectHero/SelectHeroUI.lua.txt
+- Assets/LuaProject/Framework/LuaUIEventListener.lua.txt
+- Assets/LuaProject/Thrift/TServer.lua.txt
+- Assets/LuaProject/Framework/LuaSceneMgr.lua.txt
+- Assets/LuaProject/Config/Config.lua.txt
+- Assets/LuaProject/CJson/lua2json.lua.txt
+- Assets/LuaProject/Demo/Fight/FightHeroInfo.lua.txt
+- Assets/LuaProject/App/AppScene.lua.txt
+- Assets/LuaProject/Thrift/TBinaryProtocol.lua.txt
+- Assets/LuaProject/Framework/LuaTimer.lua.txt
+- Assets/LuaProject/Framework/Utility.lua.txt
+- Assets/LuaProject/Config/config_ttypes.lua.txt
+- Assets/LuaProject/App/HouseTexture.lua.txt
+- Assets/LuaProject/App/AppUI.lua.txt
+- Assets/LuaProject/Demo/Fight/FightHeroFSM/FightHeroState.lua.txt
+- Assets/LuaProject/Thrift/Thrift.lua.txt
+- Assets/LuaProject/Demo/Fight/FightScene.lua.txt
+- Assets/LuaProject/App/HouseDetailWindow.lua.txt
+- Assets/LuaProject/Framework/MsgDispatcher.lua.txt
+- Assets/LuaProject/App/Event.lua.txt
+- Assets/LuaProject/App/App.lua.txt
+- Assets/LuaProject/Thrift/TTransport.lua.txt
+- Assets/LuaProject/Framework/LuaResMgr.lua.txt
+- Assets/LuaProject/App/AppLoading.lua.txt
+- Assets/LuaProject/Demo/Fight/FightHeroFSM/FightHeroFSM.lua.txt
+- Assets/LuaProject/Demo/Fight/FightHeroFSM/FightHeroMoveState.lua.txt
+- Assets/LuaProject/App/HouseWindow.lua.txt
+- Assets/LuaProject/App/UserCenterWindow.lua.txt
+- Assets/LuaProject/Thrift/TSocket.lua.txt
+- Assets/LuaProject/Demo/SelectHero/SelectHeroScene.lua.txt
+- Assets/LuaProject/Demo/Fight/FightSceneLoading.lua.txt
+- Assets/LuaProject/Config/config_constants.lua.txt
+- Assets/LuaProject/App/MainWindow.lua.txt
+- Assets/LuaProject/Thrift/TFramedTransport.lua.txt
+- Assets/LuaProject/Demo/SelectHero/SelectHeroSceneLoading.lua.txt
+- Assets/LuaProject/Demo/Game.lua.txt
+- Assets/LuaProject/Thrift/TBufferedTransport.lua.txt
+- Assets/LuaProject/Demo/Fight/FightHeroFSM/FightHeroIdleState.lua.txt
+- Assets/LuaProject/Demo/Fight/FightUI.lua.txt
+- Assets/LuaProject/Demo/Fight/FightHeroFSM/FightHeroAttackState.lua.txt
+Dependencies: []

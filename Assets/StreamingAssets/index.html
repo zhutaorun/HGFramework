@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+
+  <style type="text/css" media="screen">
+    body {
+      background: white;
+      color: #222;
+      font-family: sans-serif;
+      font-size: 13pt;
+    }
+    a {
+      text-decoration: none;
+      color: #7070f0;
+    }
+    p { line-height: 180%; }
+    li { line-height: 180%; }
+  </style>
+
+  <script type='text/javascript'>function sample() {alert('Hello UniWebView!');return "js called ok";}</script>
+
+  <title>Unity - WebView Integration Test Page</title>
+</head>
+<body>
+  Hello
+  <p>
+    <a href="uniwebview://open_safari?url=http%3A%2F%2Fsomething.com%2FmyPath%3Fid%3D3%26name%3DTom">Up 1</a>
+    |
+    <a href="uniwebview://move?direction=down&distance=1">Down 1</a>
+    |
+    <a href="uniwebview://move?direction=left&distance=1">Left 1</a>
+    |
+    <a href="uniwebview://move?direction=right&distance=1">Right 1</a>
+  </p>
+  <p>
+    <a href="uniwebview://move?direction=up&distance=5">Up 5</a>
+    |
+    <a href="uniwebview://move?direction=down&distance=5">Down 5</a>
+    |
+    <a href="uniwebview://move?direction=left&distance=5">Left 5</a>
+    |
+    <a href="uniwebview://move?direction=right&distance=5">Right 5</a> 
+  </p>
+  <p>
+    <a href="uniwebview://add">New Box</a>
+    |
+    <a href="uniwebview://close">Close</a>
+    |
+    <a href="http://onevcat.com">Link to my blog</a>
+  </p>
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 3371209361
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 993c574ba9f48870212cde224eb791f0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8c36ce04722e3b9d12987216046e7f80
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+Assets:
+- Assets/Font/msyh.ttf
+Dependencies: []

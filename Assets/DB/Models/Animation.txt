@@ -1,0 +1,4 @@
+0 - 30 idle
+40 - 60 run
+70 - 100 Attack1
+100 - 145 Attack2
