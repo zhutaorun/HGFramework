@@ -5,9 +5,12 @@ using System.IO;
 using SLua;
 
 [CustomLuaClass]
-public class ConfigMgr 
+public class ConfigMgr : Singleton<ConfigMgr>
 {
     private Dictionary<string, byte[]> configDict = null;
+
+    private ConfigMgr()
+    { }
 
     public IEnumerator Init()
     {
@@ -79,18 +82,5 @@ public class ConfigMgr
             return null;
         }
         return bytes;
-    }
-
-    // Singleton
-    private static ConfigMgr instance = null;
-
-    private ConfigMgr()
-    { }
-
-    public static ConfigMgr Instance()
-    {
-        if (instance == null)
-            instance = new ConfigMgr();
-        return instance;
     }
 }

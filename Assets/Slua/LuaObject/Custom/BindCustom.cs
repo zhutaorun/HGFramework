@@ -3,11 +3,15 @@ namespace SLua {
 	[LuaBinder(3)]
 	public class BindCustom {
 		public static void Bind(IntPtr l) {
+			Lua_Singleton_1_ConfigMgr.reg(l);
 			Lua_ConfigMgr.reg(l);
 			Lua_LuaBehaviour.reg(l);
+			Lua_Singleton_1_NetMgr.reg(l);
+			Lua_NetMgr.reg(l);
+			Lua_Singleton_1_ResMgr.reg(l);
 			Lua_ResMgr.reg(l);
+			Lua_Singleton_1_SceneMgr.reg(l);
 			Lua_SceneMgr.reg(l);
-			Lua_Tel.reg(l);
 			Lua_Custom.reg(l);
 			Lua_Deleg.reg(l);
 			Lua_foostruct.reg(l);

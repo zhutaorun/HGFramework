@@ -83,6 +83,22 @@ namespace SLua
 			return true;
 		}
 
+        static public bool checkType(IntPtr l, int p, out byte[] o)
+        {
+            LuaTypes type = LuaDLL.lua_type(l, p);
+            if (type != LuaTypes.LUA_TSTRING)
+            {
+                o = null;
+                return true;
+            }
+
+            int strlen;
+            IntPtr str = LuaDLL.luaS_tolstring32(l, p, out strlen);
+            o = new byte[strlen];
+            Marshal.Copy(str, o, 0, strlen);
+            return true;
+        }
+
 		static internal bool checkParams(IntPtr l, int p, out Vector2[] pars)
 		{
 			int top = LuaDLL.lua_gettop(l);

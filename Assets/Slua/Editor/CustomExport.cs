@@ -41,6 +41,10 @@ namespace SLua
 			// type is what you want to export
 			// typename used for simplify generic type name or rename, like List<int> named to "ListInt", if not a generic type keep typename as null or rename as new type name
             //add(typeof(System.Action<LuaTable>), null);
+            add(typeof(Singleton<ConfigMgr>), "ConfigMgr");
+            add(typeof(Singleton<ResMgr>), "ResMgr");
+            add(typeof(Singleton<SceneMgr>), "SceneMgr");
+            add(typeof(Singleton<NetMgr>), "NetMgr");
 		}
 
 		public static void OnAddCustomAssembly(ref List<string> list)

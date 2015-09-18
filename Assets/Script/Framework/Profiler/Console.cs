@@ -5,7 +5,7 @@ using System.Collections;
 /// 控制台GUI输出类
 /// 包括FPS，内存使用情况，日志GUI输出
 /// </summary>
-public class Console
+public class Console : Singleton<Console>
 {
     /// <summary>
     /// Update回调
@@ -27,15 +27,6 @@ public class Console
     /// </summary>
     private MemoryDetector memoryDetector = null;
     private bool showGUI = false;
-
-    private static Console instance = null;
-
-    public static Console Instance()
-    {
-        if (instance == null)
-            instance = new Console();
-        return instance;
-    }
 
     private Console()
     {

@@ -43,23 +43,10 @@ public class Lua_SceneMgr : LuaObject {
 			return 0;
 		}
 	}
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int Instance_s(IntPtr l) {
-		try {
-			var ret=SceneMgr.Instance();
-			pushValue(l,ret);
-			return 1;
-		}
-		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
-		}
-	}
 	static public void reg(IntPtr l) {
 		getTypeTable(l,"SceneMgr");
 		addMember(l,EnterScene);
 		addMember(l,GetResObj);
-		addMember(l,Instance_s);
-		createTypeMetatable(l,null, typeof(SceneMgr));
+		createTypeMetatable(l,null, typeof(SceneMgr),typeof(Singleton<SceneMgr>));
 	}
 }

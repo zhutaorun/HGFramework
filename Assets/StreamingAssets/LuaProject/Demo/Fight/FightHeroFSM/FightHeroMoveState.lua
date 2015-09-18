@@ -10,12 +10,17 @@ function FightHeroMoveState:OnEnter(args)
     self.targetPos = args;
     self.fsm.mNavMeshAgent.updateRotation = true;
     self.fsm.mNavMeshAgent.destination = self.targetPos;
+    self.fsm.mNavMeshAgent:Resume();
 end
 
 function FightHeroMoveState:OnUpdate(args)
     if self.fsm.mNavMeshAgent.remainingDistance < 0.01 then
         self.fsm:Translate("Idle");
     end
+end
+
+function FightHeroMoveState:OnExit(args)
+    self.fsm.mNavMeshAgent:Stop();
 end
 
 --endregion

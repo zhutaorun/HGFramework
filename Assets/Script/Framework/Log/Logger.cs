@@ -8,7 +8,7 @@ using System.Threading;
 /// <summary>
 /// 封装日志模块
 /// </summary>
-public class Logger
+public class Logger : Singleton<Logger>
 {
     /// <summary>
     /// 日志等级，为不同输出配置用
@@ -58,15 +58,6 @@ public class Logger
     /// </summary>
     private List<ILogOutput> logOutputList = null;
     private int mainThreadID = -1;
-
-    private static Logger instance = null;
-
-    public static Logger Instance()
-    {
-        if (instance == null)
-            instance = new Logger();
-        return instance;
-    }
 
     /// <summary>
     /// Unity的Debug.Assert()在发布版本有问题

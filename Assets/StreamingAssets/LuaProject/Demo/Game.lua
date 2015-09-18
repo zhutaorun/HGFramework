@@ -4,14 +4,17 @@ import "UnityEngine"
 class = require "Lib/middleclass.lua"
 json = require "cjson" 
 require "Framework/Utility.lua"
-require "Framework/LuaUIEventListener.lua"
 require "Framework/MsgDispatcher.lua"
-require "Framework/LuaResMgr.lua"
-require "Framework/LuaSceneMgr.lua"
+require "Framework/ThriftNetMsgMgr.lua"
+require "Wrapper/LuaUIEventListener.lua"
+require "Wrapper/LuaResMgr.lua"
+require "Wrapper/LuaSceneMgr.lua"
 require "Thrift/TMemoryBuffer.lua"
 require "Thrift/TBinaryProtocol.lua"
 require "Config/config_ttypes.lua"
 require "Config/Config.lua"
+
+require "Service/LoginService.lua"
 
 require "Demo/SelectHero/SelectHeroSceneLoading.lua"
 
@@ -30,4 +33,6 @@ function main()
 
 	--≤‚ ‘demo
 	local selectHeroLoading = Utility.CreateLuaBehaviour(GameObject("SelectHeroSceneLoading"), SelectHeroSceneLoading:new());
+
+    NetMgr.Instance():Connect("127.0.0.1", 8083);
 end

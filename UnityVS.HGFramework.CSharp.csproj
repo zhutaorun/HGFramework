@@ -60,20 +60,8 @@
     <Reference Include="UnityEngine.Analytics">
       <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="NativeToolkitWP8">
-      <HintPath>Assets\Plugins\NativeToolkitWP8.dll</HintPath>
-    </Reference>
-    <Reference Include="UniWebViewWP">
-      <HintPath>Assets\Plugins\UniWebViewWP.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -226,6 +214,11 @@
     <Compile Include="Assets\Script\Framework\Log\Logger.cs" />
     <Compile Include="Assets\Script\Framework\Lua\LuaBehaviour.cs" />
     <Compile Include="Assets\Script\Framework\Lua\LuaMgr.cs" />
+    <Compile Include="Assets\Script\Framework\MonoSingleton.cs" />
+    <Compile Include="Assets\Script\Framework\Net\NetMgr.cs" />
+    <Compile Include="Assets\Script\Framework\Net\NetMsg.cs" />
+    <Compile Include="Assets\Script\Framework\Net\ReceiverMsg.cs" />
+    <Compile Include="Assets\Script\Framework\Net\SenderMsg.cs" />
     <Compile Include="Assets\Script\Framework\Profiler\Console.cs" />
     <Compile Include="Assets\Script\Framework\Profiler\FPSCounter.cs" />
     <Compile Include="Assets\Script\Framework\Profiler\MemoryDetector.cs" />
@@ -234,9 +227,47 @@
     <Compile Include="Assets\Script\Framework\Resource\ResMgr.cs" />
     <Compile Include="Assets\Script\Framework\Resource\SceneLoader.cs" />
     <Compile Include="Assets\Script\Framework\Scene\SceneMgr.cs" />
-    <Compile Include="Assets\Script\NewBehaviourScript.cs" />
-    <Compile Include="Assets\Script\ShareSDKTest.cs" />
-    <Compile Include="Assets\Script\Tel.cs" />
+    <Compile Include="Assets\Script\Framework\Singleton.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Collections\TCollections.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Collections\THashSet.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TAbstractBase.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TBase.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TBase64Utils.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TBinaryProtocol.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TCompactProtocol.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TField.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TJSONProtocol.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TList.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TMap.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TMessage.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TMessageType.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TMultiplexedProcessor.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TMultiplexedProtocol.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TProtocol.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TProtocolDecorator.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TProtocolException.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TProtocolFactory.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TProtocolUtil.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TSet.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TStruct.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Protocol\TType.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\TApplicationException.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\TException.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\TProcessor.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TBufferedTransport.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TFramedTransport.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\THttpClient.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TMemoryBuffer.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TServerSocket.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TServerTransport.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TSilverlightSocket.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TSocket.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TStreamTransport.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TTLSServerSocket.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TTLSSocket.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TTransport.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TTransportException.cs" />
+    <Compile Include="Assets\Script\Lib\Thrift\Transport\TTransportFactory.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\BindCustom.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\LuaDelegate_Deleg_GetBundleInfoDelegate.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\LuaDelegate_Deleg_SimpleDelegate.cs" />
@@ -258,13 +289,17 @@
     <Compile Include="Assets\Slua\LuaObject\Custom\Lua_Deleg.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\Lua_HelloWorld.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\Lua_LuaBehaviour.cs" />
+    <Compile Include="Assets\Slua\LuaObject\Custom\Lua_NetMgr.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\Lua_ResMgr.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\Lua_SLuaTest.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\Lua_SceneMgr.cs" />
+    <Compile Include="Assets\Slua\LuaObject\Custom\Lua_Singleton_1_ConfigMgr.cs" />
+    <Compile Include="Assets\Slua\LuaObject\Custom\Lua_Singleton_1_NetMgr.cs" />
+    <Compile Include="Assets\Slua\LuaObject\Custom\Lua_Singleton_1_ResMgr.cs" />
+    <Compile Include="Assets\Slua\LuaObject\Custom\Lua_Singleton_1_SceneMgr.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\Lua_System_Collections_Generic_Dictionary_2_int_string.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\Lua_System_Collections_Generic_List_1_int.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\Lua_System_String.cs" />
-    <Compile Include="Assets\Slua\LuaObject\Custom\Lua_Tel.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\Lua_XXList.cs" />
     <Compile Include="Assets\Slua\LuaObject\Custom\Lua_foostruct.cs" />
     <Compile Include="Assets\Slua\LuaObject\Dll\BindDll.cs" />
@@ -1078,7 +1113,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\DB\Models\Animation.txt" />
-    <None Include="Assets\Font\houses\Materials\Normals_Env_Illum.shader" />
     <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
@@ -1120,26 +1154,6 @@
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
-    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\NativeToolkit\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\NativeToolkit\bin\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\NativeToolkit\bin\R.txt" />
-    <None Include="Assets\Plugins\Android\assets\ShareSDK.xml" />
-    <None Include="Assets\Plugins\Android\proguard-project.txt" />
-    <None Include="Assets\Plugins\Android\res\layout\activity_main.xml" />
-    <None Include="Assets\Plugins\Android\res\layout\activity_map.xml" />
-    <None Include="Assets\Plugins\Android\res\menu\main.xml" />
-    <None Include="Assets\Plugins\Android\res\values-en\oks_strings.xml" />
-    <None Include="Assets\Plugins\Android\res\values-en\ssdk_strings.xml" />
-    <None Include="Assets\Plugins\Android\res\values-v11\styles.xml" />
-    <None Include="Assets\Plugins\Android\res\values-v14\styles.xml" />
-    <None Include="Assets\Plugins\Android\res\values-w820dp\dimens.xml" />
-    <None Include="Assets\Plugins\Android\res\values\colors.xml" />
-    <None Include="Assets\Plugins\Android\res\values\dimens.xml" />
-    <None Include="Assets\Plugins\Android\res\values\oks_strings.xml" />
-    <None Include="Assets\Plugins\Android\res\values\ssdk_strings.xml" />
-    <None Include="Assets\Plugins\Android\res\values\strings.xml" />
-    <None Include="Assets\Plugins\Android\res\values\styles.xml" />
     <None Include="Assets\Slua\Resources\circle\circle.txt" />
     <None Include="Assets\Slua\Resources\custom.txt" />
     <None Include="Assets\Slua\Resources\delegate.txt" />
@@ -1150,6 +1164,8 @@
     <None Include="Assets\Slua\Resources\varobj.txt" />
     <None Include="Assets\StreamingAssets\Config\configs.txt" />
     <None Include="Assets\StreamingAssets\LuaProject\luas.txt" />
+    <None Include="Assets\cmsg.txt" />
+    <None Include="Assets\msg.txt" />
     <None Include="Assets\slua_src\build.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />

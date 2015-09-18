@@ -7,7 +7,7 @@ using SLua;
 /// <summary>
 /// Lua脚本管理器
 /// </summary>
-public class LuaMgr
+public class LuaMgr : Singleton<LuaMgr>
 {
     public const string LuaFilter = "*.lua";
     public const string LuaExt = ".lua";
@@ -19,15 +19,6 @@ public class LuaMgr
     private Dictionary<string, byte[]> luaDict = null;
     // 全局唯一LuaState
     private LuaSvr luaSvr = null;
-
-    private static LuaMgr instance = null;
-
-    public static LuaMgr Instance()
-    {
-        if (instance == null)
-            instance = new LuaMgr();
-        return instance;
-    }
 
     private LuaMgr()
     { }
@@ -98,6 +89,22 @@ public class LuaMgr
         this.luaSvr.start(Game.Instance().startScript);
     }
 
+    public void CallGlobalFunction(string funcName, params object[] args)
+    {
+        if (string.IsNullOrEmpty(funcName))
+        {
+            Debug.LogError("CallGlobalFunction funcName is NULL!");
+            return;
+        }
+        LuaFunction func = this.luaSvr.luaState.getFunction(funcName);
+        if (func == null)
+        {
+            Debug.LogError("NOT found Global Function : " + funcName);
+            return;
+        }
+        func.call(args);
+    }
+
     // 自定义加载Lua脚本实现
     byte[] RequireLua(string file)
     {
@@ -118,6 +125,9 @@ public class LuaMgr
             return luaCode;
         // 3.配置目录
         if (this.luaDict.TryGetValue("Config/" + file, out luaCode))
+            return luaCode;
+        // 4.协议目录
+        if (this.luaDict.TryGetValue("Protocol/" + file, out luaCode))
             return luaCode;
 
         // 没找到

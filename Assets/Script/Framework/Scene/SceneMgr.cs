@@ -7,7 +7,7 @@ using SLua;
 /// 场景管理器
 /// </summary>
 [CustomLuaClass]
-public class SceneMgr
+public class SceneMgr : Singleton<SceneMgr>
 {
     public delegate void LoadSceneDoneCallback(string sceneName);
     public delegate void LoadSceneUpdateProgressCallback(string sceneName, float progress);
@@ -21,15 +21,6 @@ public class SceneMgr
     private int curTotalProgress = 0;
     private int curSceneProgress = 0;
     private int curLogicResProgress = 0;
-
-    private static SceneMgr instance = null;
-
-    public static SceneMgr Instance()
-    {
-        if (instance == null)
-            instance = new SceneMgr();
-        return instance;
-    }
 
     private SceneMgr()
     {

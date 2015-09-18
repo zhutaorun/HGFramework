@@ -96,26 +96,8 @@
     <Reference Include="UnityEditor.OSXStandalone.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.OSXStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEditor.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="NativeToolkitWP8">
-      <HintPath>Assets\Plugins\NativeToolkitWP8.dll</HintPath>
-    </Reference>
-    <Reference Include="UniWebViewWP">
-      <HintPath>Assets\Plugins\UniWebViewWP.dll</HintPath>
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
@@ -231,7 +213,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\DB\Models\Animation.txt" />
-    <None Include="Assets\Font\houses\Materials\Normals_Env_Illum.shader" />
     <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
@@ -273,26 +254,6 @@
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
-    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\NativeToolkit\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\NativeToolkit\bin\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\NativeToolkit\bin\R.txt" />
-    <None Include="Assets\Plugins\Android\assets\ShareSDK.xml" />
-    <None Include="Assets\Plugins\Android\proguard-project.txt" />
-    <None Include="Assets\Plugins\Android\res\layout\activity_main.xml" />
-    <None Include="Assets\Plugins\Android\res\layout\activity_map.xml" />
-    <None Include="Assets\Plugins\Android\res\menu\main.xml" />
-    <None Include="Assets\Plugins\Android\res\values-en\oks_strings.xml" />
-    <None Include="Assets\Plugins\Android\res\values-en\ssdk_strings.xml" />
-    <None Include="Assets\Plugins\Android\res\values-v11\styles.xml" />
-    <None Include="Assets\Plugins\Android\res\values-v14\styles.xml" />
-    <None Include="Assets\Plugins\Android\res\values-w820dp\dimens.xml" />
-    <None Include="Assets\Plugins\Android\res\values\colors.xml" />
-    <None Include="Assets\Plugins\Android\res\values\dimens.xml" />
-    <None Include="Assets\Plugins\Android\res\values\oks_strings.xml" />
-    <None Include="Assets\Plugins\Android\res\values\ssdk_strings.xml" />
-    <None Include="Assets\Plugins\Android\res\values\strings.xml" />
-    <None Include="Assets\Plugins\Android\res\values\styles.xml" />
     <None Include="Assets\Slua\Resources\circle\circle.txt" />
     <None Include="Assets\Slua\Resources\custom.txt" />
     <None Include="Assets\Slua\Resources\delegate.txt" />
@@ -303,6 +264,8 @@
     <None Include="Assets\Slua\Resources\varobj.txt" />
     <None Include="Assets\StreamingAssets\Config\configs.txt" />
     <None Include="Assets\StreamingAssets\LuaProject\luas.txt" />
+    <None Include="Assets\cmsg.txt" />
+    <None Include="Assets\msg.txt" />
     <None Include="Assets\slua_src\build.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />

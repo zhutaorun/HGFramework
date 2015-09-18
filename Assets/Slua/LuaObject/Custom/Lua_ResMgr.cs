@@ -96,18 +96,6 @@ public class Lua_ResMgr : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int Instance_s(IntPtr l) {
-		try {
-			var ret=ResMgr.Instance();
-			pushValue(l,ret);
-			return 1;
-		}
-		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
-		}
-	}
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_AssetBundleFormation(IntPtr l) {
 		try {
 			pushValue(l,ResMgr.AssetBundleFormation);
@@ -163,9 +151,8 @@ public class Lua_ResMgr : LuaObject {
 		addMember(l,LoadRes);
 		addMember(l,LoadScene);
 		addMember(l,Unload);
-		addMember(l,Instance_s);
 		addMember(l,"AssetBundleFormation",get_AssetBundleFormation,set_AssetBundleFormation,false);
 		addMember(l,"AssetBundlePath",get_AssetBundlePath,set_AssetBundlePath,false);
-		createTypeMetatable(l,null, typeof(ResMgr));
+		createTypeMetatable(l,null, typeof(ResMgr),typeof(Singleton<ResMgr>));
 	}
 }

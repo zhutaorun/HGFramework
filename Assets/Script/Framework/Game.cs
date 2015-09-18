@@ -5,25 +5,14 @@ using SLua;
 /// <summary>
 /// 全局唯一继承于MonoBehaviour的单例类，保证其他公共模块都以Game的生命周期为准
 /// </summary>
-public class Game : MonoBehaviour 
+public class Game : MonoSingleton<Game>
 {
-    private static Game instance = null;
-
-    public static Game Instance()
-    {
-        if (instance == null)
-        {
-            GameObject gameGO = new GameObject("Game");
-            gameGO.AddComponent<Game>();
-        }
-        return instance;
-    }
-
     public delegate void LifeCircleCallback();
 
     public LifeCircleCallback onUpdate = null;
     public LifeCircleCallback onGUI = null;
     public LifeCircleCallback onDestroy = null;
+    public LifeCircleCallback onApplicationQuit = null;
 
     public string startScript = null;
     public bool showLogOnGUI = false;
@@ -70,5 +59,11 @@ public class Game : MonoBehaviour
     {
         if (this.onDestroy != null)
             this.onDestroy();
+    }
+
+    void OnApplicationQuit()
+    {
+        if (this.onApplicationQuit != null)
+            this.onApplicationQuit();
     }
 }

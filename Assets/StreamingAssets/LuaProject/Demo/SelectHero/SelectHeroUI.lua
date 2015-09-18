@@ -26,6 +26,7 @@ function SelectHeroUI:HandleSelectHeroMsg(arg)
 end
 
 function SelectHeroUI:OnEnterGameButtonClick(btnGO)
+    LoginService.Login();
     --进入游戏场景
     if data.selectHeroID then
         Utility.CreateLuaBehaviour(GameObject("FightSceneLoading"), FightSceneLoading:new()); 

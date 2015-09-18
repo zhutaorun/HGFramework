@@ -17,8 +17,6 @@ function FightHero:Awake()
     --设置当前状态
     self.curState = self.idleState;
     self.curState:OnEnter();
-    --注册事件
-    MsgDispatcher.RegLogicMsg("MoveHero", self, self.HandleMoveHeroMsg);
 end
 
 function FightHero:Update()
@@ -39,12 +37,6 @@ function FightHero:Translate(state, args)
         self.curState = self.attackState;
     end
     self.curState:OnEnter(args);
-end
-
-function FightHero:HandleMoveHeroMsg(args)
-    if self.curState.HandleMoveHeroMsg then
-        self.curState:HandleMoveHeroMsg(args);
-    end
 end
 
 --endregion

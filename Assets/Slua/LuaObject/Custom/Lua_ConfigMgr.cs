@@ -32,23 +32,10 @@ public class Lua_ConfigMgr : LuaObject {
 			return 0;
 		}
 	}
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int Instance_s(IntPtr l) {
-		try {
-			var ret=ConfigMgr.Instance();
-			pushValue(l,ret);
-			return 1;
-		}
-		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
-		}
-	}
 	static public void reg(IntPtr l) {
 		getTypeTable(l,"ConfigMgr");
 		addMember(l,Init);
 		addMember(l,GetConfig);
-		addMember(l,Instance_s);
-		createTypeMetatable(l,null, typeof(ConfigMgr));
+		createTypeMetatable(l,null, typeof(ConfigMgr),typeof(Singleton<ConfigMgr>));
 	}
 }

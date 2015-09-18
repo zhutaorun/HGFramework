@@ -5,7 +5,7 @@ using SLua;
 
 // 资源管理器，封装开发模式和发布模式
 [CustomLuaClass]
-public class ResMgr
+public class ResMgr : Singleton<ResMgr>
 {
     // AssetBundle中资源路径格式
     public static string AssetBundleFormation = "assets/resources/{0}";
@@ -25,15 +25,6 @@ public class ResMgr
     private Dictionary<string, AssetBundleSceneLoader> loadedAssetBundleSceneLoaderDict = null;
     // AssetBundleManifest
     private AssetBundleManifest manifest = null;
-
-    private static ResMgr instance = null;
-
-    public static ResMgr Instance()
-    {
-        if (instance == null)
-            instance = new ResMgr();
-        return instance;
-    }
 
     private ResMgr()
     {
