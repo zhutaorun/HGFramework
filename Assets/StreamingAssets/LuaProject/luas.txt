@@ -38,10 +38,8 @@ AutoGeneration/Protocol/VIP_constants.lua
 AutoGeneration/Protocol/VIP_ttypes.lua
 AutoGeneration/Protocol/weapon_constants.lua
 AutoGeneration/Protocol/weapon_ttypes.lua
-CJson/json2lua.lua
-CJson/lua2json.lua
 Demo/Game.lua
-Demo/Loading.lua
+Demo/LoadingUI.lua
 Demo/Fight/FightHero.lua
 Demo/Fight/FightHeroInfo.lua
 Demo/Fight/FightScene.lua
@@ -62,6 +60,8 @@ Demo/SelectHero/SelectHeroUI.lua
 Framework/MsgDispatcher.lua
 Framework/ThriftNetMsgMgr.lua
 Framework/Utility.lua
+Lib/CJson/json2lua.lua
+Lib/CJson/lua2json.lua
 Lib/CJson/cjson/util.lua
 Lib/MiddleClass/middleclass.lua
 Lib/Thrift/TBinaryProtocol.lua

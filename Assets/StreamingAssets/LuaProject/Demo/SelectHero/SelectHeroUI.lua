@@ -14,7 +14,7 @@ function SelectHeroUI:Awake()
 	self.descriptionLabel = self.trans:Find("Info/DescriptionLabel"):GetComponent("UILabel");
     UIEventListenerWrapper.AddOnClick(self.trans:Find("EnterGameButton").gameObject, self, self.OnEnterGameButtonClick);
 	--注册点击模型事件
-	MsgDispatcher.RegLogicMsg("SelectHero", self, self.HandleSelectHeroMsg);
+	_RegLogicMsg("SelectHero", self, self.HandleSelectHeroMsg);
 end
 
 function SelectHeroUI:HandleSelectHeroMsg(arg)
@@ -28,7 +28,7 @@ end
 function SelectHeroUI:OnEnterGameButtonClick(btnGO)
     --进入游戏场景
     if data.selectHeroID then
-        Utility.CreateLuaBehaviour(GameObject("FightSceneLoading"), FightSceneLoading:new()); 
+        _CreateLuaBehaviour(GameObject("FightSceneLoading"), FightSceneLoading:new()); 
     end
 end
 

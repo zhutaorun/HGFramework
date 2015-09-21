@@ -10,12 +10,12 @@ require 'Thrift'
 require 'config_constants'
 
 HeroInfoConfig = __TObject:new{
-  description,
-  defend,
-  attack,
-  model,
   id,
-  name
+  name,
+  description,
+  attack,
+  defend,
+  model
 }
 
 function HeroInfoConfig:read(iprot)
@@ -26,37 +26,37 @@ function HeroInfoConfig:read(iprot)
       break
     elseif fid == 1 then
       if ftype == TType.STRING then
-        self.description = iprot:readString()
+        self.id = iprot:readString()
       else
         iprot:skip(ftype)
       end
     elseif fid == 2 then
-      if ftype == TType.I32 then
-        self.defend = iprot:readI32()
+      if ftype == TType.STRING then
+        self.name = iprot:readString()
       else
         iprot:skip(ftype)
       end
     elseif fid == 3 then
+      if ftype == TType.STRING then
+        self.description = iprot:readString()
+      else
+        iprot:skip(ftype)
+      end
+    elseif fid == 4 then
       if ftype == TType.I32 then
         self.attack = iprot:readI32()
       else
         iprot:skip(ftype)
       end
-    elseif fid == 4 then
-      if ftype == TType.STRING then
-        self.model = iprot:readString()
-      else
-        iprot:skip(ftype)
-      end
     elseif fid == 5 then
-      if ftype == TType.STRING then
-        self.id = iprot:readString()
+      if ftype == TType.I32 then
+        self.defend = iprot:readI32()
       else
         iprot:skip(ftype)
       end
     elseif fid == 6 then
       if ftype == TType.STRING then
-        self.name = iprot:readString()
+        self.model = iprot:readString()
       else
         iprot:skip(ftype)
       end
@@ -70,34 +70,34 @@ end
 
 function HeroInfoConfig:write(oprot)
   oprot:writeStructBegin('HeroInfoConfig')
-  if self.description then
-    oprot:writeFieldBegin('description', TType.STRING, 1)
-    oprot:writeString(self.description)
-    oprot:writeFieldEnd()
-  end
-  if self.defend then
-    oprot:writeFieldBegin('defend', TType.I32, 2)
-    oprot:writeI32(self.defend)
-    oprot:writeFieldEnd()
-  end
-  if self.attack then
-    oprot:writeFieldBegin('attack', TType.I32, 3)
-    oprot:writeI32(self.attack)
-    oprot:writeFieldEnd()
-  end
-  if self.model then
-    oprot:writeFieldBegin('model', TType.STRING, 4)
-    oprot:writeString(self.model)
-    oprot:writeFieldEnd()
-  end
   if self.id then
-    oprot:writeFieldBegin('id', TType.STRING, 5)
+    oprot:writeFieldBegin('id', TType.STRING, 1)
     oprot:writeString(self.id)
     oprot:writeFieldEnd()
   end
   if self.name then
-    oprot:writeFieldBegin('name', TType.STRING, 6)
+    oprot:writeFieldBegin('name', TType.STRING, 2)
     oprot:writeString(self.name)
+    oprot:writeFieldEnd()
+  end
+  if self.description then
+    oprot:writeFieldBegin('description', TType.STRING, 3)
+    oprot:writeString(self.description)
+    oprot:writeFieldEnd()
+  end
+  if self.attack then
+    oprot:writeFieldBegin('attack', TType.I32, 4)
+    oprot:writeI32(self.attack)
+    oprot:writeFieldEnd()
+  end
+  if self.defend then
+    oprot:writeFieldBegin('defend', TType.I32, 5)
+    oprot:writeI32(self.defend)
+    oprot:writeFieldEnd()
+  end
+  if self.model then
+    oprot:writeFieldBegin('model', TType.STRING, 6)
+    oprot:writeString(self.model)
     oprot:writeFieldEnd()
   end
   oprot:writeFieldStop()

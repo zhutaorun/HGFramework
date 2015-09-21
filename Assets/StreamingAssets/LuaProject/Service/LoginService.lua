@@ -22,7 +22,7 @@ end
 
 function LoginService.HandleS2CLoginMsg(msg)
     print("status : " .. msg.loginStatus);
-    Utility.CreateLuaBehaviour(GameObject("SelectHeroSceneLoading"), SelectHeroSceneLoading:new());
+    _CreateLuaBehaviour(GameObject("SelectHeroSceneLoading"), SelectHeroSceneLoading:new());
 end
 
 --endregion

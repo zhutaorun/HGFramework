@@ -1,7 +1,6 @@
 --region *.lua
 --Date
 --此文件由[BabeLua]插件自动生成
-require "Demo/Loading.lua"
 require "Demo/SelectHero/SelectHeroScene.lua"
 require "Demo/SelectHero/SelectHeroUI.lua"
 
@@ -16,8 +15,8 @@ end
 
 --Loading场景加载完成
 function SelectHeroSceneLoading:OnLoadingDone()
-	local loading = Utility.CreateLuaBehaviour(GameObject.Find("Loading"), Loading:new());
-	loading:Show();
+	local loadingUI = _CreateLuaBehaviour(GameObject.Find("LoadingUI"), LoadingUI:new());
+	loadingUI:Show();
 end
 
 --游戏场景加载完成
@@ -33,9 +32,9 @@ function SelectHeroSceneLoading:OnSceneLoadDone(sceneName)
 	priest.name = "priest";
 	priest.transform.position = Vector3(-4, 0, 0);
 	--新场景逻辑
-	MsgDispatcher.SendLogicMsg("SceneLoadDone");
-	Utility.CreateLuaBehaviour(GameObject.Find("Scene"), SelectHeroScene:new());
-	Utility.CreateLuaBehaviour(GameObject.Find("UI"), SelectHeroUI:new());
+	_SendLogicMsg("SceneLoadDone");
+	_CreateLuaBehaviour(GameObject.Find("Scene"), SelectHeroScene:new());
+	_CreateLuaBehaviour(GameObject.Find("UI"), SelectHeroUI:new());
 end
 
 function SelectHeroSceneLoading:OnSceneLoadUpdate(sceneName, progress)

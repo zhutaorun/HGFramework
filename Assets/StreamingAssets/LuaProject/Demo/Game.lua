@@ -15,6 +15,7 @@ require "AutoGeneration/Config/Config.lua"
 
 require "Service/LoginService.lua"
 
+require "Demo/LoadingUI.lua"
 require "Demo/Login/LoginSceneLoading.lua"
 require "Demo/SelectHero/SelectHeroSceneLoading.lua"
 
@@ -35,7 +36,7 @@ function main()
     LoginService.Init();
 
 	--≤‚ ‘demo
-    Utility.CreateLuaBehaviour(GameObject("LoginSceneLoading"), LoginSceneLoading:new());
+    _CreateLuaBehaviour(GameObject("LoginSceneLoading"), LoginSceneLoading:new(), "login.scene", "aaa");
 
     NetMgr.Instance():Connect("127.0.0.1", 8083);
 end

@@ -1,13 +1,11 @@
 --将消息分发模块放置在Lua中的原因是，c#处理LuaTable的判断太麻烦，而且有LuaBehaviour可以接收到所有unity发出的事件
-MsgDispatcher = {};
-
-MsgDispatcher.msgHandlerDict = {};
+local _msgHandlerDict = {};
 
 --注册逻辑消息
 --msg: 消息名，字符串
 --self: 回调对象，table
 --callback: 回调函数，function
-function MsgDispatcher.RegLogicMsg(msg, self, callback)
+function _RegLogicMsg(msg, self, callback)
 	if not msg or msg == "" then
 		Logger.Error("RegLogicMsg Message is nil or Empty");
 		return;
@@ -16,10 +14,10 @@ function MsgDispatcher.RegLogicMsg(msg, self, callback)
 		Logger.Error("RegLogicMsg callback is nil");
 		return;
 	end
-	if not MsgDispatcher.msgHandlerDict[msg] then
-		MsgDispatcher.msgHandlerDict[msg] = {};
+	if not _msgHandlerDict[msg] then
+		_msgHandlerDict[msg] = {};
 	end
-	local handlers = MsgDispatcher.msgHandlerDict[msg];
+	local handlers = _msgHandlerDict[msg];
 	--防止重复注册
 	for i = 1, #handlers do
 		local h = handlers[i];
@@ -35,7 +33,7 @@ end
 --解注册逻辑消息
 --msg: 消息名，字符串
 --callback: 回调函数，function
-function MsgDispatcher.UnRegLogicMsg(msg, self, callback)
+function _UnRegLogicMsg(msg, self, callback)
 	if not msg or msg == "" then
 		Logger.Error("UnRegLogicMsg Message is nil or Empty");
 		return;
@@ -44,7 +42,7 @@ function MsgDispatcher.UnRegLogicMsg(msg, self, callback)
 		Logger.Error("UnRegLogicMsg callback is nil");
 		return;
 	end	
-	local handlers = MsgDispatcher.msgHandlerDict[msg];
+	local handlers = _msgHandlerDict[msg];
 	--遍历删除需要从后往前
 	for i = #handlers, 1, -1 do
 		local h = handlers[i];
@@ -57,19 +55,19 @@ end
 
 --发送逻辑消息
 --msg: 消息名，字符串
---arg: 消息参数，table
-function MsgDispatcher.SendLogicMsg(msg, arg)
+--...: 消息参数
+function _SendLogicMsg(msg, ...)
 	if not msg or msg == "" then
 		Logger.Error("UnRegLogicMsg Message is nil or Empty");
 		return;
 	end
-	local handlers = MsgDispatcher.msgHandlerDict[msg];
+	local handlers = _msgHandlerDict[msg];
 	if handlers == nil then
 		return;
 	end
 	for i = #handlers, 1, -1 do
 		if handlers[i].self then
-			handlers[i].callback(handlers[i].self, arg);
+			handlers[i].callback(handlers[i].self, ...);
 		else
 			--由于注册的表是弱引用，如果注册的表已经被销毁，则从链表中移除
 			table.remove(handlers, i);
