@@ -10,7 +10,7 @@ SelectHeroSceneLoading = class("SelectHeroSceneLoading");
 
 function SelectHeroSceneLoading:Awake()
 	local logicRes = { "Model/Hero/knight.prefab", "Model/Hero/magician.prefab", "Model/Hero/priest.prefab" };
-	LuaSceneMgr.EnterScene("loading.scene", self, self.OnLoadingDone, 
+	SceneMgrWrapper.EnterScene("loading.scene", self, self.OnLoadingDone, 
 		"select_hero.scene", logicRes, self, self.OnSceneLoadDone, self.OnSceneLoadUpdate);
 end
 
@@ -23,13 +23,13 @@ end
 --游戏场景加载完成
 function SelectHeroSceneLoading:OnSceneLoadDone(sceneName)
 	--英雄们
-	local knight = GameObject.Instantiate(LuaSceneMgr.GetResObj("Model/Hero/knight.prefab"));
+	local knight = GameObject.Instantiate(SceneMgrWrapper.GetResObj("Model/Hero/knight.prefab"));
 	knight.name = "knight";
 	knight.transform.position = Vector3(0, 0, 0);
-	local magician = GameObject.Instantiate(LuaSceneMgr.GetResObj("Model/Hero/magician.prefab"));
+	local magician = GameObject.Instantiate(SceneMgrWrapper.GetResObj("Model/Hero/magician.prefab"));
 	magician.name = "magician";
 	magician.transform.position = Vector3(4, 0, 0);
-	local priest = GameObject.Instantiate(LuaSceneMgr.GetResObj("Model/Hero/priest.prefab"));
+	local priest = GameObject.Instantiate(SceneMgrWrapper.GetResObj("Model/Hero/priest.prefab"));
 	priest.name = "priest";
 	priest.transform.position = Vector3(-4, 0, 0);
 	--新场景逻辑

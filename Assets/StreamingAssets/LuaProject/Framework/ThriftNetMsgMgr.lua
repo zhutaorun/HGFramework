@@ -4,16 +4,17 @@
 
 require "ProtocolMap.lua"
 
-ThriftNetMsgMgr = {};
+local _netMsgHandlerDict = {};
 
 --发送网络消息，提供给逻辑模块的接口
 --msg: 消息数据对象，用于TLV中的V的序列化
 function _SendNetMsg(msg)
     if msg == nil then
-        print("ThriftNetMsgMgr.SendNetMsg is nil");
+        print("_SendNetMsg is nil");
         return;
     end
     local msgType = msg:GetType();
+    --序列化消息对象
     local trans = TMemoryBuffer:new{};
     local proto = TBinaryProtocol:new{ trans = trans };
     msg:write(proto);
@@ -26,7 +27,7 @@ end
 --msg: 消息数据对象，用于TLV中的V的序列化
 function _SendNetChannelMsg(msg)
     if msg == nil then
-        print("ThriftNetMsgMgr.SendNetChannelMsg is nil");
+        print("_SendNetChannelMsg is nil");
         return;
     end
     local requestMsg = ClientChannelRequest:new();
@@ -35,7 +36,7 @@ function _SendNetChannelMsg(msg)
     local proto = TBinaryProtocol:new{ trans = trans };
     msg:write(proto);
     requestMsg.content = trans:getBuffer();
-    ThriftNetMsgMgr.SendNetMsg(requestMsg);
+    _SendNetMsg(requestMsg);
 end
 
 --处理接收到的网络消息，提供给c#框架的接口
@@ -43,17 +44,30 @@ end
 --msgData: 消息数据，用于消息对象的反序列化
 --TODO 反序列化消息是耗时操作，可考虑用协程方式优化
 function _HandleNetMsg(msgType, msgData)
+    --根据类型实例化消息对象
     local msg = _NewMsg(msgType);
+    --反序列化消息
     local trans = TMemoryBuffer:new{};
     trans:resetBuffer(msgData);
     local proto = TBinaryProtocol:new{ trans = trans };
     msg:read(proto);
-    --TEST交由逻辑处理
-    if msgType == 21718 then
-        print(msg.pUserId);
-    elseif msgType == 89713 then
-        print(msg.loginStatus);
+    --交由逻辑处理
+    local handlers = _netMsgHandlerDict[msgType];
+    if handlers then
+        print("Handle : " .. msgType);
+        for i = 1, #handlers do
+            handlers[i](msg);
+        end
     end
+end
+
+--注册网络消息处理回调
+function _RegNetMsgHandler(msgType, callback)
+    if _netMsgHandlerDict[msgType] == nil then
+        _netMsgHandlerDict[msgType] = {};
+    end
+    print("Reg : " .. msgType);
+    table.insert(_netMsgHandlerDict[msgType], callback);
 end
 
 --endregion

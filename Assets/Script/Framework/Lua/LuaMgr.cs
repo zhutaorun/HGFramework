@@ -118,16 +118,16 @@ public class LuaMgr : Singleton<LuaMgr>
             return luaCode;
         // 2.查找库目录
         // 查找thrift目录
-        if (this.luaDict.TryGetValue("Thrift/" + file, out luaCode))
+        if (this.luaDict.TryGetValue("Lib/Thrift/" + file, out luaCode))
             return luaCode;
         // 查找cjson目录
-        if (this.luaDict.TryGetValue("cjson/" + file, out luaCode))
+        if (this.luaDict.TryGetValue("Lib/cjson/" + file, out luaCode))
             return luaCode;
         // 3.配置目录
-        if (this.luaDict.TryGetValue("Config/" + file, out luaCode))
+        if (this.luaDict.TryGetValue("AutoGeneration/Config/" + file, out luaCode))
             return luaCode;
         // 4.协议目录
-        if (this.luaDict.TryGetValue("Protocol/" + file, out luaCode))
+        if (this.luaDict.TryGetValue("AutoGeneration/Protocol/" + file, out luaCode))
             return luaCode;
 
         // 没找到

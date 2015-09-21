@@ -3,7 +3,7 @@ SelectHero = class("SelectHero");
 
 function SelectHero:Awake()
 	self.anim = self.gameObj:GetComponent("Animation");
-	LuaUIEventListener.AddOnClick(self.gameObj, self, self.OnClick);
+	UIEventListenerWrapper.AddOnClick(self.gameObj, self, self.OnClick);
 end 
 
 function SelectHero:OnClick()

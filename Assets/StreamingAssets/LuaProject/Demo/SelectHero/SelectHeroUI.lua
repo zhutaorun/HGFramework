@@ -12,7 +12,7 @@ function SelectHeroUI:Awake()
 	self.attackLabel = self.trans:Find("Info/AttackValueLabel"):GetComponent("UILabel");
 	self.defendLabel = self.trans:Find("Info/DefendValueLabel"):GetComponent("UILabel");
 	self.descriptionLabel = self.trans:Find("Info/DescriptionLabel"):GetComponent("UILabel");
-    LuaUIEventListener.AddOnClick(self.trans:Find("EnterGameButton").gameObject, self, self.OnEnterGameButtonClick);
+    UIEventListenerWrapper.AddOnClick(self.trans:Find("EnterGameButton").gameObject, self, self.OnEnterGameButtonClick);
 	--注册点击模型事件
 	MsgDispatcher.RegLogicMsg("SelectHero", self, self.HandleSelectHeroMsg);
 end
@@ -26,7 +26,6 @@ function SelectHeroUI:HandleSelectHeroMsg(arg)
 end
 
 function SelectHeroUI:OnEnterGameButtonClick(btnGO)
-    LoginService.Login();
     --进入游戏场景
     if data.selectHeroID then
         Utility.CreateLuaBehaviour(GameObject("FightSceneLoading"), FightSceneLoading:new()); 

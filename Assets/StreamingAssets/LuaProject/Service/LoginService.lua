@@ -6,14 +6,23 @@ require "ProtocolMap.lua"
 
 LoginService = {};
 
-function LoginService.Login()
+function LoginService.Init()
+    _RegNetMsgHandler(S2CLogin:GetType(), LoginService.HandleS2CLoginMsg);
+end
+
+function LoginService.Login(username)
     local loginMsg = C2SLogin:new
     {
-        pid = "22",
+        pid = username,
         channel = "test",
         zoneId = "test", 
     };
     _SendNetMsg(loginMsg);
+end
+
+function LoginService.HandleS2CLoginMsg(msg)
+    print("status : " .. msg.loginStatus);
+    Utility.CreateLuaBehaviour(GameObject("SelectHeroSceneLoading"), SelectHeroSceneLoading:new());
 end
 
 --endregion

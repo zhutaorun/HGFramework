@@ -1164,8 +1164,6 @@
     <None Include="Assets\Slua\Resources\varobj.txt" />
     <None Include="Assets\StreamingAssets\Config\configs.txt" />
     <None Include="Assets\StreamingAssets\LuaProject\luas.txt" />
-    <None Include="Assets\cmsg.txt" />
-    <None Include="Assets\msg.txt" />
     <None Include="Assets\slua_src\build.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />

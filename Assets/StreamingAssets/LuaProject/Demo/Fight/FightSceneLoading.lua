@@ -8,8 +8,8 @@ FightSceneLoading = class("FightSceneLoading");
 
 function FightSceneLoading:Awake()
     heroInfo = Config.GetHeroInfoConfig(data.selectHeroID);
-    logicRes = { LuaResMgr.GetHeroModelPath(heroInfo.model) };
-    LuaSceneMgr.EnterScene("loading.scene", self, self.OnLoadingDone,
+    logicRes = { ResMgrWrapper.GetHeroModelPath(heroInfo.model) };
+    SceneMgrWrapper.EnterScene("loading.scene", self, self.OnLoadingDone,
         "fight.scene", logicRes, self, self.OnSceneLoadDone, self.OnSceneLoadUpdate);
 end
 

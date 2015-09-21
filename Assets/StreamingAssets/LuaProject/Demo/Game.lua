@@ -1,21 +1,21 @@
 import "UnityEngine"
 
 --全局头文件
-class = require "Lib/middleclass.lua"
-json = require "cjson" 
+class = require "Lib/MiddleClass/middleclass.lua"
+json = require "cjson"
+require "Lib/Thrift/TMemoryBuffer.lua"
+require "Lib/Thrift/TBinaryProtocol.lua"
 require "Framework/Utility.lua"
 require "Framework/MsgDispatcher.lua"
 require "Framework/ThriftNetMsgMgr.lua"
-require "Wrapper/LuaUIEventListener.lua"
-require "Wrapper/LuaResMgr.lua"
-require "Wrapper/LuaSceneMgr.lua"
-require "Thrift/TMemoryBuffer.lua"
-require "Thrift/TBinaryProtocol.lua"
-require "Config/config_ttypes.lua"
-require "Config/Config.lua"
+require "Wrapper/UIEventListenerWrapper.lua"
+require "Wrapper/ResMgrWrapper.lua"
+require "Wrapper/SceneMgrWrapper.lua"
+require "AutoGeneration/Config/Config.lua"
 
 require "Service/LoginService.lua"
 
+require "Demo/Login/LoginSceneLoading.lua"
 require "Demo/SelectHero/SelectHeroSceneLoading.lua"
 
 data = {};
@@ -31,8 +31,11 @@ function main()
 	--测试thrift格式的配置表
 	Config.Load();
 
+    --网络消息注册
+    LoginService.Init();
+
 	--测试demo
-	local selectHeroLoading = Utility.CreateLuaBehaviour(GameObject("SelectHeroSceneLoading"), SelectHeroSceneLoading:new());
+    Utility.CreateLuaBehaviour(GameObject("LoginSceneLoading"), LoginSceneLoading:new());
 
     NetMgr.Instance():Connect("127.0.0.1", 8083);
 end

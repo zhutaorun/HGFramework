@@ -30,6 +30,7 @@
     <Folder Include="Demo\" />
     <Folder Include="Demo\Fight\" />
     <Folder Include="Demo\Fight\FightHeroFSM\" />
+    <Folder Include="Demo\Login\" />
     <Folder Include="Demo\SelectHero\" />
     <Folder Include="Framework\" />
     <Folder Include="Lib\" />
@@ -58,11 +59,11 @@
     <Compile Include="Demo\Fight\PCController.lua" />
     <Compile Include="Demo\Game.lua" />
     <Compile Include="Demo\Loading.lua" />
+    <Compile Include="Demo\Login\LoginUI.lua" />
     <Compile Include="Demo\SelectHero\SelectHero.lua" />
     <Compile Include="Demo\SelectHero\SelectHeroScene.lua" />
     <Compile Include="Demo\SelectHero\SelectHeroSceneLoading.lua" />
     <Compile Include="Demo\SelectHero\SelectHeroUI.lua" />
-    <Compile Include="ProtocolMap.lua" />
     <Compile Include="Protocol\alchemy_constants.lua" />
     <Compile Include="Protocol\alchemy_ttypes.lua" />
     <Compile Include="Protocol\armor_constants.lua" />
@@ -85,6 +86,7 @@
     <Compile Include="Protocol\login_ttypes.lua" />
     <Compile Include="Protocol\magicCircle_constants.lua" />
     <Compile Include="Protocol\magicCircle_ttypes.lua" />
+    <Compile Include="Protocol\ProtocolMap.lua" />
     <Compile Include="Protocol\share_constants.lua" />
     <Compile Include="Protocol\share_ttypes.lua" />
     <Compile Include="Protocol\shop_constants.lua" />
@@ -100,9 +102,9 @@
     <Compile Include="Protocol\weapon_constants.lua" />
     <Compile Include="Protocol\weapon_ttypes.lua" />
     <Compile Include="Service\LoginService.lua" />
-    <Compile Include="Wrapper\LuaResMgr.lua" />
-    <Compile Include="Wrapper\LuaSceneMgr.lua" />
-    <Compile Include="Wrapper\LuaUIEventListener.lua" />
+    <Compile Include="Wrapper\ResMgrWrapper.lua" />
+    <Compile Include="Wrapper\SceneMgrWrapper.lua" />
+    <Compile Include="Wrapper\UIEventListenerWrapper.lua" />
     <Compile Include="Framework\MsgDispatcher.lua" />
     <Compile Include="Framework\ThriftNetMsgMgr.lua" />
     <Compile Include="Framework\Utility.lua" />

@@ -10,7 +10,7 @@ FightScene = class("FightScene");
 function FightScene:Awake()
     self.camera = self.trans:Find("Main Camera"):GetComponent("Camera");
     heroInfo = Config.GetHeroInfoConfig(data.selectHeroID);
-    local heroGO = GameObject.Instantiate(LuaSceneMgr.GetResObj(LuaResMgr.GetHeroModelPath(heroInfo.model)));
+    local heroGO = GameObject.Instantiate(SceneMgrWrapper.GetResObj(ResMgrWrapper.GetHeroModelPath(heroInfo.model)));
     heroGO.name = "Hero";
     self.hero = Utility.CreateLuaBehaviour(heroGO, FightHero:new());
     --注册操作控制器，根据不同平台注册不同的操作控制器

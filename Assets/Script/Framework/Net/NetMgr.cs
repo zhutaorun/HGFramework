@@ -150,8 +150,6 @@ public class NetMgr : Singleton<NetMgr>
                         proto.WriteI32(msg.Length);
                         // 值
                         stream.Write(msg.Data, 0, msg.Length);
-                        // TEST
-                        File.WriteAllBytes("D:/GitHub/HGFramework/Assets/cmsg.txt", msg.Data);
                         byte[] data = stream.ToArray();
                         this.mSocket.Send(data);
                         stream.Close();
