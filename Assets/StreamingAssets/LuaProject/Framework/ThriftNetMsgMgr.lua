@@ -18,11 +18,6 @@ function _SendNetMsg(msg)
     local proto = TBinaryProtocol:new{ trans = trans };
     msg:write(proto);
     local msgData = trans:getBuffer();
-    --TEST 
-    local file = io.open(Application.dataPath .. "/msg.txt", "w");
-    io.output(file);
-    io.write(msgData);
-    io.close(file);
     --交由网络发送消息线程发送
     NetMgr.Instance():SendNetMsg(msgType, msgData);
 end
@@ -48,16 +43,16 @@ end
 --msgData: 消息数据，用于消息对象的反序列化
 --TODO 反序列化消息是耗时操作，可考虑用协程方式优化
 function _HandleNetMsg(msgType, msgData)
-    local msg = ProtocolMap.NewMsg(msgType);
+    local msg = _NewMsg(msgType);
     local trans = TMemoryBuffer:new{};
     trans:resetBuffer(msgData);
     local proto = TBinaryProtocol:new{ trans = trans };
     msg:read(proto);
-    --交由逻辑处理
+    --TEST交由逻辑处理
     if msgType == 21718 then
-        Debug.LogError(msg.pUserId);
+        print(msg.pUserId);
     elseif msgType == 89713 then
-        Debug.LogError(msg.loginStatus);
+        print(msg.loginStatus);
     end
 end
 

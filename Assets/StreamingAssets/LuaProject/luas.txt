@@ -1,4 +1,3 @@
-ProtocolMap.lua
 CJson/json2lua.lua
 CJson/lua2json.lua
 CJson/cjson/util.lua
@@ -48,6 +47,7 @@ Protocol/login_constants.lua
 Protocol/login_ttypes.lua
 Protocol/magicCircle_constants.lua
 Protocol/magicCircle_ttypes.lua
+Protocol/ProtocolMap.lua
 Protocol/share_constants.lua
 Protocol/share_ttypes.lua
 Protocol/shop_constants.lua

@@ -107,18 +107,6 @@ public class NetMgr : Singleton<NetMgr>
     /// </summary>
     /// <param name="msgType"></param>
     /// <param name="msgData"></param>
-    //public void SendNetMsg(int msgType, string msgData)
-    //{
-    //    byte[] datas = System.Text.Encoding.ASCII.GetBytes(msgData);
-    //    NetMsg msg = new NetMsg(msgType, datas);
-    //    // 发送
-    //    lock (this.mSendLock)
-    //    {
-    //        this.mSendWaitingMsgQueue.Enqueue(msg);
-    //        Monitor.Pulse(this.mSendLock);
-    //    }
-    //}
-
     public void SendNetMsg(int msgType, byte[] msgData)
     {
         NetMsg msg = new NetMsg(msgType, msgData);
@@ -153,7 +141,7 @@ public class NetMgr : Singleton<NetMgr>
                     NetMsg msg = this.mSendingMsgQueue.Dequeue();
                     try
                     {
-                        // TODO 拼接TLV
+                        // 拼接TLV
                         MemoryStream stream = new MemoryStream();
                         TProtocol proto = new TBinaryProtocol(new TStreamTransport(stream, stream));
                         // 类型
@@ -189,12 +177,9 @@ public class NetMgr : Singleton<NetMgr>
             {
                 TProtocol proto = new TBinaryProtocol(new TStreamTransport(this.mRecvStream, this.mRecvStream));
                 int type = proto.ReadI32();
-                Debug.LogError("type : " + type);
                 int len = proto.ReadI32();
-                Debug.LogError("len : " + len);
                 byte[] data = new byte[len];
                 this.mRecvStream.Read(data, 0, len);
-                Debug.LogError("data : " + data);
                 NetMsg msg = new NetMsg(type, data);
                 // 丢到主线程，由主线程交由Lua解析
                 SendMsgInMainThread(msg);
