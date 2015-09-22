@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2722390227
+CRC: 765314761
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7b3d1d6dacdba7241833580a512bff27
+    Hash: 329a29c2fc39c0f702d94e98b8de8e09
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1033bf7ddfd4c6d43e7a6382c0a0a61a
@@ -12,6 +12,6 @@ ClassTypes:
 - Class: 49
   Script: {instanceID: 0}
 Assets:
-- Assets/Config/configs.txt
 - Assets/Config/HeroInfoConfig.bytes
+- Assets/Config/configs.txt
 Dependencies: []

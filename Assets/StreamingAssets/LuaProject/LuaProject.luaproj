@@ -58,7 +58,7 @@
     <Compile Include="Demo\Fight\FightUI.lua" />
     <Compile Include="Demo\Fight\PCController.lua" />
     <Compile Include="Demo\Game.lua" />
-    <Compile Include="Demo\Loading.lua" />
+    <Compile Include="Demo\LoadingUI.lua" />
     <Compile Include="Demo\Login\LoginSceneLoading.lua" />
     <Compile Include="Demo\Login\LoginUI.lua" />
     <Compile Include="Demo\SelectHero\SelectHero.lua" />

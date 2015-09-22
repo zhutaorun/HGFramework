@@ -16,24 +16,24 @@ AssetBundleManifest:
         Dependency_0: wooden.atlas
         Dependency_1: msyh.font
     Info_3:
-      Name: hello_slua.scene
-      Dependencies:
-        Dependency_0: wooden.atlas
-    Info_4:
       Name: wooden.atlas
       Dependencies: {}
-    Info_5:
+    Info_4:
       Name: priest.prefab
       Dependencies: {}
-    Info_6:
+    Info_5:
       Name: knight.prefab
       Dependencies: {}
-    Info_7:
+    Info_6:
       Name: magician.prefab
       Dependencies: {}
-    Info_8:
+    Info_7:
       Name: msyh.font
       Dependencies: {}
+    Info_8:
+      Name: login.scene
+      Dependencies:
+        Dependency_0: wooden.atlas
     Info_9:
       Name: script.lua
       Dependencies: {}

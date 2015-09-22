@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3998129722
+CRC: 1462794511
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b39973da410878dee3e30cea40dc5f5b
+    Hash: a7d82601af6c615e3391170c3d9a6af1
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 6d6f2874e37c8b90582e6a95d6e89235
+    Hash: 3094e1902d5d4ac84849de9ad74d4007
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -28,6 +28,8 @@ ClassTypes:
 - Class: 136
   Script: {instanceID: 0}
 - Class: 137
+  Script: {instanceID: 0}
+- Class: 195
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Model/Hero/magician.prefab

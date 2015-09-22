@@ -12,6 +12,10 @@ function FightHeroState:OnEnter(args)
     
 end
 
+function FightHeroState:OnReEnter(args)
+
+end
+
 function FightHeroState:OnUpdate(args)
     
 end
@@ -22,6 +26,14 @@ end
 
 function FightHeroState:HandleMoveHeroMsg(args)
     self.fsm:Translate("Move", args);
+end
+
+function FightHeroState:HandleMsg(msg, ...)
+    if msg == "Move" then
+        self.fsm:Translate(self.fsm.moveState, ...);
+    elseif msg == "Attack" then
+        self.fsm:Translate(self.fsm.attackState, ...);
+    end
 end
 
 --endregion

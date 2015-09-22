@@ -9,8 +9,13 @@ function FightHeroAttackState:OnEnter(args)
     local delay = self.fsm.animation:GetClip("attack1").length * 1000;
     -- 回滚到idle状态
     LuaTimer.Add(delay, function ()
-        self.fsm:Translate("Idle");
+        self.fsm:Translate(self.fsm.idleState);
     end);
+end
+
+function FightHeroAttackState:HandleMsg(msg, ...)
+    -- 攻击时不做任何其他操作命令处理
+
 end
 
 --endregion

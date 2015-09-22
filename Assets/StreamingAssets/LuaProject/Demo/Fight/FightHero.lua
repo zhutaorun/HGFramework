@@ -28,15 +28,17 @@ function FightHero:IsMoving()
 end
 
 function FightHero:Translate(state, args)
-    self.curState:OnExit();
-    if state == "Idle" then
-        self.curState = self.idleState;
-    elseif state == "Move" then
-        self.curState = self.moveState;
-    elseif state == "Attack" then
-        self.curState = self.attackState;
+    if not state then
+        error("FightHero:Translate state is nil");
+        return;
     end
+    self.curState:OnExit();
+    self.curState = state;
     self.curState:OnEnter(args);
+end
+
+function FightHero:HandleMsg(msg, ...)
+    self.curState:HandleMsg(msg, ...);
 end
 
 --endregion

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1326152732
+CRC: 3409596263
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ee488685f29bd4ac3033c8c002b030b6
+    Hash: c24d1891f796f41f6fe68cb1acb436c2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 37805695a178682c5169a9191f748d95
@@ -72,5 +72,5 @@ ClassTypes:
 Assets:
 - Assets/Scene/select_hero.unity
 Dependencies:
-- C:/Project/HelloSLuaGame/Assets/../AssetBundles/PC/AssetBundles/wooden.atlas
-- C:/Project/HelloSLuaGame/Assets/../AssetBundles/PC/AssetBundles/msyh.font
+- D:/GitHub/HGFramework/Assets/../AssetBundles/PC/AssetBundles/wooden.atlas
+- D:/GitHub/HGFramework/Assets/../AssetBundles/PC/AssetBundles/msyh.font

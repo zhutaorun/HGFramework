@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 30014629
+CRC: 847004009
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 03710e6a6d2a6d5c6bc93d61024c5926
+    Hash: f7da680ea8fb120ef17373b67b9e46e2
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 6d6f2874e37c8b90582e6a95d6e89235
+    Hash: 3094e1902d5d4ac84849de9ad74d4007
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -28,6 +28,8 @@ ClassTypes:
 - Class: 136
   Script: {instanceID: 0}
 - Class: 137
+  Script: {instanceID: 0}
+- Class: 195
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/Model/Hero/knight.prefab

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1206268990
+CRC: 3640030502
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 817e42c9fbd60a1763da594fe20fb5d1
+    Hash: c888f44243ad3c788eb421300a4ff88e
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 807004e1adb19f83dd31a7f8aedce1dd
+    Hash: 256c1e5e9335b9c41ce56f0646d10952
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -61,12 +61,16 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 157
   Script: {instanceID: 0}
+- Class: 196
+  Script: {instanceID: 0}
 - Class: 218
+  Script: {instanceID: 0}
+- Class: 238
   Script: {instanceID: 0}
 - Class: 258
   Script: {instanceID: 0}
 Assets:
 - Assets/Scene/fight.unity
 Dependencies:
-- C:/Project/HelloSLuaGame/Assets/../AssetBundles/PC/AssetBundles/wooden.atlas
-- C:/Project/HelloSLuaGame/Assets/../AssetBundles/PC/AssetBundles/msyh.font
+- D:/GitHub/HGFramework/Assets/../AssetBundles/PC/AssetBundles/wooden.atlas
+- D:/GitHub/HGFramework/Assets/../AssetBundles/PC/AssetBundles/msyh.font

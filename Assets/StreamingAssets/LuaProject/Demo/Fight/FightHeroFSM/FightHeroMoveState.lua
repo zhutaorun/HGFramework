@@ -15,7 +15,7 @@ end
 
 function FightHeroMoveState:OnUpdate(args)
     if self.fsm.mNavMeshAgent.remainingDistance < 0.01 then
-        self.fsm:Translate("Idle");
+        self.fsm:Translate(self.fsm.idleState);
     end
 end
 

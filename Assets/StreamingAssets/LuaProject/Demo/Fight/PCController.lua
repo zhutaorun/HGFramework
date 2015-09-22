@@ -24,7 +24,7 @@ function PCController:Update()
         local ray = self.camera:ScreenPointToRay(Input.mousePosition);
         local ret, hitInfo = Physics.Raycast(ray, SLua.out);
         if ret and hitInfo.collider.name == "Terrain" then
-            self.hero:Translate("Move", hitInfo.point);
+            self.hero:HandleMsg("Move", hitInfo.point);
         end
     end
     --滚轮拉伸镜头
@@ -35,7 +35,7 @@ function PCController:Update()
     end
     --使用鼠标左键键攻击
     if Input.GetMouseButtonUp(0) then
-        self.hero:Translate("Attack");
+        self.hero:HandleMsg("Attack");
     end
     --同步英雄和摄像机位置
     if self.hero:IsMoving() then

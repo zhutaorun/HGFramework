@@ -47,7 +47,6 @@ Demo/Fight/FightSceneLoading.lua
 Demo/Fight/FightUI.lua
 Demo/Fight/PCController.lua
 Demo/Fight/FightHeroFSM/FightHeroAttackState.lua
-Demo/Fight/FightHeroFSM/FightHeroFSM.lua
 Demo/Fight/FightHeroFSM/FightHeroIdleState.lua
 Demo/Fight/FightHeroFSM/FightHeroMoveState.lua
 Demo/Fight/FightHeroFSM/FightHeroState.lua

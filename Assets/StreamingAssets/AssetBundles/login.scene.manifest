@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2925438541
+CRC: 3270725219
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 73894218b185614d39a471cbd625bf91
+    Hash: ba259d4c63fe484580888d05479a27bb
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d19a5353190e00beccd1187ab18db309
+    Hash: 29b6344b4e672a29966dccaa8889c369
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -23,6 +23,12 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 54
   Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
 - Class: 104
   Script: {instanceID: 0}
 - Class: 114
@@ -30,15 +36,17 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 0b4eb3a400afab046abb8471a9d746d6, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 2c5ecb5660b11414fb042fb826e03b73, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 2a92b5d748695fd44aac9feef17ba415, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  Script: {fileID: 11500000, guid: ac5060295fbd39b4a88d20d0c83d925e, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 6c20815eb3063c24290a61b7020a1836, type: 3}
+  Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
 - Class: 115
@@ -50,6 +58,6 @@ ClassTypes:
 - Class: 258
   Script: {instanceID: 0}
 Assets:
-- Assets/Scene/loading.unity
+- Assets/Scene/login.unity
 Dependencies:
 - D:/GitHub/HGFramework/Assets/../AssetBundles/PC/AssetBundles/wooden.atlas
