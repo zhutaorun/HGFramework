@@ -42,13 +42,14 @@
     <Folder Include="Lib\Thrift\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Demo\Fight\CameraCtrl.lua" />
+    <Compile Include="Framework\FSM.lua" />
     <Compile Include="Lib\CJson\cjson\util.lua" />
     <Compile Include="AutoGeneration\Config\Config.lua" />
     <Compile Include="AutoGeneration\Config\config_constants.lua" />
     <Compile Include="AutoGeneration\Config\config_ttypes.lua" />
     <Compile Include="Demo\Fight\FightHero.lua" />
     <Compile Include="Demo\Fight\FightHeroFSM\FightHeroAttackState.lua" />
-    <Compile Include="Demo\Fight\FightHeroFSM\FightHeroFSM.lua" />
     <Compile Include="Demo\Fight\FightHeroFSM\FightHeroIdleState.lua" />
     <Compile Include="Demo\Fight\FightHeroFSM\FightHeroMoveState.lua" />
     <Compile Include="Demo\Fight\FightHeroFSM\FightHeroState.lua" />

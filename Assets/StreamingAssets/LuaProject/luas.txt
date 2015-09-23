@@ -40,12 +40,13 @@ AutoGeneration/Protocol/weapon_constants.lua
 AutoGeneration/Protocol/weapon_ttypes.lua
 Demo/Game.lua
 Demo/LoadingUI.lua
+Demo/Fight/CameraCtrl.lua
 Demo/Fight/FightHero.lua
 Demo/Fight/FightHeroInfo.lua
 Demo/Fight/FightScene.lua
 Demo/Fight/FightSceneLoading.lua
 Demo/Fight/FightUI.lua
-Demo/Fight/PCController.lua
+Demo/Fight/PCCtrl.lua
 Demo/Fight/FightHeroFSM/FightHeroAttackState.lua
 Demo/Fight/FightHeroFSM/FightHeroIdleState.lua
 Demo/Fight/FightHeroFSM/FightHeroMoveState.lua
@@ -56,6 +57,7 @@ Demo/SelectHero/SelectHero.lua
 Demo/SelectHero/SelectHeroScene.lua
 Demo/SelectHero/SelectHeroSceneLoading.lua
 Demo/SelectHero/SelectHeroUI.lua
+Framework/FSM.lua
 Framework/MsgDispatcher.lua
 Framework/ThriftNetMsgMgr.lua
 Framework/Utility.lua

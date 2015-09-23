@@ -1,7 +1,8 @@
 --region *.lua
 --Date
 --此文件由[BabeLua]插件自动生成
-require "Demo/Fight/PCController.lua"
+require "Demo/Fight/PCCtrl.lua"
+require "Demo/Fight/CameraCtrl.lua"
 require "Demo/Fight/FightHero.lua"
 
 --战斗场景加载器
@@ -14,13 +15,13 @@ function FightScene:Awake()
     heroGO.name = "Hero";
     self.hero = _CreateLuaBehaviour(heroGO, FightHero:new());
     --注册操作控制器，根据不同平台注册不同的操作控制器
-    self.controller = PCController:new(self.camera, hero);
-    --关联hero和camera
-    self.controller:Init(self.camera, self.hero);
+    self.controller = PCCtrl:new(self.camera, self.hero);
+    self.mCameraCtrl = CameraCtrl:new(self.camera, self.hero.trans);
 end
 
 function FightScene:Update()
     self.controller:Update();
+    self.mCameraCtrl:Update();
 end
 
 --endregion

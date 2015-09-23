@@ -5,12 +5,8 @@ require "Demo/Fight/FightHeroFSM/FightHeroState.lua"
 
 FightHeroIdleState = class("FightHeroIdleState", FightHeroState);
 
-function FightHeroIdleState:OnEnter(args)
-    self.fsm.animation:Play("idle");
-end
-
-function FightHeroIdleState:OnUpdate()
-    
+function FightHeroIdleState:OnEnter(...)
+    self.mHero.animation:Play("idle");
 end
 
 --endregion

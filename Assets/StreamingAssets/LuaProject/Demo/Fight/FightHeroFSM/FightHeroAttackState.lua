@@ -4,18 +4,13 @@
 
 FightHeroAttackState = class("FightHeroAttackState", FightHeroState);
 
-function FightHeroAttackState:OnEnter(args)
-    self.fsm.animation:Play("attack1");
-    local delay = self.fsm.animation:GetClip("attack1").length * 1000;
+function FightHeroAttackState:OnEnter(...)
+    self.mHero.animation:Play("attack1");
+    local delay = self.mHero.animation:GetClip("attack1").length * 1000;
     -- 回滚到idle状态
     LuaTimer.Add(delay, function ()
-        self.fsm:Translate(self.fsm.idleState);
+        self.mHero.mFSM:HandleEvent("Finish");
     end);
-end
-
-function FightHeroAttackState:HandleMsg(msg, ...)
-    -- 攻击时不做任何其他操作命令处理
-
 end
 
 --endregion
