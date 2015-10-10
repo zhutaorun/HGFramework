@@ -9,273 +9,302 @@ public class Lua_UnityEngine_HumanDescription : LuaObject {
 		try {
 			UnityEngine.HumanDescription o;
 			o=new UnityEngine.HumanDescription();
+			pushValue(l,true);
 			pushValue(l,o);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_human(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.human);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_human(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			UnityEngine.HumanBone[] v;
 			checkType(l,2,out v);
 			self.human=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_skeleton(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.skeleton);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_skeleton(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			UnityEngine.SkeletonBone[] v;
 			checkType(l,2,out v);
 			self.skeleton=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_upperArmTwist(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.upperArmTwist);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_upperArmTwist(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.upperArmTwist=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_lowerArmTwist(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.lowerArmTwist);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_lowerArmTwist(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.lowerArmTwist=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_upperLegTwist(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.upperLegTwist);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_upperLegTwist(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.upperLegTwist=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_lowerLegTwist(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.lowerLegTwist);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_lowerLegTwist(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.lowerLegTwist=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_armStretch(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.armStretch);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_armStretch(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.armStretch=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_legStretch(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.legStretch);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_legStretch(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.legStretch=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_feetSpacing(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.feetSpacing);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_feetSpacing(IntPtr l) {
 		try {
 			UnityEngine.HumanDescription self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.feetSpacing=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_hasTranslationDoF(IntPtr l) {
+		try {
+			UnityEngine.HumanDescription self;
+			checkValueType(l,1,out self);
+			pushValue(l,true);
+			pushValue(l,self.hasTranslationDoF);
+			return 2;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_hasTranslationDoF(IntPtr l) {
+		try {
+			UnityEngine.HumanDescription self;
+			checkValueType(l,1,out self);
+			bool v;
+			checkType(l,2,out v);
+			self.hasTranslationDoF=v;
+			setBack(l,self);
+			pushValue(l,true);
+			return 1;
+		}
+		catch(Exception e) {
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {
@@ -289,6 +318,7 @@ public class Lua_UnityEngine_HumanDescription : LuaObject {
 		addMember(l,"armStretch",get_armStretch,set_armStretch,true);
 		addMember(l,"legStretch",get_legStretch,set_legStretch,true);
 		addMember(l,"feetSpacing",get_feetSpacing,set_feetSpacing,true);
+		addMember(l,"hasTranslationDoF",get_hasTranslationDoF,set_hasTranslationDoF,true);
 		createTypeMetatable(l,constructor, typeof(UnityEngine.HumanDescription),typeof(System.ValueType));
 	}
 }

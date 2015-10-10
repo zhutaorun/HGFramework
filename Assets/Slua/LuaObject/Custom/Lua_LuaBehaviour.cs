@@ -8,12 +8,12 @@ public class Lua_LuaBehaviour : LuaObject {
 	static public int get_table(IntPtr l) {
 		try {
 			LuaBehaviour self=(LuaBehaviour)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.table);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -23,23 +23,23 @@ public class Lua_LuaBehaviour : LuaObject {
 			SLua.LuaTable v;
 			checkType(l,2,out v);
 			self.table=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_className(IntPtr l) {
 		try {
 			LuaBehaviour self=(LuaBehaviour)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.className);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -49,11 +49,11 @@ public class Lua_LuaBehaviour : LuaObject {
 			System.String v;
 			checkType(l,2,out v);
 			self.className=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

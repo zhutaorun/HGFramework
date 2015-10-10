@@ -9,219 +9,219 @@ public class Lua_UnityEngine_RaycastHit : LuaObject {
 		try {
 			UnityEngine.RaycastHit o;
 			o=new UnityEngine.RaycastHit();
+			pushValue(l,true);
 			pushValue(l,o);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_point(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.point);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_point(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			UnityEngine.Vector3 v;
 			checkType(l,2,out v);
 			self.point=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_normal(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.normal);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_normal(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			UnityEngine.Vector3 v;
 			checkType(l,2,out v);
 			self.normal=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_barycentricCoordinate(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.barycentricCoordinate);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_barycentricCoordinate(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			UnityEngine.Vector3 v;
 			checkType(l,2,out v);
 			self.barycentricCoordinate=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_distance(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.distance);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_distance(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.distance=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_triangleIndex(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.triangleIndex);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_textureCoord(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.textureCoord);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_textureCoord2(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.textureCoord2);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_lightmapCoord(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.lightmapCoord);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_collider(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.collider);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_rigidbody(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.rigidbody);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_transform(IntPtr l) {
 		try {
 			UnityEngine.RaycastHit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.transform);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

@@ -9,99 +9,99 @@ public class Lua_UnityEngine_UI_SpriteState : LuaObject {
 		try {
 			UnityEngine.UI.SpriteState o;
 			o=new UnityEngine.UI.SpriteState();
+			pushValue(l,true);
 			pushValue(l,o);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_highlightedSprite(IntPtr l) {
 		try {
 			UnityEngine.UI.SpriteState self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.highlightedSprite);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_highlightedSprite(IntPtr l) {
 		try {
 			UnityEngine.UI.SpriteState self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			UnityEngine.Sprite v;
 			checkType(l,2,out v);
 			self.highlightedSprite=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_pressedSprite(IntPtr l) {
 		try {
 			UnityEngine.UI.SpriteState self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.pressedSprite);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_pressedSprite(IntPtr l) {
 		try {
 			UnityEngine.UI.SpriteState self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			UnityEngine.Sprite v;
 			checkType(l,2,out v);
 			self.pressedSprite=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_disabledSprite(IntPtr l) {
 		try {
 			UnityEngine.UI.SpriteState self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.disabledSprite);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_disabledSprite(IntPtr l) {
 		try {
 			UnityEngine.UI.SpriteState self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			UnityEngine.Sprite v;
 			checkType(l,2,out v);
 			self.disabledSprite=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

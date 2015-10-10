@@ -9,64 +9,64 @@ public class Lua_UnityEngine_ContactPoint2D : LuaObject {
 		try {
 			UnityEngine.ContactPoint2D o;
 			o=new UnityEngine.ContactPoint2D();
+			pushValue(l,true);
 			pushValue(l,o);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_point(IntPtr l) {
 		try {
 			UnityEngine.ContactPoint2D self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.point);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_normal(IntPtr l) {
 		try {
 			UnityEngine.ContactPoint2D self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.normal);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_collider(IntPtr l) {
 		try {
 			UnityEngine.ContactPoint2D self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.collider);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_otherCollider(IntPtr l) {
 		try {
 			UnityEngine.ContactPoint2D self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.otherCollider);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

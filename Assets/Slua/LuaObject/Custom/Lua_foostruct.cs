@@ -9,157 +9,157 @@ public class Lua_foostruct : LuaObject {
 		try {
 			foostruct o;
 			o=new foostruct();
+			pushValue(l,true);
 			pushValue(l,o);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_x(IntPtr l) {
 		try {
 			foostruct self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.x);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_x(IntPtr l) {
 		try {
 			foostruct self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			System.Single v;
 			checkType(l,2,out v);
 			self.x=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_y(IntPtr l) {
 		try {
 			foostruct self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.y);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_y(IntPtr l) {
 		try {
 			foostruct self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			System.Single v;
 			checkType(l,2,out v);
 			self.y=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_z(IntPtr l) {
 		try {
 			foostruct self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.z);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_z(IntPtr l) {
 		try {
 			foostruct self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			System.Single v;
 			checkType(l,2,out v);
 			self.z=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_w(IntPtr l) {
 		try {
 			foostruct self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.w);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_w(IntPtr l) {
 		try {
 			foostruct self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			System.Single v;
 			checkType(l,2,out v);
 			self.w=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_mode(IntPtr l) {
 		try {
 			foostruct self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.mode);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_mode(IntPtr l) {
 		try {
 			foostruct self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			System.Int32 v;
 			checkType(l,2,out v);
 			self.mode=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

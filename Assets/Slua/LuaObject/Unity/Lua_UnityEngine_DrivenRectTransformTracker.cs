@@ -9,19 +9,19 @@ public class Lua_UnityEngine_DrivenRectTransformTracker : LuaObject {
 		try {
 			UnityEngine.DrivenRectTransformTracker o;
 			o=new UnityEngine.DrivenRectTransformTracker();
+			pushValue(l,true);
 			pushValue(l,o);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int Add(IntPtr l) {
 		try {
 			UnityEngine.DrivenRectTransformTracker self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			UnityEngine.Object a1;
 			checkType(l,2,out a1);
 			UnityEngine.RectTransform a2;
@@ -29,26 +29,26 @@ public class Lua_UnityEngine_DrivenRectTransformTracker : LuaObject {
 			UnityEngine.DrivenTransformProperties a3;
 			checkEnum(l,4,out a3);
 			self.Add(a1,a2,a3);
+			pushValue(l,true);
 			setBack(l,self);
-			return 0;
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int Clear(IntPtr l) {
 		try {
 			UnityEngine.DrivenRectTransformTracker self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			self.Clear();
+			pushValue(l,true);
 			setBack(l,self);
-			return 0;
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

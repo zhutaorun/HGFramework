@@ -9,12 +9,12 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
 			var ret=self.GetProceduralPropertyDescriptions();
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -24,12 +24,12 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.HasProceduralProperty(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -39,12 +39,27 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.GetProceduralBoolean(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int IsProceduralPropertyVisible(IntPtr l) {
+		try {
+			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
+			System.String a1;
+			checkType(l,2,out a1);
+			var ret=self.IsProceduralPropertyVisible(a1);
+			pushValue(l,true);
+			pushValue(l,ret);
+			return 2;
+		}
+		catch(Exception e) {
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -56,11 +71,11 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.Boolean a2;
 			checkType(l,3,out a2);
 			self.SetProceduralBoolean(a1,a2);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -70,12 +85,12 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.GetProceduralFloat(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -87,11 +102,11 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.Single a2;
 			checkType(l,3,out a2);
 			self.SetProceduralFloat(a1,a2);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -101,12 +116,12 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.GetProceduralVector(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -118,11 +133,11 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			UnityEngine.Vector4 a2;
 			checkType(l,3,out a2);
 			self.SetProceduralVector(a1,a2);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -132,12 +147,12 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.GetProceduralColor(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -149,11 +164,11 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			UnityEngine.Color a2;
 			checkType(l,3,out a2);
 			self.SetProceduralColor(a1,a2);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -163,12 +178,12 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.GetProceduralEnum(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -180,11 +195,11 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.Int32 a2;
 			checkType(l,3,out a2);
 			self.SetProceduralEnum(a1,a2);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -194,12 +209,12 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.GetProceduralTexture(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -211,11 +226,11 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			UnityEngine.Texture2D a2;
 			checkType(l,3,out a2);
 			self.SetProceduralTexture(a1,a2);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -225,12 +240,12 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.IsProceduralPropertyCached(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -242,11 +257,11 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.Boolean a2;
 			checkType(l,3,out a2);
 			self.CacheProceduralProperty(a1,a2);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -254,11 +269,11 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
 			self.ClearCache();
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -266,11 +281,11 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
 			self.RebuildTextures();
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -278,11 +293,11 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
 			self.RebuildTexturesImmediately();
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -290,12 +305,12 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
 			var ret=self.GetGeneratedTextures();
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -305,35 +320,35 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.GetGeneratedTexture(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int StopRebuilds_s(IntPtr l) {
 		try {
 			UnityEngine.ProceduralMaterial.StopRebuilds();
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_cacheSize(IntPtr l) {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
+			pushValue(l,true);
 			pushEnum(l,(int)self.cacheSize);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -343,23 +358,23 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			UnityEngine.ProceduralCacheSize v;
 			checkEnum(l,2,out v);
 			self.cacheSize=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_animationUpdateRate(IntPtr l) {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.animationUpdateRate);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -369,47 +384,47 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			int v;
 			checkType(l,2,out v);
 			self.animationUpdateRate=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_isProcessing(IntPtr l) {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.isProcessing);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_isCachedDataAvailable(IntPtr l) {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.isCachedDataAvailable);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_isLoadTimeGenerated(IntPtr l) {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.isLoadTimeGenerated);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -419,45 +434,45 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			bool v;
 			checkType(l,2,out v);
 			self.isLoadTimeGenerated=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_loadingBehavior(IntPtr l) {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
+			pushValue(l,true);
 			pushEnum(l,(int)self.loadingBehavior);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_isSupported(IntPtr l) {
 		try {
+			pushValue(l,true);
 			pushValue(l,UnityEngine.ProceduralMaterial.isSupported);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_substanceProcessorUsage(IntPtr l) {
 		try {
+			pushValue(l,true);
 			pushEnum(l,(int)UnityEngine.ProceduralMaterial.substanceProcessorUsage);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -466,23 +481,23 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			UnityEngine.ProceduralProcessorUsage v;
 			checkEnum(l,2,out v);
 			UnityEngine.ProceduralMaterial.substanceProcessorUsage=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_preset(IntPtr l) {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.preset);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -492,23 +507,23 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			string v;
 			checkType(l,2,out v);
 			self.preset=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_isReadable(IntPtr l) {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.isReadable);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -518,11 +533,11 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 			bool v;
 			checkType(l,2,out v);
 			self.isReadable=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {
@@ -530,6 +545,7 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 		addMember(l,GetProceduralPropertyDescriptions);
 		addMember(l,HasProceduralProperty);
 		addMember(l,GetProceduralBoolean);
+		addMember(l,IsProceduralPropertyVisible);
 		addMember(l,SetProceduralBoolean);
 		addMember(l,GetProceduralFloat);
 		addMember(l,SetProceduralFloat);

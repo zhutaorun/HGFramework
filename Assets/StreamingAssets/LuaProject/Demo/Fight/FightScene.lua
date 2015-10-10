@@ -5,6 +5,8 @@ require "Demo/Fight/PCCtrl.lua"
 require "Demo/Fight/CameraCtrl.lua"
 require "Demo/Fight/FightHero.lua"
 
+local GameObject = UnityEngine.GameObject;
+
 --战斗场景加载器
 FightScene = class("FightScene");
 

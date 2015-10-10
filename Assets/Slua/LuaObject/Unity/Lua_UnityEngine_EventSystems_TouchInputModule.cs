@@ -9,11 +9,11 @@ public class Lua_UnityEngine_EventSystems_TouchInputModule : LuaObject {
 		try {
 			UnityEngine.EventSystems.TouchInputModule self=(UnityEngine.EventSystems.TouchInputModule)checkSelf(l);
 			self.UpdateModule();
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -21,12 +21,12 @@ public class Lua_UnityEngine_EventSystems_TouchInputModule : LuaObject {
 		try {
 			UnityEngine.EventSystems.TouchInputModule self=(UnityEngine.EventSystems.TouchInputModule)checkSelf(l);
 			var ret=self.IsModuleSupported();
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -34,12 +34,12 @@ public class Lua_UnityEngine_EventSystems_TouchInputModule : LuaObject {
 		try {
 			UnityEngine.EventSystems.TouchInputModule self=(UnityEngine.EventSystems.TouchInputModule)checkSelf(l);
 			var ret=self.ShouldActivateModule();
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -47,11 +47,11 @@ public class Lua_UnityEngine_EventSystems_TouchInputModule : LuaObject {
 		try {
 			UnityEngine.EventSystems.TouchInputModule self=(UnityEngine.EventSystems.TouchInputModule)checkSelf(l);
 			self.Process();
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -59,37 +59,37 @@ public class Lua_UnityEngine_EventSystems_TouchInputModule : LuaObject {
 		try {
 			UnityEngine.EventSystems.TouchInputModule self=(UnityEngine.EventSystems.TouchInputModule)checkSelf(l);
 			self.DeactivateModule();
-			return 0;
-		}
-		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
-		}
-	}
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int get_allowActivationOnStandalone(IntPtr l) {
-		try {
-			UnityEngine.EventSystems.TouchInputModule self=(UnityEngine.EventSystems.TouchInputModule)checkSelf(l);
-			pushValue(l,self.allowActivationOnStandalone);
+			pushValue(l,true);
 			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int set_allowActivationOnStandalone(IntPtr l) {
+	static public int get_forceModuleActive(IntPtr l) {
+		try {
+			UnityEngine.EventSystems.TouchInputModule self=(UnityEngine.EventSystems.TouchInputModule)checkSelf(l);
+			pushValue(l,true);
+			pushValue(l,self.forceModuleActive);
+			return 2;
+		}
+		catch(Exception e) {
+			return error(l,e);
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_forceModuleActive(IntPtr l) {
 		try {
 			UnityEngine.EventSystems.TouchInputModule self=(UnityEngine.EventSystems.TouchInputModule)checkSelf(l);
 			bool v;
 			checkType(l,2,out v);
-			self.allowActivationOnStandalone=v;
-			return 0;
+			self.forceModuleActive=v;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {
@@ -99,7 +99,7 @@ public class Lua_UnityEngine_EventSystems_TouchInputModule : LuaObject {
 		addMember(l,ShouldActivateModule);
 		addMember(l,Process);
 		addMember(l,DeactivateModule);
-		addMember(l,"allowActivationOnStandalone",get_allowActivationOnStandalone,set_allowActivationOnStandalone,true);
+		addMember(l,"forceModuleActive",get_forceModuleActive,set_forceModuleActive,true);
 		createTypeMetatable(l,null, typeof(UnityEngine.EventSystems.TouchInputModule),typeof(UnityEngine.EventSystems.PointerInputModule));
 	}
 }

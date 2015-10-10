@@ -30,21 +30,23 @@ namespace SLua
 
 		public static void OnAddCustomClass(LuaCodeGen.ExportGenericDelegate add)
 		{
-            add(typeof(System.Func<int>), null);
-            add(typeof(System.Action<int, string>), null);
-            add(typeof(System.Action<int, Dictionary<int, object>>), null);
-            add(typeof(List<int>), "ListInt");
-            add(typeof(Dictionary<int, string>), "DictIntStr");
-            add(typeof(string), "String");
+			add(typeof(System.Func<int>), null);
+			add(typeof(System.Action<int, string>), null);
+			add(typeof(System.Action<int, Dictionary<int, object>>), null);
+			add(typeof(List<int>), "ListInt");
+			add(typeof(Dictionary<int, string>), "DictIntStr");
+			add(typeof(string), "String");
 			// add your custom class here
 			// add( type, typename)
 			// type is what you want to export
 			// typename used for simplify generic type name or rename, like List<int> named to "ListInt", if not a generic type keep typename as null or rename as new type name
-            //add(typeof(System.Action<LuaTable>), null);
             add(typeof(Singleton<ConfigMgr>), "ConfigMgr");
             add(typeof(Singleton<ResMgr>), "ResMgr");
             add(typeof(Singleton<SceneMgr>), "SceneMgr");
             add(typeof(Singleton<NetMgr>), "NetMgr");
+            // NGUI
+            add(typeof(UIEventListener), "UIEventListener");
+            add(typeof(UILabel), "UILabel");
 		}
 
 		public static void OnAddCustomAssembly(ref List<string> list)
@@ -53,7 +55,15 @@ namespace SLua
 			// you can build a dll for 3rd library like ngui titled assembly name "NGUI", put it in Assets folder
 			// add it's name into list, slua will generate all exported interface automatically for you
 
-			list.Add("NGUI");
+			//list.Add("NGUI");
+		}
+
+		public static HashSet<string> OnAddCustomNamespace()
+		{
+			return new HashSet<string>
+			{
+				//"NLuaTest.Mock"
+			};
 		}
 
 		// if uselist return a white list, don't check noUseList(black list) again
@@ -61,6 +71,7 @@ namespace SLua
 		{
 			list = new List<string>
 			{
+				//"UnityEngine.GameObject",
 			};
 		}
 
@@ -138,6 +149,10 @@ namespace SLua
 			"Ping",
             "ShaderVariantCollection",
 			"SimpleJson.Reflection",
+			"CoroutineTween",
+			"GraphicRebuildTracker",
+            "Advertisements",
+            "UnityEditor",
         };
 		}
 

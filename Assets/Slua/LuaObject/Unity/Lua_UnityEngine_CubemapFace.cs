@@ -12,6 +12,7 @@ public class Lua_UnityEngine_CubemapFace : LuaObject {
 		addMember(l,3,"NegativeY");
 		addMember(l,4,"PositiveZ");
 		addMember(l,5,"NegativeZ");
+		addMember(l,-1,"Unknown");
 		LuaDLL.lua_pop(l, 1);
 	}
 }

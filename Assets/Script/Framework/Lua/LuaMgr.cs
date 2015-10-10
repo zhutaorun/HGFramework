@@ -43,7 +43,6 @@ public class LuaMgr : Singleton<LuaMgr>
             TextAsset asset = scriptAssetBundle.LoadAsset(luaAssetBundlePath) as TextAsset;
             this.luaDict[lua] = asset.bytes;
         }
-        
 #else
 #if UNITY_ANDROID || UNITY_IOS
         LuaPathPrefix = Application.streamingAssetsPath + "/LuaProject/";
@@ -74,7 +73,7 @@ public class LuaMgr : Singleton<LuaMgr>
         for (int i = 0; i < luas.Length; ++i)
         {
             string luaPath = luas[i].Trim();
-            Debug.Log("Load " + luaPath);
+            //Debug.Log("Load " + luaPath);
             if (string.IsNullOrEmpty(luaPath))
                 continue;
             this.luaDict[luaPath] = File.ReadAllBytes(LuaPathPrefix + luaPath);
@@ -84,9 +83,14 @@ public class LuaMgr : Singleton<LuaMgr>
 #endif
         // 重写加载规则
         LuaState.loaderDelegate = RequireLua;
+        Debug.LogWarning("Lua Svr Start : " + System.DateTime.Now);
         // 初始化lua环境，启动脚本
         this.luaSvr = new LuaSvr();
-        this.luaSvr.start(Game.Instance().startScript);
+        this.luaSvr.init(null, () =>
+            {
+                this.luaSvr.start(Game.Instance().startScript);
+            });
+        Debug.LogWarning("Lua Svr Start Done : " + System.DateTime.Now);
     }
 
     public void CallGlobalFunction(string funcName, params object[] args)

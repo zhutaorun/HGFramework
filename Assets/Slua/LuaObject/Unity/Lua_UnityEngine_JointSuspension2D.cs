@@ -9,99 +9,99 @@ public class Lua_UnityEngine_JointSuspension2D : LuaObject {
 		try {
 			UnityEngine.JointSuspension2D o;
 			o=new UnityEngine.JointSuspension2D();
+			pushValue(l,true);
 			pushValue(l,o);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_dampingRatio(IntPtr l) {
 		try {
 			UnityEngine.JointSuspension2D self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.dampingRatio);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_dampingRatio(IntPtr l) {
 		try {
 			UnityEngine.JointSuspension2D self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.dampingRatio=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_frequency(IntPtr l) {
 		try {
 			UnityEngine.JointSuspension2D self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.frequency);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_frequency(IntPtr l) {
 		try {
 			UnityEngine.JointSuspension2D self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.frequency=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_angle(IntPtr l) {
 		try {
 			UnityEngine.JointSuspension2D self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.angle);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_angle(IntPtr l) {
 		try {
 			UnityEngine.JointSuspension2D self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.angle=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

@@ -9,12 +9,12 @@ public class Lua_UnityEngine_LODGroup : LuaObject {
 		try {
 			UnityEngine.LODGroup o;
 			o=new UnityEngine.LODGroup();
+			pushValue(l,true);
 			pushValue(l,o);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -22,11 +22,11 @@ public class Lua_UnityEngine_LODGroup : LuaObject {
 		try {
 			UnityEngine.LODGroup self=(UnityEngine.LODGroup)checkSelf(l);
 			self.RecalculateBounds();
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -34,12 +34,12 @@ public class Lua_UnityEngine_LODGroup : LuaObject {
 		try {
 			UnityEngine.LODGroup self=(UnityEngine.LODGroup)checkSelf(l);
 			var ret=self.GetLODs();
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -49,11 +49,11 @@ public class Lua_UnityEngine_LODGroup : LuaObject {
 			UnityEngine.LOD[] a1;
 			checkType(l,2,out a1);
 			self.SetLODs(a1);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -63,23 +63,23 @@ public class Lua_UnityEngine_LODGroup : LuaObject {
 			System.Int32 a1;
 			checkType(l,2,out a1);
 			self.ForceLOD(a1);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_localReferencePoint(IntPtr l) {
 		try {
 			UnityEngine.LODGroup self=(UnityEngine.LODGroup)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.localReferencePoint);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -89,23 +89,23 @@ public class Lua_UnityEngine_LODGroup : LuaObject {
 			UnityEngine.Vector3 v;
 			checkType(l,2,out v);
 			self.localReferencePoint=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_size(IntPtr l) {
 		try {
 			UnityEngine.LODGroup self=(UnityEngine.LODGroup)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.size);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -115,35 +115,35 @@ public class Lua_UnityEngine_LODGroup : LuaObject {
 			float v;
 			checkType(l,2,out v);
 			self.size=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_lodCount(IntPtr l) {
 		try {
 			UnityEngine.LODGroup self=(UnityEngine.LODGroup)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.lodCount);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_fadeMode(IntPtr l) {
 		try {
 			UnityEngine.LODGroup self=(UnityEngine.LODGroup)checkSelf(l);
+			pushValue(l,true);
 			pushEnum(l,(int)self.fadeMode);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -153,23 +153,23 @@ public class Lua_UnityEngine_LODGroup : LuaObject {
 			UnityEngine.LODFadeMode v;
 			checkEnum(l,2,out v);
 			self.fadeMode=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_animateCrossFading(IntPtr l) {
 		try {
 			UnityEngine.LODGroup self=(UnityEngine.LODGroup)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.animateCrossFading);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -179,23 +179,23 @@ public class Lua_UnityEngine_LODGroup : LuaObject {
 			bool v;
 			checkType(l,2,out v);
 			self.animateCrossFading=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_enabled(IntPtr l) {
 		try {
 			UnityEngine.LODGroup self=(UnityEngine.LODGroup)checkSelf(l);
+			pushValue(l,true);
 			pushValue(l,self.enabled);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -205,22 +205,22 @@ public class Lua_UnityEngine_LODGroup : LuaObject {
 			bool v;
 			checkType(l,2,out v);
 			self.enabled=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_crossFadeAnimationDuration(IntPtr l) {
 		try {
+			pushValue(l,true);
 			pushValue(l,UnityEngine.LODGroup.crossFadeAnimationDuration);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -229,11 +229,11 @@ public class Lua_UnityEngine_LODGroup : LuaObject {
 			float v;
 			checkType(l,2,out v);
 			UnityEngine.LODGroup.crossFadeAnimationDuration=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

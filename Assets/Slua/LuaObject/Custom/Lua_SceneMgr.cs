@@ -21,11 +21,11 @@ public class Lua_SceneMgr : LuaObject {
 			SceneMgr.LoadSceneUpdateProgressCallback a6;
 			LuaDelegation.checkDelegate(l,7,out a6);
 			self.EnterScene(a1,a2,a3,a4,a5,a6);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -35,12 +35,12 @@ public class Lua_SceneMgr : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.GetResObj(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

@@ -9,99 +9,99 @@ public class Lua_UnityEngine_SoftJointLimit : LuaObject {
 		try {
 			UnityEngine.SoftJointLimit o;
 			o=new UnityEngine.SoftJointLimit();
+			pushValue(l,true);
 			pushValue(l,o);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_limit(IntPtr l) {
 		try {
 			UnityEngine.SoftJointLimit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.limit);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_limit(IntPtr l) {
 		try {
 			UnityEngine.SoftJointLimit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.limit=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_bounciness(IntPtr l) {
 		try {
 			UnityEngine.SoftJointLimit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.bounciness);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_bounciness(IntPtr l) {
 		try {
 			UnityEngine.SoftJointLimit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.bounciness=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_contactDistance(IntPtr l) {
 		try {
 			UnityEngine.SoftJointLimit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.contactDistance);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_contactDistance(IntPtr l) {
 		try {
 			UnityEngine.SoftJointLimit self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			float v;
 			checkType(l,2,out v);
 			self.contactDistance=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

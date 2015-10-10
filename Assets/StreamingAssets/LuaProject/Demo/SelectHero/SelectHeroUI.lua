@@ -3,6 +3,8 @@
 --此文件由[BabeLua]插件自动生成
 require "Demo/Fight/FightSceneLoading.lua"
 
+local GameObject = UnityEngine.GameObject;
+
 --选择英雄UI
 SelectHeroUI = class("SelectHeroUI");
 

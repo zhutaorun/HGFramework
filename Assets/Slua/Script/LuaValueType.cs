@@ -279,7 +279,7 @@ do
 
 	function Vector3.Angle(a,b)
 		local dot = Dot(Vector3.Normalize(a), Vector3.Normalize(b))
-		return acos()*ToAngle
+		return acos(dot)*ToAngle
 	end
 
 	function Vector3.Normalized(v)
@@ -739,6 +739,10 @@ do
 		v[1],v[2]=v[1]/m,v[2]/m
 	end
 
+	function Vector2.Magnitude( v )
+		return sqrt(v[1]^2+v[2]^2)
+	end
+
 	function Vector2:Set( x,y )
 		self[1],self[2]=x,y
 	end
@@ -1056,11 +1060,7 @@ end
         {
 #if !UNITY_IPHONE && !LUA_5_3
             // lua implemented valuetype isn't faster than raw under non-jit.
-            if (LuaDLL.luaL_dostring(l, script) != 0)
-            {
-                lastError(l);
-                return;
-            }
+			LuaState.get(l).doString(script,"ValueTypeScript");
 #endif
         }
     }

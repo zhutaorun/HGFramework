@@ -1,5 +1,8 @@
 require "Demo/SelectHero/SelectHero.lua"
 
+local GameObject = UnityEngine.GameObject;
+local Vector3 = UnityEngine.Vector3;
+
 --—°‘Ò”¢–€≥°æ∞
 SelectHeroScene = class("SelectHeroScene");
 

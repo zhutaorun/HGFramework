@@ -13,12 +13,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			System.Single a2;
 			checkType(l,3,out a2);
 			o=new UnityEngine.Vector2(a1,a2);
+			pushValue(l,true);
 			pushValue(l,o);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -31,12 +31,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			System.Single a2;
 			checkType(l,3,out a2);
 			self.Set(a1,a2);
+			pushValue(l,true);
 			setBack(l,self);
-			return 0;
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -47,12 +47,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a1;
 			checkType(l,2,out a1);
 			self.Scale(a1);
+			pushValue(l,true);
 			setBack(l,self);
-			return 0;
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -61,12 +61,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 self;
 			checkType(l,1,out self);
 			self.Normalize();
+			pushValue(l,true);
 			setBack(l,self);
-			return 0;
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -75,12 +75,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 self;
 			checkType(l,1,out self);
 			var ret=self.SqrMagnitude();
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -93,12 +93,30 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			System.Single a3;
 			checkType(l,3,out a3);
 			var ret=UnityEngine.Vector2.Lerp(a1,a2,a3);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int LerpUnclamped_s(IntPtr l) {
+		try {
+			UnityEngine.Vector2 a1;
+			checkType(l,1,out a1);
+			UnityEngine.Vector2 a2;
+			checkType(l,2,out a2);
+			System.Single a3;
+			checkType(l,3,out a3);
+			var ret=UnityEngine.Vector2.LerpUnclamped(a1,a2,a3);
+			pushValue(l,true);
+			pushValue(l,ret);
+			return 2;
+		}
+		catch(Exception e) {
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -111,12 +129,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			System.Single a3;
 			checkType(l,3,out a3);
 			var ret=UnityEngine.Vector2.MoveTowards(a1,a2,a3);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -127,12 +145,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a2;
 			checkType(l,2,out a2);
 			var ret=UnityEngine.Vector2.Scale(a1,a2);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -143,12 +161,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a2;
 			checkType(l,2,out a2);
 			var ret=UnityEngine.Vector2.Reflect(a1,a2);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -159,12 +177,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a2;
 			checkType(l,2,out a2);
 			var ret=UnityEngine.Vector2.Dot(a1,a2);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -175,12 +193,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a2;
 			checkType(l,2,out a2);
 			var ret=UnityEngine.Vector2.Angle(a1,a2);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -191,12 +209,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a2;
 			checkType(l,2,out a2);
 			var ret=UnityEngine.Vector2.Distance(a1,a2);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -207,12 +225,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			System.Single a2;
 			checkType(l,2,out a2);
 			var ret=UnityEngine.Vector2.ClampMagnitude(a1,a2);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -221,12 +239,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a1;
 			checkType(l,1,out a1);
 			var ret=UnityEngine.Vector2.SqrMagnitude(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -237,12 +255,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a2;
 			checkType(l,2,out a2);
 			var ret=UnityEngine.Vector2.Min(a1,a2);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -253,12 +271,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a2;
 			checkType(l,2,out a2);
 			var ret=UnityEngine.Vector2.Max(a1,a2);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -275,9 +293,10 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 				System.Single a4;
 				checkType(l,4,out a4);
 				var ret=UnityEngine.Vector2.SmoothDamp(a1,a2,ref a3,a4);
+				pushValue(l,true);
 				pushValue(l,ret);
 				pushValue(l,a3);
-				return 2;
+				return 3;
 			}
 			else if(argc==5){
 				UnityEngine.Vector2 a1;
@@ -291,9 +310,10 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 				System.Single a5;
 				checkType(l,5,out a5);
 				var ret=UnityEngine.Vector2.SmoothDamp(a1,a2,ref a3,a4,a5);
+				pushValue(l,true);
 				pushValue(l,ret);
 				pushValue(l,a3);
-				return 2;
+				return 3;
 			}
 			else if(argc==6){
 				UnityEngine.Vector2 a1;
@@ -309,16 +329,17 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 				System.Single a6;
 				checkType(l,6,out a6);
 				var ret=UnityEngine.Vector2.SmoothDamp(a1,a2,ref a3,a4,a5,a6);
+				pushValue(l,true);
 				pushValue(l,ret);
 				pushValue(l,a3);
-				return 2;
+				return 3;
 			}
-			LuaDLL.luaL_error(l,"No matched override function to call");
-			return 0;
+			pushValue(l,false);
+			LuaDLL.lua_pushstring(l,"No matched override function to call");
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -329,12 +350,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a2;
 			checkType(l,2,out a2);
 			var ret=a1+a2;
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -345,12 +366,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a2;
 			checkType(l,2,out a2);
 			var ret=a1-a2;
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -359,12 +380,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a1;
 			checkType(l,1,out a1);
 			var ret=-a1;
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -377,8 +398,9 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 				UnityEngine.Vector2 a2;
 				checkType(l,2,out a2);
 				var ret=a1*a2;
+				pushValue(l,true);
 				pushValue(l,ret);
-				return 1;
+				return 2;
 			}
 			else if(matchType(l,argc,1,typeof(UnityEngine.Vector2),typeof(float))){
 				UnityEngine.Vector2 a1;
@@ -386,15 +408,16 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 				System.Single a2;
 				checkType(l,2,out a2);
 				var ret=a1*a2;
+				pushValue(l,true);
 				pushValue(l,ret);
-				return 1;
+				return 2;
 			}
-			LuaDLL.luaL_error(l,"No matched override function to call");
-			return 0;
+			pushValue(l,false);
+			LuaDLL.lua_pushstring(l,"No matched override function to call");
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -405,12 +428,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			System.Single a2;
 			checkType(l,2,out a2);
 			var ret=a1/a2;
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -421,12 +444,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a2;
 			checkType(l,2,out a2);
 			var ret=(a1==a2);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -437,23 +460,23 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			UnityEngine.Vector2 a2;
 			checkType(l,2,out a2);
 			var ret=(a1!=a2);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_kEpsilon(IntPtr l) {
 		try {
+			pushValue(l,true);
 			pushValue(l,UnityEngine.Vector2.kEpsilon);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -461,12 +484,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 		try {
 			UnityEngine.Vector2 self;
 			checkType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.x);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -478,11 +501,11 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			checkType(l,2,out v);
 			self.x=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -490,12 +513,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 		try {
 			UnityEngine.Vector2 self;
 			checkType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.y);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -507,11 +530,11 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			checkType(l,2,out v);
 			self.y=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -519,12 +542,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 		try {
 			UnityEngine.Vector2 self;
 			checkType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.normalized);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -532,12 +555,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 		try {
 			UnityEngine.Vector2 self;
 			checkType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.magnitude);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -545,78 +568,78 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 		try {
 			UnityEngine.Vector2 self;
 			checkType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.sqrMagnitude);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_zero(IntPtr l) {
 		try {
+			pushValue(l,true);
 			pushValue(l,UnityEngine.Vector2.zero);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_one(IntPtr l) {
 		try {
+			pushValue(l,true);
 			pushValue(l,UnityEngine.Vector2.one);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_up(IntPtr l) {
 		try {
+			pushValue(l,true);
 			pushValue(l,UnityEngine.Vector2.up);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_down(IntPtr l) {
 		try {
+			pushValue(l,true);
 			pushValue(l,UnityEngine.Vector2.down);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_left(IntPtr l) {
 		try {
+			pushValue(l,true);
 			pushValue(l,UnityEngine.Vector2.left);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_right(IntPtr l) {
 		try {
+			pushValue(l,true);
 			pushValue(l,UnityEngine.Vector2.right);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -627,12 +650,12 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			int v;
 			checkType(l,2,out v);
 			var ret = self[v];
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -645,11 +668,11 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 			float c;
 			checkType(l,3,out c);
 			self[v]=c;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {
@@ -659,6 +682,7 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 		addMember(l,Normalize);
 		addMember(l,SqrMagnitude);
 		addMember(l,Lerp_s);
+		addMember(l,LerpUnclamped_s);
 		addMember(l,MoveTowards_s);
 		addMember(l,Scale_s);
 		addMember(l,Reflect_s);

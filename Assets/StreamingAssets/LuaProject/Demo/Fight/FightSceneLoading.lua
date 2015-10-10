@@ -4,6 +4,8 @@
 require "Demo/Fight/FightScene.lua"
 require "Demo/Fight/FightUI.lua"
 
+local GameObject = UnityEngine.GameObject;
+
 FightSceneLoading = class("FightSceneLoading");
 
 function FightSceneLoading:Awake()

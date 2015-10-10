@@ -36,7 +36,7 @@ namespace SLua
 
 				pushValue(l,a1);
 				pushValue(l,a2);
-				ld.call(2, error);
+				ld.pcall(2, error);
 				LuaDLL.lua_settop(l, error-1);
 			};
 			ld.d=ua;

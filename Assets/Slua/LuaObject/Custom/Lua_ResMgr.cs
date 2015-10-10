@@ -9,12 +9,12 @@ public class Lua_ResMgr : LuaObject {
 		try {
 			ResMgr self=(ResMgr)checkSelf(l);
 			var ret=self.Init();
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -24,12 +24,12 @@ public class Lua_ResMgr : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.GetDependences(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -39,12 +39,12 @@ public class Lua_ResMgr : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.IsLoadedAssetBundle(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -56,11 +56,11 @@ public class Lua_ResMgr : LuaObject {
 			ResourceLoader.LoadResDoneCallback a2;
 			LuaDelegation.checkDelegate(l,3,out a2);
 			self.LoadRes(a1,a2);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -76,11 +76,11 @@ public class Lua_ResMgr : LuaObject {
 			SceneLoader.LoadSceneUpdateCallback a4;
 			LuaDelegation.checkDelegate(l,5,out a4);
 			self.LoadScene(a1,a2,a3,a4);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -88,22 +88,22 @@ public class Lua_ResMgr : LuaObject {
 		try {
 			ResMgr self=(ResMgr)checkSelf(l);
 			self.Unload();
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_AssetBundleFormation(IntPtr l) {
 		try {
+			pushValue(l,true);
 			pushValue(l,ResMgr.AssetBundleFormation);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -112,22 +112,22 @@ public class Lua_ResMgr : LuaObject {
 			System.String v;
 			checkType(l,2,out v);
 			ResMgr.AssetBundleFormation=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_AssetBundlePath(IntPtr l) {
 		try {
+			pushValue(l,true);
 			pushValue(l,ResMgr.AssetBundlePath);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -136,11 +136,11 @@ public class Lua_ResMgr : LuaObject {
 			System.String v;
 			checkType(l,2,out v);
 			ResMgr.AssetBundlePath=v;
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

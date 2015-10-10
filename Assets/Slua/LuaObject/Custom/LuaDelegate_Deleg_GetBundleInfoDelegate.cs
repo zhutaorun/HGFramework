@@ -35,7 +35,7 @@ namespace SLua
                 int error = pushTry(l);
 
 				pushValue(l,a1);
-				ld.call(1, error);
+				ld.pcall(1, error);
 				bool ret;
 				checkType(l,error+1,out ret);
 				checkType(l,error+2,out a2);

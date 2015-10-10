@@ -84,7 +84,7 @@ public class ResMgr : Singleton<ResMgr>
             IResLoader loader = resLoaderKV.Value;
             if (loader.IsDone())
             {
-                Debug.Log(string.Format("{0} done at {1}", resName, Time.frameCount));
+                //Debug.Log(string.Format("{0} done at {1}", resName, Time.frameCount));
                 this.loadedResList.Add(resName);
             }
         }
@@ -163,7 +163,7 @@ public class ResMgr : Singleton<ResMgr>
         // 如果正在加载中，则将加载回调添加到已有的加载器
         if (this.loadingResDict.TryGetValue(resName, out loader))
         {
-            Debug.LogWarning(resName + " loading");
+            //Debug.LogWarning(resName + " loading");
             if (loadDone != null)
                 loader.LoadDoneCallback += loadDone;
             return;
@@ -245,7 +245,7 @@ public class ResMgr : Singleton<ResMgr>
     {
         Logger.Assert((loader != null), "AddLoadingLoader loader is NULL");
         Logger.Assert(!this.loadingResDict.ContainsKey(loader.ResName), string.Format("Already Loading {0}", loader.ResName));
-        Debug.Log(string.Format("{0} start loading at {1}", loader.ResName, Time.frameCount));
+        //Debug.Log(string.Format("{0} start loading at {1}", loader.ResName, Time.frameCount));
         this.loadingResDict[loader.ResName] = loader;
     }
 }

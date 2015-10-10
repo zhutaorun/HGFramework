@@ -4,6 +4,9 @@
 require "Demo/SelectHero/SelectHeroScene.lua"
 require "Demo/SelectHero/SelectHeroUI.lua"
 
+local GameObject = UnityEngine.GameObject;
+local Vector3 = UnityEngine.Vector3;
+
 --选择英雄场景加载器
 SelectHeroSceneLoading = class("SelectHeroSceneLoading");
 

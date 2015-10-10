@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3270725219
+CRC: 3892063192
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ba259d4c63fe484580888d05479a27bb
+    Hash: a3aeaa368d8d407eec28e21b747714dd
   TypeTreeHash:
     serializedVersion: 2
     Hash: 29b6344b4e672a29966dccaa8889c369
@@ -60,4 +60,4 @@ ClassTypes:
 Assets:
 - Assets/Scene/login.unity
 Dependencies:
-- D:/GitHub/HGFramework/Assets/../AssetBundles/PC/AssetBundles/wooden.atlas
+- D:/GitHub/HGFramework/Assets/../AssetBundles/Android/AssetBundles/wooden.atlas

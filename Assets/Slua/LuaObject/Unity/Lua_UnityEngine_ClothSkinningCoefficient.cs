@@ -9,70 +9,70 @@ public class Lua_UnityEngine_ClothSkinningCoefficient : LuaObject {
 		try {
 			UnityEngine.ClothSkinningCoefficient o;
 			o=new UnityEngine.ClothSkinningCoefficient();
+			pushValue(l,true);
 			pushValue(l,o);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_maxDistance(IntPtr l) {
 		try {
 			UnityEngine.ClothSkinningCoefficient self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.maxDistance);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_maxDistance(IntPtr l) {
 		try {
 			UnityEngine.ClothSkinningCoefficient self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			System.Single v;
 			checkType(l,2,out v);
 			self.maxDistance=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_collisionSphereDistance(IntPtr l) {
 		try {
 			UnityEngine.ClothSkinningCoefficient self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
+			pushValue(l,true);
 			pushValue(l,self.collisionSphereDistance);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int set_collisionSphereDistance(IntPtr l) {
 		try {
 			UnityEngine.ClothSkinningCoefficient self;
-			checkType(l,1,out self);
+			checkValueType(l,1,out self);
 			System.Single v;
 			checkType(l,2,out v);
 			self.collisionSphereDistance=v;
 			setBack(l,self);
-			return 0;
+			pushValue(l,true);
+			return 1;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

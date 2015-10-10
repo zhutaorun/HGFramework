@@ -52,10 +52,12 @@ public class Lua_UnityEngine_TextureFormat : LuaObject {
 		addMember(l,57,"ASTC_RGBA_8x8");
 		addMember(l,58,"ASTC_RGBA_10x10");
 		addMember(l,59,"ASTC_RGBA_12x12");
-		addMember(l,-127,"PVRTC_2BPP_RGB");
-		addMember(l,-127,"PVRTC_2BPP_RGBA");
+		addMember(l,60,"ETC_RGB4_3DS");
+		addMember(l,61,"ETC_RGBA8_3DS");
 		addMember(l,-127,"PVRTC_4BPP_RGB");
-		addMember(l,-127,"PVRTC_4BPP_RGBA");
+		addMember(l,-127,"PVRTC_4BPP_RGB");
+		addMember(l,-127,"PVRTC_4BPP_RGB");
+		addMember(l,-127,"PVRTC_4BPP_RGB");
 		LuaDLL.lua_pop(l, 1);
 	}
 }

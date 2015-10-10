@@ -8,12 +8,12 @@ public class Lua_Singleton_1_ConfigMgr : LuaObject {
 	static public int Instance_s(IntPtr l) {
 		try {
 			var ret=Singleton<ConfigMgr>.Instance();
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

@@ -1,5 +1,3 @@
-import "UnityEngine"
-
 --全局头文件
 class = require "Lib/MiddleClass/middleclass.lua"
 json = require "cjson"
@@ -21,6 +19,8 @@ require "Demo/SelectHero/SelectHeroSceneLoading.lua"
 
 data = {};
 
+local GameObject = UnityEngine.GameObject;
+
 function main()
 	--测试cjson
 	local json_text = '{"username":"hello","password":"world"}';
@@ -32,11 +32,12 @@ function main()
 	--测试thrift格式的配置表
 	Config.Load();
 
+    _CreateLuaBehaviour(GameObject("SelectHeroSceneLoading"), SelectHeroSceneLoading:new(), "select_hero.scene", "aaa");
+
+
     --网络消息注册
-    LoginService.Init();
-
-	--测试demo
-    _CreateLuaBehaviour(GameObject("LoginSceneLoading"), LoginSceneLoading:new(), "login.scene", "aaa");
-
-    NetMgr.Instance():Connect("127.0.0.1", 8083);
+--    LoginService.Init();
+	--测试网络demo
+--    _CreateLuaBehaviour(GameObject("LoginSceneLoading"), LoginSceneLoading:new(), "login.scene", "aaa");
+--    NetMgr.Instance():Connect("127.0.0.1", 8083);
 end

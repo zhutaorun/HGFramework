@@ -32,15 +32,20 @@ public class Game : MonoSingleton<Game>
 #if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
         Screen.SetResolution((int)this.windowSize.x, (int)this.windowSize.y, false);
 #endif
+        Debug.LogWarning("Game Start : " + System.DateTime.Now);
         // 初始化公共模块
         Console.Instance();
         Logger.Instance();
+        Debug.LogWarning("Res Start : " + System.DateTime.Now);
         // 需要先加载AssetBundleManifest
         yield return StartCoroutine(ResMgr.Instance().Init());
+        Debug.LogWarning("Config Start : " + System.DateTime.Now);
         // 加载配置数据
         yield return StartCoroutine(ConfigMgr.Instance().Init());
+        Debug.LogWarning("Lua Start : " + System.DateTime.Now);
         // 启动脚本，开始逻辑
         yield return StartCoroutine(LuaMgr.Instance().Init());
+        Debug.LogWarning("Game Start Done : " + System.DateTime.Now);
     }
 
     void Update()

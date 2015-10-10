@@ -9,12 +9,12 @@ public class Lua_ConfigMgr : LuaObject {
 		try {
 			ConfigMgr self=(ConfigMgr)checkSelf(l);
 			var ret=self.Init();
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -24,12 +24,12 @@ public class Lua_ConfigMgr : LuaObject {
 			System.String a1;
 			checkType(l,2,out a1);
 			var ret=self.GetConfig(a1);
+			pushValue(l,true);
 			pushValue(l,ret);
-			return 1;
+			return 2;
 		}
 		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
+			return error(l,e);
 		}
 	}
 	static public void reg(IntPtr l) {

@@ -254,6 +254,7 @@
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+    <None Include="Assets\Slua\LuaObject\新建文本文档.txt" />
     <None Include="Assets\Slua\Resources\circle\circle.txt" />
     <None Include="Assets\Slua\Resources\custom.txt" />
     <None Include="Assets\Slua\Resources\delegate.txt" />

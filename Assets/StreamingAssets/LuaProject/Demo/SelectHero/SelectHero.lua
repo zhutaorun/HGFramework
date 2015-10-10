@@ -1,3 +1,6 @@
+local Vector3 = UnityEngine.Vector3;
+local Quaternion = UnityEngine.Quaternion;
+
 --选择英雄场景下的英雄脚本
 SelectHero = class("SelectHero");
 

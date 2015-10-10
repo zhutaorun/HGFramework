@@ -34,7 +34,7 @@ namespace SLua
             {
                 int error = pushTry(l);
 
-				ld.call(0, error);
+				ld.pcall(0, error);
 				int ret;
 				checkType(l,error+1,out ret);
 				LuaDLL.lua_settop(l, error-1);

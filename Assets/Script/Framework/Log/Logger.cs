@@ -40,7 +40,7 @@ public class Logger : Singleton<Logger>
     /// <summary>
     /// UI输出日志等级，只要大于等于这个级别的日志，都会输出到屏幕
     /// </summary>
-    public LogLevel uiOutputLogLevel = LogLevel.MAX;
+    public LogLevel uiOutputLogLevel = LogLevel.LOG;
     /// <summary>
     /// 文本输出日志等级，只要大于等于这个级别的日志，都会输出到文本
     /// </summary>
