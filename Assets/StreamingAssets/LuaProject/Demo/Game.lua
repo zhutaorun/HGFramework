@@ -32,12 +32,12 @@ function main()
 	--测试thrift格式的配置表
 	Config.Load();
 
-    _CreateLuaBehaviour(GameObject("SelectHeroSceneLoading"), SelectHeroSceneLoading:new(), "select_hero.scene", "aaa");
+--    _CreateLuaBehaviour(GameObject("SelectHeroSceneLoading"), SelectHeroSceneLoading:new(), "select_hero.scene", "aaa");
 
 
     --网络消息注册
---    LoginService.Init();
+    LoginService.Init();
 	--测试网络demo
---    _CreateLuaBehaviour(GameObject("LoginSceneLoading"), LoginSceneLoading:new(), "login.scene", "aaa");
---    NetMgr.Instance():Connect("127.0.0.1", 8083);
+    Utility.CreateLuaBehaviour(GameObject("LoginSceneLoading"), LoginSceneLoading:new(), "login.scene", "aaa");
+    NetMgr.Instance():Connect("192.168.0.22", 8083);
 end

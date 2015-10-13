@@ -4,10 +4,12 @@
 
 require "ProtocolMap.lua"
 
+local GameObject = UnityEngine.GameObject;
+
 LoginService = {};
 
 function LoginService.Init()
-    _RegNetMsgHandler(S2CLogin:GetType(), LoginService.HandleS2CLoginMsg);
+    NetMsgMgr.RegNetMsgHandler(S2CLogin:GetType(), LoginService.HandleS2CLoginMsg);
 end
 
 function LoginService.Login(username)
@@ -17,12 +19,12 @@ function LoginService.Login(username)
         channel = "test",
         zoneId = "test", 
     };
-    _SendNetMsg(loginMsg);
+    NetMsgMgr.SendNetMsg(loginMsg);
 end
 
 function LoginService.HandleS2CLoginMsg(msg)
     print("status : " .. msg.loginStatus);
-    _CreateLuaBehaviour(GameObject("SelectHeroSceneLoading"), SelectHeroSceneLoading:new());
+    Utility.CreateLuaBehaviour(GameObject("SelectHeroSceneLoading"), SelectHeroSceneLoading:new());
 end
 
 --endregion

@@ -1,9 +1,10 @@
 ﻿--工具类
+Utility = {};
 
 --设置父子关系
 --childTrans: 子节点，Transform
 --parentTrans: 父节点，Transform
-function _SetParent(childTrans, parentTrans)
+function Utility.SetParent(childTrans, parentTrans)
 	if not childTrans then
 		Debug.LogError("SetParent childTrans is nil");
 		return;
@@ -18,8 +19,8 @@ end
 --设置父子关系，并归一，位移归零，旋转归零，缩放归一
 --childTrans: 子节点，Transform
 --parentTrans: 父节点，Transform
-function _SetParentNormally(childTrans, parentTrans)
-	_SetParent(childTrans, parentTrans);
+function Utility.SetParentNormally(childTrans, parentTrans)
+	Utility.SetParent(childTrans, parentTrans);
 	childTrans.localPosition = Vector3.zero;
 	childTrans.localRotation = Quaternion.identity;
 	childTrans.localScale = Vector3.one;
@@ -29,7 +30,7 @@ end
 --gameObj: 游戏对象
 --luaTable: Lua对象
 --...: 不定参数，传递到Awake(...)，供初始化使用
-function _CreateLuaBehaviour(gameObj, luaObj, ...)
+function Utility.CreateLuaBehaviour(gameObj, luaObj, ...)
 	if not gameObj then
 		return nil;
 	end

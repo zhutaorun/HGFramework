@@ -86,7 +86,12 @@ public class LuaMgr : Singleton<LuaMgr>
         Debug.LogWarning("Lua Svr Start : " + System.DateTime.Now);
         // 初始化lua环境，启动脚本
         this.luaSvr = new LuaSvr();
-        this.luaSvr.init(null, () =>
+        this.luaSvr.init(
+            (progress) =>
+            {
+                Debug.Log("BindProgress : " + progress);
+            },
+            () =>
             {
                 this.luaSvr.start(Game.Instance().startScript);
             });
@@ -104,6 +109,27 @@ public class LuaMgr : Singleton<LuaMgr>
         if (func == null)
         {
             Debug.LogError("NOT found Global Function : " + funcName);
+            return;
+        }
+        func.call(args);
+    }
+
+    public void CallTableFunction(string tabelName, string funcName, params object[] args)
+    {
+        if (string.IsNullOrEmpty(tabelName))
+        {
+            Debug.LogError("CallTableFunction tableName is NULL!");
+        }
+        if (string.IsNullOrEmpty(funcName))
+        {
+            Debug.LogError("CallTableFunction funcName is NULL!");
+            return;
+        }
+        LuaTable table = this.luaSvr.luaState.getTable(tabelName);
+        LuaFunction func = table[funcName] as LuaFunction;
+        if (func == null)
+        {
+            Debug.LogError("NOT found CallTableFunction Function : " + funcName);
             return;
         }
         func.call(args);

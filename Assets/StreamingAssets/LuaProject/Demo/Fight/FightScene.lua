@@ -15,7 +15,7 @@ function FightScene:Awake()
     heroInfo = Config.GetHeroInfoConfig(data.selectHeroID);
     local heroGO = GameObject.Instantiate(SceneMgrWrapper.GetResObj(ResMgrWrapper.GetHeroModelPath(heroInfo.model)));
     heroGO.name = "Hero";
-    self.hero = _CreateLuaBehaviour(heroGO, FightHero:new());
+    self.hero = Utility.CreateLuaBehaviour(heroGO, FightHero:new());
     --注册操作控制器，根据不同平台注册不同的操作控制器
     self.controller = PCCtrl:new(self.camera, self.hero);
     self.mCameraCtrl = CameraCtrl:new(self.camera, self.hero.trans);

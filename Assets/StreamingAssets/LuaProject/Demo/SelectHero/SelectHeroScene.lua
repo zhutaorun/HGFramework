@@ -12,14 +12,14 @@ function SelectHeroScene:Awake()
 	self.spotLightGO:SetActive(false);
 	--Ó¢ÐÛ
 	self.heros = {};
-	self.heros[1] = _CreateLuaBehaviour(GameObject.Find("knight"), SelectHero:new());
+	self.heros[1] = Utility.CreateLuaBehaviour(GameObject.Find("knight"), SelectHero:new());
 	self.heros[1].id = "1";
-	self.heros[2] = _CreateLuaBehaviour(GameObject.Find("magician"), SelectHero:new());
+	self.heros[2] = Utility.CreateLuaBehaviour(GameObject.Find("magician"), SelectHero:new());
 	self.heros[2].id = "2";
-	self.heros[3] = _CreateLuaBehaviour(GameObject.Find("priest"), SelectHero:new());
+	self.heros[3] = Utility.CreateLuaBehaviour(GameObject.Find("priest"), SelectHero:new());
 	self.heros[3].id = "3";
 	--×¢²áÊÂ¼þ
-	_RegLogicMsg("SelectHero", self, self.HandleSelectHeroMsg);
+	MsgDispatcher.RegLogicMsg("SelectHero", self, self.HandleSelectHeroMsg);
 end
 
 function SelectHeroScene:HandleSelectHeroMsg(arg)

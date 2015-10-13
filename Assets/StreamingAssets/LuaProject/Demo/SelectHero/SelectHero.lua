@@ -12,7 +12,7 @@ end
 function SelectHero:OnClick()
 	local arg = {};
 	arg["id"] = self.id;
-	_SendLogicMsg("SelectHero", arg);
+	MsgDispatcher.SendLogicMsg("SelectHero", arg);
 end
 
 function SelectHero:Select()

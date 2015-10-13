@@ -218,7 +218,7 @@ public class NetMgr : Singleton<NetMgr>
             {
                 NetMsg msg = this.mRecvingMsgQueue.Dequeue();
                 // 交由Lua解析并处理逻辑
-                LuaMgr.Instance().CallGlobalFunction("_HandleNetMsg", msg.Type, msg.Data);
+                LuaMgr.Instance().CallTableFunction("NetMsgMgr", "HandleNetMsg", msg.Type, msg.Data);
             }
         }
     }

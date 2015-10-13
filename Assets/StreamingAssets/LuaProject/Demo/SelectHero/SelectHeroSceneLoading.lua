@@ -18,7 +18,7 @@ end
 
 --Loading场景加载完成
 function SelectHeroSceneLoading:OnLoadingDone()
-	local loadingUI = _CreateLuaBehaviour(GameObject.Find("LoadingUI"), LoadingUI:new());
+	local loadingUI = Utility.CreateLuaBehaviour(GameObject.Find("LoadingUI"), LoadingUI:new());
 	loadingUI:Show();
 end
 
@@ -35,9 +35,9 @@ function SelectHeroSceneLoading:OnSceneLoadDone(sceneName)
 	priest.name = "priest";
 	priest.transform.position = Vector3(-4, 0, 0);
 	--新场景逻辑
-	_SendLogicMsg("SceneLoadDone");
-	_CreateLuaBehaviour(GameObject.Find("Scene"), SelectHeroScene:new());
-	_CreateLuaBehaviour(GameObject.Find("UI"), SelectHeroUI:new());
+	MsgDispatcher.SendLogicMsg("SceneLoadDone");
+	Utility.CreateLuaBehaviour(GameObject.Find("Scene"), SelectHeroScene:new());
+	Utility.CreateLuaBehaviour(GameObject.Find("UI"), SelectHeroUI:new());
 end
 
 function SelectHeroSceneLoading:OnSceneLoadUpdate(sceneName, progress)

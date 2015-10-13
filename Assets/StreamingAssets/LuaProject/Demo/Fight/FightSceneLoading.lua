@@ -16,14 +16,14 @@ function FightSceneLoading:Awake()
 end
 
 function FightSceneLoading:OnLoadingDone()
-    local loadingUI = _CreateLuaBehaviour(GameObject.Find("LoadingUI"), LoadingUI:new());
+    local loadingUI = Utility.CreateLuaBehaviour(GameObject.Find("LoadingUI"), LoadingUI:new());
 	loadingUI:Show(); 
 end
 
 function FightSceneLoading:OnSceneLoadDone(sceneName)
-    _SendLogicMsg("SceneLoadDone");
-    _CreateLuaBehaviour(GameObject.Find("Scene"), FightScene:new());
-    _CreateLuaBehaviour(GameObject.Find("UI"), FightUI:new());
+    MsgDispatcher.SendLogicMsg("SceneLoadDone");
+    Utility.CreateLuaBehaviour(GameObject.Find("Scene"), FightScene:new());
+    Utility.CreateLuaBehaviour(GameObject.Find("UI"), FightUI:new());
 end
 
 function FightSceneLoading:OnSceneLoadUpdate(sceneName, progress)
