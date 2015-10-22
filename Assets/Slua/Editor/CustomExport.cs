@@ -153,6 +153,7 @@ namespace SLua
 			"GraphicRebuildTracker",
             "Advertisements",
             "UnityEditor",
+            "Window"
         };
 		}
 

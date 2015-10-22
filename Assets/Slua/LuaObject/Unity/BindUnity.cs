@@ -163,7 +163,6 @@ namespace SLua {
 				Lua_UnityEngine_Experimental_Director_Playable.reg,
 				Lua_UnityEngine_WindZoneMode.reg,
 				Lua_UnityEngine_WindZone.reg,
-				Lua_UnityEngine_Tizen_Window.reg,
 				Lua_UnityEngine_DynamicGI.reg,
 				Lua_UnityEngine_ParticleSystemRenderMode.reg,
 				Lua_UnityEngine_ParticleSystemSimulationSpace.reg,

@@ -4,6 +4,8 @@
 
 require "ProtocolMap.lua"
 
+local Debug = UnityEngine.Debug;
+
 NetMsgMgr = {};
 
 NetMsgMgr.mNetMsgHandlerDict = {};
@@ -58,18 +60,46 @@ function NetMsgMgr.HandleNetMsg(msgType, msgData)
     if handlers then
         print("Handle : " .. msgType);
         for i = 1, #handlers do
-            handlers[i](msg);
+            local handler = handlers[i];
+            --如果有self，则表示是对象的回调处理
+            if handler.self then
+                handler.callback(handler.self, msg);
+            else
+                handler.callback(msg);
+            end
         end
     end
 end
 
 --注册网络消息处理回调
-function NetMsgMgr.RegNetMsgHandler(msgType, callback)
+function NetMsgMgr.RegNetMsgHandler(msgType, self, callback)
     if NetMsgMgr.mNetMsgHandlerDict[msgType] == nil then
         NetMsgMgr.mNetMsgHandlerDict[msgType] = {};
     end
-    print("Reg : " .. msgType);
-    table.insert(NetMsgMgr.mNetMsgHandlerDict[msgType], callback);
+    local handler = 
+    {
+        self = self,
+        callback = callback,
+    };
+    Debug.LogWarning("RegNetMsgHandler : " .. msgType);
+    table.insert(NetMsgMgr.mNetMsgHandlerDict[msgType], handler);
+end
+
+--解注册网络消息处理回调
+function NetMsgMgr.UnRegNetMsgHandler(msgType, self, callback)
+    local handlers = NetMsgMgr.mNetMsgHandlerDict[msgType];
+    if handlers == nil then
+        print("NOT Register!");
+        return;
+    end
+    for i = #handlers, 1, -1 do
+        local handler = handlers[i];
+        if handler.self == self and handler.callback == callback then
+            Debug.LogWarning("UnRegNetMsgHandle : " .. msgType);
+            table.remove(handlers, i);
+            break;
+        end
+    end
 end
 
 --endregion

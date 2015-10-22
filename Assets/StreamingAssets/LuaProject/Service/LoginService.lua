@@ -9,7 +9,8 @@ local GameObject = UnityEngine.GameObject;
 LoginService = {};
 
 function LoginService.Init()
-    NetMsgMgr.RegNetMsgHandler(S2CLogin:GetType(), LoginService.HandleS2CLoginMsg);
+    NetMsgMgr.RegNetMsgHandler(S2CLogin:GetType(), nil, LoginService.HandleS2CLoginMsg);
+    NetMsgMgr.UnRegNetMsgHandler(S2CLogin:GetType(), nil, LoginService.HandleS2CLoginMsg);
 end
 
 function LoginService.Login(username)

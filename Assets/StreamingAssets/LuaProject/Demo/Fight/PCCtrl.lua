@@ -23,7 +23,7 @@ function PCCtrl:Update()
     if self.moving then
         --检测碰撞
         local ray = self.camera:ScreenPointToRay(Input.mousePosition);
-        local ret, hitInfo = Physics.Raycast(ray, SLua.out);
+        local ret, hitInfo = Physics.Raycast(ray, Slua.out);
         if ret and hitInfo.collider.name == "Terrain" then
             self.hero:HandleMsg("MOVE_MSG", hitInfo.point);
         end
