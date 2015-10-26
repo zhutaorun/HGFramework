@@ -34,9 +34,9 @@ function NetMsgMgr.SendNetChannelMsg(msg)
         print("_SendNetChannelMsg is nil");
         return;
     end
-    local requestMsg = ClientChannelRequest:new();
-    requestMsg.internalProtocolType = msgType:GetType();
-    local trans = TMemoryBuffer:new();
+    local requestMsg = ClientChannelRequest:new{};
+    requestMsg.internalProtocolType = msg:GetType();
+    local trans = TMemoryBuffer:new{};
     local proto = TBinaryProtocol:new{ trans = trans };
     msg:write(proto);
     requestMsg.content = trans:getBuffer();
@@ -50,11 +50,22 @@ end
 function NetMsgMgr.HandleNetMsg(msgType, msgData)
     --根据类型实例化消息对象
     local msg = _NewMsg(msgType);
+	if msgType == ClientChannelResponse:GetType() then
+		local t = TMemoryBuffer:new{};
+		t:resetBuffer(msgData);
+		local p = TBinaryProtocol:new{ trans = t };
+		msg:read(p);
+		msgType = msg.internalProtocolType;
+		msgData = msg.content;
+		msg = _NewMsg(msg.internalProtocolType);
+	end
     --反序列化消息
     local trans = TMemoryBuffer:new{};
     trans:resetBuffer(msgData);
     local proto = TBinaryProtocol:new{ trans = trans };
     msg:read(proto);
+	--输出协议日志
+	print(NetMsgMgr.ParseMsg(msg));
     --交由逻辑处理
     local handlers = NetMsgMgr.mNetMsgHandlerDict[msgType];
     if handlers then
@@ -100,6 +111,41 @@ function NetMsgMgr.UnRegNetMsgHandler(msgType, self, callback)
             break;
         end
     end
+end
+
+--输出协议
+function NetMsgMgr.ParseMsg(msg)
+	if msg == nil then
+		return;
+	end
+	local str = "";
+	--输出数组部分
+	str = str .. "[";
+	for i,v in ipairs(msg) do
+		local t = type(v);
+		if t == "string" or t == "number" or t == "boolean" then
+			str = str .. v;
+		elseif t == "table" then
+			str = str .. NetMsgMgr.ParseMsg(msg);
+		end
+		str = str .. ",";
+	end
+	str = str .. "],{";
+	--输出字典部分
+	for k,v in pairs(msg) do
+		if not string.find(k, "__") then
+			str = str .. "{" .. k .. ":";
+			local t = type(v);
+			if t == "string" or t == "number" or t == "boolean" then
+				str = str .. v;
+			elseif t == "table" then
+				str = str .. NetMsgMgr.ParseMsg(msg);
+			end
+			str = str .. "},";
+		end
+	end
+	str = str .. "}";
+	return str;
 end
 
 --endregion

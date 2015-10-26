@@ -16,7 +16,7 @@ MyGameObject=Slua.Class(GameObject,
 )
 
 function main()
-
+	
 	-- test split of System.String
 	local x=String("a,b,c,d/e/f/g")
 	print(unpack(x:Split(",/",0)))
