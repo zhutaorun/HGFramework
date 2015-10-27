@@ -16,7 +16,7 @@ public class ConfigMgr : Singleton<ConfigMgr>
     {
         this.configDict = new Dictionary<string, byte[]>();
 #if ASSETBUNDLE
-        WWW www = new WWW("file://" + Application.streamingAssetsPath + "/AssetBundles/config.bytes");
+        WWW www = new WWW(ResMgr.DeviceURL + "config.bytes");
         yield return www;
         AssetBundle configAssetBundle = www.assetBundle;
         string configsIni = (configAssetBundle.LoadAsset("Assets/Config/configs.txt") as TextAsset).text;

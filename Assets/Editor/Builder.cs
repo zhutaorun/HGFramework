@@ -53,15 +53,17 @@ public class Builder
         // 执行Build操作
         if (!Directory.Exists(path))
             Directory.CreateDirectory(path);
-        BuildPipeline.BuildAssetBundles(path, BuildAssetBundleOptions.DisableWriteTypeTree, targetPlatform);
+        BuildPipeline.BuildAssetBundles(path, 
+            BuildAssetBundleOptions.IgnoreTypeTreeChanges, 
+            targetPlatform);
         AssetDatabase.Refresh();
         Debug.Log("Build AssetBundles OK");
         // 将最新生成的AssetBundles拷贝到StreamingAssets目录
         DirectoryCopy(path, Application.streamingAssetsPath + "/AssetBundles", true);
         Debug.Log("Copy AssetBundles OK");
-        // 删除临时目录
-        Directory.Delete(Application.dataPath + "/LuaProject", true);
-        Directory.Delete(Application.dataPath + "/Config", true);
+        //// 删除临时目录
+        //Directory.Delete(Application.dataPath + "/LuaProject", true);
+        //Directory.Delete(Application.dataPath + "/Config", true);
         AssetDatabase.Refresh();
     }
 

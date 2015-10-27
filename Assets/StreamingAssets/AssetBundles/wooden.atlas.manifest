@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 1442471758
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4beda04baeca5c6e1d6a190be72b286a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b67c85de564a95b995741e4d5a9adbc3
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0b4eb3a400afab046abb8471a9d746d6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/NGUI/Examples/Atlases/Wooden/Wooden Atlas.prefab
+- Assets/NGUI/Examples/Atlases/Wooden/Arimo20.prefab
+Dependencies: []

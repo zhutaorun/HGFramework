@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Project Name="LuaStudioProject.luaprj" >
+    <Filter Name="AutoGeneration" Directory=".\..\AutoGeneration" >
+        <Filter Name="Config" Directory=".\..\AutoGeneration\Config" >
+            <LuaFile RelativePath=".\..\AutoGeneration\Config\Config.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Config\config_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Config\config_ttypes.lua" />
+        </Filter>
+        <Filter Name="Protocol" Directory=".\..\AutoGeneration\Protocol" >
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\alchemy_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\alchemy_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\armor_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\armor_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\astrology_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\astrology_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\dailyQuest_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\dailyQuest_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\fight_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\fight_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\forging_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\forging_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\game_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\game_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\guild_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\guild_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\hero_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\hero_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\login_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\login_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\magicCircle_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\magicCircle_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\ProtocolMap.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\share_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\share_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\shop_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\shop_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\tools_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\tools_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\trading_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\trading_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\user_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\user_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\VIP_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\VIP_ttypes.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\weapon_constants.lua" />
+            <LuaFile RelativePath=".\..\AutoGeneration\Protocol\weapon_ttypes.lua" />
+        </Filter>
+    </Filter>
+    <Filter Name="Demo" Directory=".\..\Demo" >
+        <LuaFile RelativePath=".\..\Demo\Game.lua" />
+        <LuaFile RelativePath=".\..\Demo\LoadingUI.lua" />
+        <Filter Name="Fight" Directory=".\..\Demo\Fight" >
+            <LuaFile RelativePath=".\..\Demo\Fight\CameraCtrl.lua" />
+            <LuaFile RelativePath=".\..\Demo\Fight\FightHero.lua" />
+            <LuaFile RelativePath=".\..\Demo\Fight\FightHeroInfo.lua" />
+            <LuaFile RelativePath=".\..\Demo\Fight\FightScene.lua" />
+            <LuaFile RelativePath=".\..\Demo\Fight\FightSceneLoading.lua" />
+            <LuaFile RelativePath=".\..\Demo\Fight\FightUI.lua" />
+            <LuaFile RelativePath=".\..\Demo\Fight\PCCtrl.lua" />
+            <Filter Name="FightHeroFSM" Directory=".\..\Demo\Fight\FightHeroFSM" >
+                <LuaFile RelativePath=".\..\Demo\Fight\FightHeroFSM\FightHeroAttackState.lua" />
+                <LuaFile RelativePath=".\..\Demo\Fight\FightHeroFSM\FightHeroIdleState.lua" />
+                <LuaFile RelativePath=".\..\Demo\Fight\FightHeroFSM\FightHeroMoveState.lua" />
+                <LuaFile RelativePath=".\..\Demo\Fight\FightHeroFSM\FightHeroState.lua" />
+            </Filter>
+        </Filter>
+        <Filter Name="Login" Directory=".\..\Demo\Login" >
+            <LuaFile RelativePath=".\..\Demo\Login\LoginSceneLoading.lua" />
+            <LuaFile RelativePath=".\..\Demo\Login\LoginUI.lua" />
+        </Filter>
+        <Filter Name="SelectHero" Directory=".\..\Demo\SelectHero" >
+            <LuaFile RelativePath=".\..\Demo\SelectHero\SelectHero.lua" />
+            <LuaFile RelativePath=".\..\Demo\SelectHero\SelectHeroScene.lua" />
+            <LuaFile RelativePath=".\..\Demo\SelectHero\SelectHeroSceneLoading.lua" />
+            <LuaFile RelativePath=".\..\Demo\SelectHero\SelectHeroUI.lua" />
+        </Filter>
+    </Filter>
+    <Filter Name="Framework" Directory=".\..\Framework" >
+        <LuaFile RelativePath=".\..\Framework\FSM.lua" />
+        <LuaFile RelativePath=".\..\Framework\MsgDispatcher.lua" />
+        <LuaFile RelativePath=".\..\Framework\ThriftNetMsgMgr.lua" />
+        <LuaFile RelativePath=".\..\Framework\Utility.lua" />
+    </Filter>
+    <Filter Name="Lib" Directory=".\..\Lib" >
+        <Filter Name="CJson" Directory=".\..\Lib\CJson" >
+            <LuaFile RelativePath=".\..\Lib\CJson\json2lua.lua" />
+            <LuaFile RelativePath=".\..\Lib\CJson\lua2json.lua" />
+            <Filter Name="cjson" Directory=".\..\Lib\CJson\cjson" >
+                <LuaFile RelativePath=".\..\Lib\CJson\cjson\util.lua" />
+            </Filter>
+        </Filter>
+        <Filter Name="MiddleClass" Directory=".\..\Lib\MiddleClass" >
+            <LuaFile RelativePath=".\..\Lib\MiddleClass\middleclass.lua" />
+        </Filter>
+        <Filter Name="Thrift" Directory=".\..\Lib\Thrift" >
+            <LuaFile RelativePath=".\..\Lib\Thrift\TBinaryProtocol.lua" />
+            <LuaFile RelativePath=".\..\Lib\Thrift\TBufferedTransport.lua" />
+            <LuaFile RelativePath=".\..\Lib\Thrift\TFramedTransport.lua" />
+            <LuaFile RelativePath=".\..\Lib\Thrift\Thrift.lua" />
+            <LuaFile RelativePath=".\..\Lib\Thrift\TMemoryBuffer.lua" />
+            <LuaFile RelativePath=".\..\Lib\Thrift\TProtocol.lua" />
+            <LuaFile RelativePath=".\..\Lib\Thrift\TServer.lua" />
+            <LuaFile RelativePath=".\..\Lib\Thrift\TSocket.lua" />
+            <LuaFile RelativePath=".\..\Lib\Thrift\TTransport.lua" />
+        </Filter>
+    </Filter>
+    <Filter Name="Service" Directory=".\..\Service" >
+        <LuaFile RelativePath=".\..\Service\LoginService.lua" />
+    </Filter>
+    <Filter Name="Wrapper" Directory=".\..\Wrapper" >
+        <LuaFile RelativePath=".\..\Wrapper\ResMgrWrapper.lua" />
+        <LuaFile RelativePath=".\..\Wrapper\SceneMgrWrapper.lua" />
+        <LuaFile RelativePath=".\..\Wrapper\UIEventListenerWrapper.lua" />
+    </Filter>
+</Project>

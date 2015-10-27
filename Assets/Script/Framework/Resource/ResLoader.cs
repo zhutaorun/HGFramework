@@ -74,7 +74,7 @@ public class AssetBundleLoader : ResourceLoader, IResLoader, IAssetBundleLoader
         CheckDependences();
         // 再加载自己
         resName = resName.Substring(resName.LastIndexOf("/") + 1).ToLower();
-        string wwwPath = ResMgr.AssetBundlePath + resName;
+        string wwwPath = ResMgr.DeviceURL + resName;
         this.www = new WWW(wwwPath);
     }
 

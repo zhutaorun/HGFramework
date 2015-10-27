@@ -1,0 +1,45 @@
+ManifestFileVersion: 0
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: fight.scene
+      Dependencies:
+        Dependency_0: wooden.atlas
+        Dependency_1: msyh.font
+    Info_1:
+      Name: loading.scene
+      Dependencies:
+        Dependency_0: wooden.atlas
+    Info_2:
+      Name: select_hero.scene
+      Dependencies:
+        Dependency_0: wooden.atlas
+        Dependency_1: msyh.font
+    Info_3:
+      Name: login.scene
+      Dependencies:
+        Dependency_0: wooden.atlas
+    Info_4:
+      Name: wooden.atlas
+      Dependencies: {}
+    Info_5:
+      Name: priest.prefab
+      Dependencies: {}
+    Info_6:
+      Name: knight.prefab
+      Dependencies: {}
+    Info_7:
+      Name: magician.prefab
+      Dependencies: {}
+    Info_8:
+      Name: msyh.font
+      Dependencies: {}
+    Info_9:
+      Name: cube.prefab
+      Dependencies: {}
+    Info_10:
+      Name: script.lua
+      Dependencies: {}
+    Info_11:
+      Name: config.bytes
+      Dependencies: {}

@@ -28,7 +28,7 @@ public class LuaMgr : Singleton<LuaMgr>
         this.luaDict = new Dictionary<string, byte[]>();
         // 这样会导致每帧只加载一个脚本文件，效率太低，可考虑将所有脚本打包在一起
 #if ASSETBUNDLE
-        WWW www = new WWW("file://" + Application.streamingAssetsPath + "/AssetBundles/script.lua");
+        WWW www = new WWW(ResMgr.DeviceURL + "script.lua");
         yield return www;
         AssetBundle scriptAssetBundle = www.assetBundle;
         string luasIni = (scriptAssetBundle.LoadAsset("Assets/LuaProject/luas.txt") as TextAsset).text;
@@ -38,7 +38,7 @@ public class LuaMgr : Singleton<LuaMgr>
             string lua = luas[i];
             if (string.IsNullOrEmpty(lua))
                 continue;
-            string luaAssetBundlePath = "Assets/LuaProject/" + lua + ".txt";
+            string luaAssetBundlePath = string.Format("Assets/LuaProject/{0}.txt", lua);
             Debug.Log(luaAssetBundlePath);
             TextAsset asset = scriptAssetBundle.LoadAsset(luaAssetBundlePath) as TextAsset;
             this.luaDict[lua] = asset.bytes;

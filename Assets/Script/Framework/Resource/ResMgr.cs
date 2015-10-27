@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using SLua;
+using System.IO;
 
 // 资源管理器，封装开发模式和发布模式
 [CustomLuaClass]
@@ -9,8 +10,20 @@ public class ResMgr : Singleton<ResMgr>
 {
     // AssetBundle中资源路径格式
     public static string AssetBundleFormation = "assets/resources/{0}";
-    // AssetBundle目录
-    public static string AssetBundlePath = null;
+    // 版本号文件
+    public static string VersionFile = "version.txt";
+    // 应用资源目录URL，带不同平台的协议头
+    public static string AppURL = null;
+    // 设备更新目录
+    public static string DeviceUpdatePath = null;
+    // 设备更新目录URL，带file://协议头
+    public static string DeviceURL = null;
+    // 线上资源目录URL，带http://协议头
+    public static string OnlineURL = null;
+    // 版本文件
+    public static string AppVersionURL = null;
+    public static string DeviceVersionURL = null;
+    public static string OnlineVersionURL = null;
 
     // 正在加载的资源映射
     private Dictionary<string, IResLoader> loadingResDict = null;
@@ -28,11 +41,28 @@ public class ResMgr : Singleton<ResMgr>
 
     private ResMgr()
     {
+        // TODO 根据渠道不同，所在目录会有不同
 #if UNITY_ANDROID
-        AssetBundlePath = Application.streamingAssetsPath + "/AssetBundles/";
-#else
-        AssetBundlePath = "file://" + Application.streamingAssetsPath + "/AssetBundles/";
+        AppURL = Application.streamingAssetsPath + "/AssetBundles/";
+        DeviceUpdatePath = Application.persistentDataPath;
+        OnlineURL = "http://localhost:8080/assets/android/";
+#elif UNITY_IOS
+        AppURL = "file://" + Application.streamingAssetsPath + "/AssetBundles/";
+        DeviceUpdatePath = Application.persistentDataPath;
+        OnlineURL = "http://localhost:8080/assets/ios/";
+#elif UNITY_STANDALONE_WIN
+        AppURL = "file://" + Application.streamingAssetsPath + "/AssetBundles/";
+        DeviceUpdatePath = "D://UpdatePath/";
+        OnlineURL = "http://localhost:8080/assets/pc/";
+#elif UNITY_STANDALONE_OSX
+        AppURL = "file://" + Application.streamingAssetsPath + "/AssetBundles/";
+        DeviceUpdatePath = "~/Desktop/UpdatePath/";
 #endif
+        DeviceURL = "file://" + DeviceUpdatePath;
+        AppVersionURL = AppURL + VersionFile;
+        DeviceVersionURL = DeviceURL + VersionFile;
+        OnlineVersionURL = OnlineURL + VersionFile;
+
         this.loadedAssetBundleLoaderDict = new Dictionary<string, AssetBundleLoader>();
         this.loadedAssetBundleSceneLoaderDict = new Dictionary<string, AssetBundleSceneLoader>();
         this.loadingResDict = new Dictionary<string, IResLoader>();
@@ -48,12 +78,209 @@ public class ResMgr : Singleton<ResMgr>
     public IEnumerator Init()
     {
 #if ASSETBUNDLE
-        WWW www = new WWW(AssetBundlePath + "AssetBundles");
-        yield return www;
-        this.manifest = www.assetBundle.LoadAsset("AssetBundleManifest") as AssetBundleManifest;
+        yield return Game.Instance().StartCoroutine(CompareByApp());
 #else
         yield return null;
 #endif
+    }
+
+    /// <summary>
+    /// 与客户端版本号进行比对
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator CompareByApp()
+    {
+        // 应用内没有version.txt，即首次安装的游戏，使用客户端资源更新目录
+        if (!File.Exists(DeviceUpdatePath + VersionFile))
+        {
+            yield return Game.Instance().StartCoroutine(UpdateByApp());
+        }
+        else
+        {
+            // 比对客户端和应用内version.txt
+            WWW www = new WWW(AppVersionURL);
+            yield return www;
+            Version appVer = Version.CreateVersion(www.text);
+            www = new WWW(DeviceVersionURL);
+            yield return www;
+            Version deviceVer = Version.CreateVersion(www.text);
+
+            // 如果应用版本号大于设备版本号，则先用应用资源更新设备
+            if (appVer.BigVersion > deviceVer.BigVersion || 
+                appVer.MiddleVersion > deviceVer.MiddleVersion ||
+                appVer.SmallVersion > deviceVer.SmallVersion ||
+                appVer.ResVersion > deviceVer.ResVersion)
+            {
+                // 使用客户端资源更新目录
+                yield return Game.Instance().StartCoroutine(UpdateByApp());
+            }
+            else
+            {
+                // 跳过客户端更新，直接进行线上版本比对
+                yield return Game.Instance().StartCoroutine(CompareByOnline());
+            }
+        }
+    }
+
+    /// <summary>
+    /// 以客户端版本号为参考，更新应用
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator UpdateByApp()
+    {
+        Debug.LogWarning("---------------------Update By App---------------------");
+        // PC平台此目录可能不存在
+        if (!Directory.Exists(DeviceUpdatePath))
+            Directory.CreateDirectory(DeviceUpdatePath);
+
+        // 首次启动应用时
+        WWW www = new WWW(AppURL + "AssetBundles");
+        yield return www;
+        // 遍历所有应用内assetbundle，拷贝至设备更新目录
+        AssetBundleManifest manifest = www.assetBundle.LoadAsset("AssetBundleManifest") as AssetBundleManifest;
+        string[] allAssetBundles = manifest.GetAllAssetBundles();
+        // AssetBundle不能同名多次加载
+        www.assetBundle.Unload(false);
+        for (int i = 0; i < allAssetBundles.Length; ++i)
+        {
+            string assetbundle = allAssetBundles[i];
+            www = new WWW(string.Format(AppURL + assetbundle));
+            yield return www;
+            File.WriteAllBytes(DeviceUpdatePath + assetbundle, www.bytes);
+            www = new WWW(string.Format("{0}{1}.manifest", AppURL, assetbundle));
+            yield return www;
+            File.WriteAllBytes(string.Format("{0}{1}.manifest", DeviceUpdatePath, assetbundle), www.bytes);
+        }
+
+        // 拷贝AssetBundle
+        www = new WWW(AppURL + "AssetBundles");
+        yield return www;
+        File.WriteAllBytes(DeviceUpdatePath + "AssetBundles", www.bytes);
+
+        // 拷贝AssetBundleManifest
+        www = new WWW(AppURL + "AssetBundles.manifest");
+        yield return www;
+        File.WriteAllBytes(DeviceUpdatePath + "AssetBundles.manifest", www.bytes);
+
+        // 拷贝Version.txt
+        www = new WWW(AppURL + VersionFile);
+        yield return www;
+        File.WriteAllBytes(DeviceUpdatePath + VersionFile, www.bytes);
+
+        www.Dispose();
+        www = null;
+        yield return Resources.UnloadUnusedAssets();
+        
+        // 和线上版本比对，此时还有可能玩家下载了游戏很久，却没有打开过，此间经历了一些版本
+        yield return Game.Instance().StartCoroutine(CompareByOnline());
+    }
+
+    IEnumerator CompareByOnline()
+    {
+        WWW www = new WWW(DeviceVersionURL);
+        yield return www;
+        Version deviceVer = Version.CreateVersion(www.text);
+        www = new WWW(OnlineVersionURL);
+        yield return www;
+        Version onlineVer = Version.CreateVersion(www.text);
+
+        if (onlineVer.BigVersion > deviceVer.BigVersion ||
+            onlineVer.MiddleVersion > deviceVer.MiddleVersion)
+        {
+            // TODO 强制玩家更新客户端
+
+        }
+        else if (onlineVer.SmallVersion > deviceVer.SmallVersion ||
+            onlineVer.ResVersion > deviceVer.ResVersion)
+        {
+            // 需要更新资源
+            yield return Game.Instance().StartCoroutine(UpdateByOnline());
+        }
+        else
+        {
+            // 可以直接进入游戏
+            yield return Game.Instance().StartCoroutine(LoadAssetbundleManifest());
+        }
+    }
+
+    /// <summary>
+    /// 以线上版本号为参考，更新应用
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator UpdateByOnline()
+    {
+        Debug.LogWarning("-----------------Update By Online------------------");
+        // 计算下载列表
+        // 下载AssetBundleManifest
+        WWW www = new WWW(OnlineURL + "AssetBundles");
+        yield return www;
+        AssetBundleManifest onlineManifest = www.assetBundle.LoadAsset("AssetBundleManifest") as AssetBundleManifest;
+        www.assetBundle.Unload(false);
+        www = new WWW(DeviceURL + "AssetBundles");
+        yield return www;
+        AssetBundleManifest deviceManifest = www.assetBundle.LoadAsset("AssetBundleManifest") as AssetBundleManifest;
+        www.assetBundle.Unload(false);
+        // 下载列表
+        List<string> downloadAssetBundleList = new List<string>();
+        string[] allOnlineAssetBundles = onlineManifest.GetAllAssetBundles();
+        for (int i = 0; i < allOnlineAssetBundles.Length; ++i)
+        {
+            string onlineAssetBundle = allOnlineAssetBundles[i];
+            if (!File.Exists(DeviceUpdatePath + onlineAssetBundle))
+            {
+                downloadAssetBundleList.Add(onlineAssetBundle);
+            }
+            else
+            {
+                Hash128 onlineAssetBundleHash = onlineManifest.GetAssetBundleHash(onlineAssetBundle);
+                Hash128 deviceAssetBundleHash = deviceManifest.GetAssetBundleHash(onlineAssetBundle);
+                if (!onlineAssetBundleHash.Equals(deviceAssetBundleHash))
+                    downloadAssetBundleList.Add(onlineAssetBundle);
+            }
+        }
+        for (int i = 0; i < downloadAssetBundleList.Count; ++i)
+        {
+            string assetbundle = downloadAssetBundleList[i];
+            Debug.LogWarning("-------------------Download : " + assetbundle);
+            www = new WWW(string.Format(AppURL + assetbundle));
+            yield return www;
+            File.WriteAllBytes(DeviceUpdatePath + assetbundle, www.bytes);
+            www = new WWW(string.Format("{0}{1}.manifest", AppURL, assetbundle));
+            yield return www;
+            File.WriteAllBytes(string.Format("{0}{1}.manifest", DeviceUpdatePath, assetbundle), www.bytes);
+        }
+
+        // 下载AssetBundle
+        www = new WWW(OnlineURL + "AssetBundles");
+        yield return www;
+        File.WriteAllBytes(DeviceUpdatePath + "AssetBundles", www.bytes);
+
+        // 下载AssetBundleManifest
+        www = new WWW(OnlineURL + "AssetBundles.manifest");
+        yield return www;
+        File.WriteAllBytes(DeviceUpdatePath + "AssetBundles.manifest", www.bytes);
+
+        // 下载Version.txt
+        www = new WWW(OnlineURL + VersionFile);
+        yield return www;
+        File.WriteAllBytes(DeviceUpdatePath + VersionFile, www.bytes);
+
+        www.Dispose();
+        www = null;
+        yield return Resources.UnloadUnusedAssets();
+        
+        yield return Game.Instance().StartCoroutine(LoadAssetbundleManifest());
+    }
+
+    /// <summary>
+    /// 加载最新的AssetBundleManifest，准备进入游戏
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator LoadAssetbundleManifest()
+    {
+        WWW www = new WWW(DeviceURL + "AssetBundles");
+        yield return www;
+        this.manifest = www.assetBundle.LoadAsset("AssetBundleManifest") as AssetBundleManifest;
     }
 
     void Update()

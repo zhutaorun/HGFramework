@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Project Name="Slua.luaprj" >
+    <Filter Name="circle" Directory=".\..\circle" >
+        <LuaFile RelativePath=".\..\circle\circle.txt" />
+    </Filter>
+    <Filter Name="module" Directory=".\..\module" >
+        <LuaFile RelativePath=".\..\module\some.txt" />
+    </Filter>
+    <LuaFile RelativePath=".\..\custom.txt" />
+    <LuaFile RelativePath=".\..\delegate.txt" />
+    <LuaFile RelativePath=".\..\main.txt" />
+    <LuaFile RelativePath=".\..\perf.txt" />
+    <LuaFile RelativePath=".\..\valuetype.txt" />
+    <LuaFile RelativePath=".\..\varobj.txt" />
+</Project>

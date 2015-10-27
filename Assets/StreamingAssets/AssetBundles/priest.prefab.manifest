@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 552174384
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b93eb7cf727716e6a45dbba6d1b4cdb9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5875164beb9eaf9d320702e521027198
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 195
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Model/Hero/priest.prefab
+Dependencies: []

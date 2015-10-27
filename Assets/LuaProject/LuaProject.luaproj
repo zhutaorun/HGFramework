@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>E439935D-B2A2-46AE-856D-2AA408428F33</ProjectGuid>
+    <!--$guid1$-->
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>LuaProject</Name>
+    <RootNamespace>LuaProject</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Lib\CJson\" />
+    <Folder Include="Lib\CJson\cjson\" />
+    <Folder Include="AutoGeneration\Config\" />
+    <Folder Include="Demo\" />
+    <Folder Include="Demo\Fight\" />
+    <Folder Include="Demo\Fight\FightHeroFSM\" />
+    <Folder Include="Demo\Login\" />
+    <Folder Include="Demo\SelectHero\" />
+    <Folder Include="Framework\" />
+    <Folder Include="Lib\" />
+    <Folder Include="Lib\MiddleClass\" />
+    <Folder Include="AutoGeneration\" />
+    <Folder Include="Service\" />
+    <Folder Include="AutoGeneration\Protocol\" />
+    <Folder Include="Wrapper\" />
+    <Folder Include="Lib\Thrift\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Demo\Fight\CameraCtrl.lua" />
+    <Compile Include="Framework\FSM.lua" />
+    <Compile Include="Lib\CJson\cjson\util.lua" />
+    <Compile Include="AutoGeneration\Config\Config.lua" />
+    <Compile Include="AutoGeneration\Config\config_constants.lua" />
+    <Compile Include="AutoGeneration\Config\config_ttypes.lua" />
+    <Compile Include="Demo\Fight\FightHero.lua" />
+    <Compile Include="Demo\Fight\FightHeroFSM\FightHeroAttackState.lua" />
+    <Compile Include="Demo\Fight\FightHeroFSM\FightHeroIdleState.lua" />
+    <Compile Include="Demo\Fight\FightHeroFSM\FightHeroMoveState.lua" />
+    <Compile Include="Demo\Fight\FightHeroFSM\FightHeroState.lua" />
+    <Compile Include="Demo\Fight\FightHeroInfo.lua" />
+    <Compile Include="Demo\Fight\FightScene.lua" />
+    <Compile Include="Demo\Fight\FightSceneLoading.lua" />
+    <Compile Include="Demo\Fight\FightUI.lua" />
+    <Compile Include="Demo\Fight\PCCtrl.lua" />
+    <Compile Include="Demo\Game.lua" />
+    <Compile Include="Demo\LoadingUI.lua" />
+    <Compile Include="Demo\Login\LoginSceneLoading.lua" />
+    <Compile Include="Demo\Login\LoginUI.lua" />
+    <Compile Include="Demo\SelectHero\SelectHero.lua" />
+    <Compile Include="Demo\SelectHero\SelectHeroScene.lua" />
+    <Compile Include="Demo\SelectHero\SelectHeroSceneLoading.lua" />
+    <Compile Include="Demo\SelectHero\SelectHeroUI.lua" />
+    <Compile Include="AutoGeneration\Protocol\alchemy_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\alchemy_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\armor_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\armor_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\astrology_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\astrology_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\dailyQuest_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\dailyQuest_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\fight_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\fight_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\forging_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\forging_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\game_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\game_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\guild_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\guild_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\hero_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\hero_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\login_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\login_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\magicCircle_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\magicCircle_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\ProtocolMap.lua" />
+    <Compile Include="AutoGeneration\Protocol\share_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\share_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\shop_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\shop_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\tools_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\tools_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\trading_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\trading_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\user_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\user_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\VIP_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\VIP_ttypes.lua" />
+    <Compile Include="AutoGeneration\Protocol\weapon_constants.lua" />
+    <Compile Include="AutoGeneration\Protocol\weapon_ttypes.lua" />
+    <Compile Include="Lib\CJson\json2lua.lua" />
+    <Compile Include="Lib\CJson\lua2json.lua" />
+    <Compile Include="Service\LoginService.lua" />
+    <Compile Include="Wrapper\ResMgrWrapper.lua" />
+    <Compile Include="Wrapper\SceneMgrWrapper.lua" />
+    <Compile Include="Wrapper\UIEventListenerWrapper.lua" />
+    <Compile Include="Framework\MsgDispatcher.lua" />
+    <Compile Include="Framework\ThriftNetMsgMgr.lua" />
+    <Compile Include="Framework\Utility.lua" />
+    <Compile Include="Lib\MiddleClass\middleclass.lua" />
+    <Compile Include="Lib\Thrift\TBinaryProtocol.lua" />
+    <Compile Include="Lib\Thrift\TBufferedTransport.lua" />
+    <Compile Include="Lib\Thrift\TFramedTransport.lua" />
+    <Compile Include="Lib\Thrift\Thrift.lua" />
+    <Compile Include="Lib\Thrift\TMemoryBuffer.lua" />
+    <Compile Include="Lib\Thrift\TProtocol.lua" />
+    <Compile Include="Lib\Thrift\TServer.lua" />
+    <Compile Include="Lib\Thrift\TSocket.lua" />
+    <Compile Include="Lib\Thrift\TTransport.lua" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>

@@ -123,7 +123,7 @@ public class Lua_ResMgr : LuaObject {
 	static public int get_AssetBundlePath(IntPtr l) {
 		try {
 			pushValue(l,true);
-			pushValue(l,ResMgr.AssetBundlePath);
+			pushValue(l,ResMgr.AppURL);
 			return 2;
 		}
 		catch(Exception e) {
@@ -135,7 +135,7 @@ public class Lua_ResMgr : LuaObject {
 		try {
 			System.String v;
 			checkType(l,2,out v);
-			ResMgr.AssetBundlePath=v;
+			ResMgr.AppURL=v;
 			pushValue(l,true);
 			return 1;
 		}
