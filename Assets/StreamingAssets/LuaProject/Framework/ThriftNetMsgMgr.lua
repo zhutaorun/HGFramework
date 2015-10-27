@@ -64,8 +64,8 @@ function NetMsgMgr.HandleNetMsg(msgType, msgData)
     trans:resetBuffer(msgData);
     local proto = TBinaryProtocol:new{ trans = trans };
     msg:read(proto);
-	--输出协议日志
-	print(NetMsgMgr.ParseMsg(msg));
+	--输出协议日志，协议太复杂（嵌套太多层table），会导致栈溢出，fuck lua
+	--print(NetMsgMgr.ParseMsg(msg));
     --交由逻辑处理
     local handlers = NetMsgMgr.mNetMsgHandlerDict[msgType];
     if handlers then

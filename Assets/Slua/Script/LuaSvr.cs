@@ -150,7 +150,7 @@ namespace SLua
 
 			lgo.state = luaState;
 			lgo.onUpdate = this.tick;
-			lgo.init();
+            //lgo.init();
 			
 			inited = true;
 		}
