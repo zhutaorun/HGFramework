@@ -86,7 +86,7 @@ public class Logger : Singleton<Logger>
         };
 
         this.uiOutputLogLevel = LogLevel.LOG;
-        this.fileOutputLogLevel = LogLevel.ERROR;
+        this.fileOutputLogLevel = LogLevel.LOG;
         this.mainThreadID = Thread.CurrentThread.ManagedThreadId;
         this.logOutputList = new List<ILogOutput>
         {
@@ -108,6 +108,8 @@ public class Logger : Singleton<Logger>
     {
         Application.logMessageReceived -= LogCallback;
         Application.logMessageReceivedThreaded -= LogMultiThreadCallback;
+        for (int i = 0; i < this.logOutputList.Count; ++i)
+            this.logOutputList[i].Close();
     }
 
     /// <summary>

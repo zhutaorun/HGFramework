@@ -8,13 +8,23 @@ using SLua;
 [CustomLuaClass]
 public static class Setting
 {
+    public static string DevicePersistentPath = null;
+    static string SettingPath = "Settings";
     private static Dictionary<string, string> settings = null;
 
     public static void Load()
     {
+#if UNITY_STANDALONE_WIN
+        DevicePersistentPath = "D:/UpdatePath";
+#elif UNITY_STANDALONE_OSX
+        DevicePersistentPath = "~/Desktop/UpdatePath";
+#else
+        DevicePersistentPath = Application.persistentDataPath;
+#endif
         settings = new Dictionary<string, string>();
         // 加载配置
-        string settingPath = Application.persistentDataPath + "/setting.txt";
+        string settingPath = string.Format("{0}/{1}/{2}",
+            DevicePersistentPath, SettingPath, "setting.txt");
         if (!File.Exists(settingPath))
             return;
         // 解析配置
@@ -34,7 +44,11 @@ public static class Setting
     public static void Save()
     {
         // 保存配置
-        string settingPath = Application.persistentDataPath + "/setting.txt";
+        string settingPath = string.Format("{0}/{1}/{2}",
+            DevicePersistentPath, SettingPath, "setting.txt");
+        string settingDir = Path.GetDirectoryName(settingPath);
+        if (!Directory.Exists(settingDir))
+            Directory.CreateDirectory(settingDir);
         List<string> lines = new List<string>();
         foreach (KeyValuePair<string, string> kv in settings)
             lines.Add(string.Format("{0}={1}", kv.Key, kv.Value));

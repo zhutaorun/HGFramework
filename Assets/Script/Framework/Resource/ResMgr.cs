@@ -8,14 +8,18 @@ using System.IO;
 [CustomLuaClass]
 public class ResMgr : Singleton<ResMgr>
 {
+    static string AssetBundlePath = "AssetBundles";
+
     // AssetBundle中资源路径格式
     public static string AssetBundleFormation = "assets/resources/{0}";
     // 版本号文件
     public static string VersionFile = "version.txt";
     // 应用资源目录URL，带不同平台的协议头
     public static string AppURL = null;
+    // 设备写入目录
+    public static string DevicePersistentPath = null;
     // 设备更新目录
-    public static string DeviceUpdatePath = null;
+    public static string DeviceAssetBundlePath = null;
     // 设备更新目录URL，带file://协议头
     public static string DeviceURL = null;
     // 线上资源目录URL，带http://协议头
@@ -31,7 +35,6 @@ public class ResMgr : Singleton<ResMgr>
     private List<string> loadedResList = null;
     // 正在加载的场景
     private SceneLoader sceneLoader = null;
-    private SceneLoader deleteSceneLoader = null;
 
     // 已经加载完成的AssetBundle
     private Dictionary<string, AssetBundleLoader> loadedAssetBundleLoaderDict = null;
@@ -44,21 +47,19 @@ public class ResMgr : Singleton<ResMgr>
         // TODO 根据渠道不同，所在目录会有不同
 #if UNITY_ANDROID
         AppURL = Application.streamingAssetsPath + "/AssetBundles/";
-        DeviceUpdatePath = Application.persistentDataPath;
         OnlineURL = "http://192.168.0.22:8080/assets/android/";
 #elif UNITY_IOS
         AppURL = "file://" + Application.streamingAssetsPath + "/AssetBundles/";
-        DeviceUpdatePath = Application.persistentDataPath;
         OnlineURL = "http://192.168.0.22:8080/assets/ios/";
 #elif UNITY_STANDALONE_WIN
         AppURL = "file://" + Application.streamingAssetsPath + "/AssetBundles/";
-        DeviceUpdatePath = Application.persistentDataPath;
         OnlineURL = "http://192.168.0.22:8080/assets/pc/";
 #elif UNITY_STANDALONE_OSX
         AppURL = "file://" + Application.streamingAssetsPath + "/AssetBundles/";
-        DeviceUpdatePath = Application.persistentDataPath;
+        OnlineURL = "http://192.168.0.22:8080/assets/pc/";
 #endif
-        DeviceURL = "file://" + DeviceUpdatePath;
+        DeviceAssetBundlePath = string.Format("{0}/{1}/", Setting.DevicePersistentPath, AssetBundlePath);
+        DeviceURL = "file://" + DeviceAssetBundlePath;
         AppVersionURL = AppURL + VersionFile;
         DeviceVersionURL = DeviceURL + VersionFile;
         OnlineVersionURL = OnlineURL + VersionFile;
@@ -91,7 +92,7 @@ public class ResMgr : Singleton<ResMgr>
     IEnumerator CompareByApp()
     {
         // 应用内没有version.txt，即首次安装的游戏，使用客户端资源更新目录
-        if (!File.Exists(DeviceUpdatePath + VersionFile))
+        if (!File.Exists(DeviceAssetBundlePath + VersionFile))
         {
             yield return Game.Instance().StartCoroutine(UpdateByApp());
         }
@@ -102,6 +103,7 @@ public class ResMgr : Singleton<ResMgr>
             yield return www;
             Debug.LogWarning("App Version : " + www.text);
             Version appVer = Version.CreateVersion(www.text);
+            Debug.LogWarning(DeviceVersionURL);
             www = new WWW(DeviceVersionURL);
             yield return www;
             Debug.LogWarning("Device Version : " + www.text);
@@ -132,8 +134,8 @@ public class ResMgr : Singleton<ResMgr>
     {
         Debug.LogWarning("---------------------Update By App---------------------");
         // PC平台此目录可能不存在
-        if (!Directory.Exists(DeviceUpdatePath))
-            Directory.CreateDirectory(DeviceUpdatePath);
+        if (!Directory.Exists(DeviceAssetBundlePath))
+            Directory.CreateDirectory(DeviceAssetBundlePath);
 
         // 首次启动应用时
         WWW www = new WWW(AppURL + "AssetBundles");
@@ -148,26 +150,26 @@ public class ResMgr : Singleton<ResMgr>
             string assetbundle = allAssetBundles[i];
             www = new WWW(string.Format(AppURL + assetbundle));
             yield return www;
-            File.WriteAllBytes(DeviceUpdatePath + assetbundle, www.bytes);
+            File.WriteAllBytes(DeviceAssetBundlePath + assetbundle, www.bytes);
             www = new WWW(string.Format("{0}{1}.manifest", AppURL, assetbundle));
             yield return www;
-            File.WriteAllBytes(string.Format("{0}{1}.manifest", DeviceUpdatePath, assetbundle), www.bytes);
+            File.WriteAllBytes(string.Format("{0}{1}.manifest", DeviceAssetBundlePath, assetbundle), www.bytes);
         }
 
         // 拷贝AssetBundle
         www = new WWW(AppURL + "AssetBundles");
         yield return www;
-        File.WriteAllBytes(DeviceUpdatePath + "AssetBundles", www.bytes);
+        File.WriteAllBytes(DeviceAssetBundlePath + "AssetBundles", www.bytes);
 
         // 拷贝AssetBundleManifest
         www = new WWW(AppURL + "AssetBundles.manifest");
         yield return www;
-        File.WriteAllBytes(DeviceUpdatePath + "AssetBundles.manifest", www.bytes);
+        File.WriteAllBytes(DeviceAssetBundlePath + "AssetBundles.manifest", www.bytes);
 
         // 拷贝Version.txt
         www = new WWW(AppURL + VersionFile);
         yield return www;
-        File.WriteAllBytes(DeviceUpdatePath + VersionFile, www.bytes);
+        File.WriteAllBytes(DeviceAssetBundlePath + VersionFile, www.bytes);
 
         www.Dispose();
         www = null;
@@ -230,7 +232,7 @@ public class ResMgr : Singleton<ResMgr>
         for (int i = 0; i < allOnlineAssetBundles.Length; ++i)
         {
             string onlineAssetBundle = allOnlineAssetBundles[i];
-            if (!File.Exists(DeviceUpdatePath + onlineAssetBundle))
+            if (!File.Exists(DeviceAssetBundlePath + onlineAssetBundle))
             {
                 downloadAssetBundleList.Add(onlineAssetBundle);
             }
@@ -248,12 +250,12 @@ public class ResMgr : Singleton<ResMgr>
             Debug.LogWarning("-------------------Download : " + assetbundle);
             www = new WWW(string.Format(OnlineURL + assetbundle));
             yield return www;
-            string assetbundlePath = DeviceUpdatePath + assetbundle;
+            string assetbundlePath = DeviceAssetBundlePath + assetbundle;
             File.Delete(assetbundlePath);
             File.WriteAllBytes(assetbundlePath, www.bytes);
             www = new WWW(string.Format("{0}{1}.manifest", OnlineURL, assetbundle));
             yield return www;
-            string manifestPath = string.Format("{0}{1}.manifest", DeviceUpdatePath, assetbundle);
+            string manifestPath = string.Format("{0}{1}.manifest", DeviceAssetBundlePath, assetbundle);
             File.Delete(manifestPath);
             File.WriteAllBytes(manifestPath, www.bytes);
         }
@@ -261,17 +263,17 @@ public class ResMgr : Singleton<ResMgr>
         // 下载AssetBundle
         www = new WWW(OnlineURL + "AssetBundles");
         yield return www;
-        File.WriteAllBytes(DeviceUpdatePath + "AssetBundles", www.bytes);
+        File.WriteAllBytes(DeviceAssetBundlePath + "AssetBundles", www.bytes);
 
         // 下载AssetBundleManifest
         www = new WWW(OnlineURL + "AssetBundles.manifest");
         yield return www;
-        File.WriteAllBytes(DeviceUpdatePath + "AssetBundles.manifest", www.bytes);
+        File.WriteAllBytes(DeviceAssetBundlePath + "AssetBundles.manifest", www.bytes);
 
         // 下载Version.txt
         www = new WWW(OnlineURL + VersionFile);
         yield return www;
-        File.WriteAllBytes(DeviceUpdatePath + VersionFile, www.bytes);
+        File.WriteAllBytes(DeviceAssetBundlePath + VersionFile, www.bytes);
 
         www.Dispose();
         www = null;

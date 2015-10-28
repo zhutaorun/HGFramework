@@ -131,7 +131,7 @@ public class NetMgr : Singleton<NetMgr>
                         Monitor.Wait(this.mSendLock);
                     Queue<NetMsg> temp = this.mSendingMsgQueue;
                     this.mSendingMsgQueue = this.mSendWaitingMsgQueue;
-                    this.mSendWaitingMsgQueue = this.mSendingMsgQueue;
+                    this.mSendWaitingMsgQueue = temp;
                 }
             }
             else

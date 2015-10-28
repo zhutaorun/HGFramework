@@ -4,18 +4,6 @@ using System.Collections.Generic;
 using System.Text;
 
 /// <summary>
-/// 日志输出接口
-/// </summary>
-public interface ILogOutput
-{
-    /// <summary>
-    /// 输出日志数据
-    /// </summary>
-    /// <param name="logData">日志数据</param>
-    void Log(Logger.LogData logData);
-}
-
-/// <summary>
 /// UI日志输出
 /// </summary>
 public class UILogOutput : ILogOutput
@@ -53,6 +41,11 @@ public class UILogOutput : ILogOutput
         if (this.logDataList.Count > MaxLogCount)
             this.logDataList.RemoveAt(0);
         this.logDataList.Add(logData);
+    }
+
+    public void Close()
+    {
+
     }
 
     void OnGUI()
@@ -97,18 +90,5 @@ public class UILogOutput : ILogOutput
             this.logRect.y += 20;
         }
         GUI.skin.label.normal.textColor = c;
-    }
-}
-
-/// <summary>
-/// 文本日志输出
-/// </summary>
-public class FileLogOutput : ILogOutput
-{
-
-
-    public void Log(Logger.LogData logData)
-    {
-
     }
 }
