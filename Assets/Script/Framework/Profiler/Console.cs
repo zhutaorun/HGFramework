@@ -32,7 +32,7 @@ public class Console : Singleton<Console>
     {
         this.fpsCounter = new FPSCounter(this);
         this.memoryDetector = new MemoryDetector(this);
-        this.showGUI = Game.Instance().showLogOnGUI;
+        this.showGUI = Setting.GetBool("ShowLogOnGUI", false);
         Game.Instance().onUpdate += Update;
         Game.Instance().onGUI += OnGUI;
     }

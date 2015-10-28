@@ -96,7 +96,8 @@ public class LuaMgr : Singleton<LuaMgr>
             },
             () =>
             {
-                this.luaSvr.start(Game.Instance().startScript);
+                string startScript = Setting.GetString("StartScript", "Demo/Game");
+                this.luaSvr.start(startScript);
             });
         Debug.LogWarning("Lua Svr Start Done : " + System.DateTime.Now);
     }

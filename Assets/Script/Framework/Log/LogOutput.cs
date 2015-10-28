@@ -28,11 +28,10 @@ public class UILogOutput : ILogOutput
     private Color AssertColor = Color.magenta;
     private Color ErrorColor = Color.red;
 
-
     /// <summary>
     /// 最大缓存日志数量
     /// </summary>
-    private int MaxLogCount = 40;
+    private int MaxLogCount = 0;
 
     private List<Logger.LogData> logDataList = null;
     private Rect logRect; 
@@ -40,6 +39,7 @@ public class UILogOutput : ILogOutput
     public UILogOutput()
     {
         this.logDataList = new List<Logger.LogData>(30);
+        this.MaxLogCount = Setting.GetInt("MaxLogCount", 30);
         Console.Instance().onGUICallback += OnGUI;
     }
 

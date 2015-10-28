@@ -15,37 +15,42 @@ public class Game : MonoSingleton<Game>
     public LifeCircleCallback onApplicationQuit = null;
 
     public string startScript = null;
-    public bool showLogOnGUI = false;
-#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
-    public Vector2 windowSize = new Vector2(1024, 768);
-#endif
 
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
         instance = this;
         // 进入欢迎界面
+
     }
 
     IEnumerator Start()
     {
-#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
-        Screen.SetResolution((int)this.windowSize.x, (int)this.windowSize.y, false);
-#endif
         Debug.LogWarning("Game Start : " + System.DateTime.Now);
-        // 初始化公共模块
+        // 加载配置
+        Setting.Load();
+        // 构造公共模块
         Console.Instance();
         Logger.Instance();
+        ResMgr.Instance();
+        ConfigMgr.Instance();
+        LuaMgr.Instance();
         Debug.LogWarning("Res Start : " + System.DateTime.Now);
-        // 需要先加载AssetBundleManifest
+        // 初始化公共模块
+        // 初始化资源管理器
         yield return StartCoroutine(ResMgr.Instance().Init());
         Debug.LogWarning("Config Start : " + System.DateTime.Now);
-        // 加载配置数据
+        // 初始化配置数据管理器
         yield return StartCoroutine(ConfigMgr.Instance().Init());
         Debug.LogWarning("Lua Start : " + System.DateTime.Now);
-        // 启动脚本，开始逻辑
+        // 初始化脚本管理器，启动脚本，开始逻辑
         yield return StartCoroutine(LuaMgr.Instance().Init());
         Debug.LogWarning("Game Start Done : " + System.DateTime.Now);
+
+#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
+        Screen.SetResolution(Setting.GetInt("WindowWidth", 1024), 
+            Setting.GetInt("WindowHeight", 768), false);
+#endif
     }
 
     void Update()
@@ -70,5 +75,7 @@ public class Game : MonoSingleton<Game>
     {
         if (this.onApplicationQuit != null)
             this.onApplicationQuit();
+        // 保存配置
+        Setting.Save();
     }
 }

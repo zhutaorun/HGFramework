@@ -52,11 +52,11 @@ public class ResMgr : Singleton<ResMgr>
         OnlineURL = "http://192.168.0.22:8080/assets/ios/";
 #elif UNITY_STANDALONE_WIN
         AppURL = "file://" + Application.streamingAssetsPath + "/AssetBundles/";
-        DeviceUpdatePath = "D://UpdatePath/";
+        DeviceUpdatePath = Application.persistentDataPath;
         OnlineURL = "http://192.168.0.22:8080/assets/pc/";
 #elif UNITY_STANDALONE_OSX
         AppURL = "file://" + Application.streamingAssetsPath + "/AssetBundles/";
-        DeviceUpdatePath = "~/Desktop/UpdatePath/";
+        DeviceUpdatePath = Application.persistentDataPath;
 #endif
         DeviceURL = "file://" + DeviceUpdatePath;
         AppVersionURL = AppURL + VersionFile;
