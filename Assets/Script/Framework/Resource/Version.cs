@@ -12,7 +12,7 @@ public class Version
     public static Version CreateVersion(string verStr)
     {
         string[] versions = verStr.Split('.');
-        Logger.Assert(versions.Length == 4, "Error Version Format");
+        Logger.Assert(versions.Length == 4, "Error Version Format : " + verStr);
         Version version = new Version
         {
             BigVersion = int.Parse(versions[0]),

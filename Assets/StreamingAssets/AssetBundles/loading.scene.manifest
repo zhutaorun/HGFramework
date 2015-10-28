@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1282471832
+CRC: 1388493158
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6c2d0c88bef053bbc07682e5abf72fc9
+    Hash: 374f497670ca930de3194faf8f3e92bd
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5670404cda4895238bbd7627c5d396d3
@@ -50,4 +50,4 @@ ClassTypes:
 Assets:
 - Assets/Scene/loading.unity
 Dependencies:
-- D:/GitHub/HGFramework/Assets/../AssetBundles/PC/AssetBundles/wooden.atlas
+- D:/GitHub/HGFramework/Assets/../AssetBundles/Android/AssetBundles/wooden.atlas

@@ -44,7 +44,7 @@ public class Console : Singleton<Console>
             this.showGUI = !this.showGUI;
 #elif UNITY_ANDROID
         if (Input.GetKeyUp(KeyCode.Escape))
-            this.showGUI = this.showGUI;
+            this.showGUI = !this.showGUI;
 #elif UNITY_IOS
         if (Input.GetKeyUp(KeyCode.Home))
             this.showGUI = !this.showGUI;

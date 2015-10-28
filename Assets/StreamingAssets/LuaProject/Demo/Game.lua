@@ -23,10 +23,6 @@ local GameObject = UnityEngine.GameObject;
 local Debug = UnityEngine.Debug;
 
 function main()
-	Debug.LogWarning("Hello, oneRain");
-	Debug.LogWarning("Hello, oneRain2");
-	Debug.LogWarning("Hello, oneRain3");
-	Debug.LogWarning("Hello, oneRain4");
 	--≤‚ ‘cjson
 	local json_text = '["Skill",{"skillID":"123","casterID":"234","BulletBehavior":{"behaviorID":"222","exeEffects":[["ShangHai",{"targetID":"888","val":100}],["ZhuoShao",{"targetID":"888","val":20,"round":2}]],"triEffects":[["DunShu",{"targetID":"888","val":80}]],"removedEffectIDs":["233","111"]}}]';
 	local value = json.decode(json_text);	

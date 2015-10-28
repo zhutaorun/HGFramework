@@ -45,15 +45,15 @@ public class ResMgr : Singleton<ResMgr>
 #if UNITY_ANDROID
         AppURL = Application.streamingAssetsPath + "/AssetBundles/";
         DeviceUpdatePath = Application.persistentDataPath;
-        OnlineURL = "http://localhost:8080/assets/android/";
+        OnlineURL = "http://192.168.0.22:8080/assets/android/";
 #elif UNITY_IOS
         AppURL = "file://" + Application.streamingAssetsPath + "/AssetBundles/";
         DeviceUpdatePath = Application.persistentDataPath;
-        OnlineURL = "http://localhost:8080/assets/ios/";
+        OnlineURL = "http://192.168.0.22:8080/assets/ios/";
 #elif UNITY_STANDALONE_WIN
         AppURL = "file://" + Application.streamingAssetsPath + "/AssetBundles/";
         DeviceUpdatePath = "D://UpdatePath/";
-        OnlineURL = "http://localhost:8080/assets/pc/";
+        OnlineURL = "http://192.168.0.22:8080/assets/pc/";
 #elif UNITY_STANDALONE_OSX
         AppURL = "file://" + Application.streamingAssetsPath + "/AssetBundles/";
         DeviceUpdatePath = "~/Desktop/UpdatePath/";
@@ -100,9 +100,11 @@ public class ResMgr : Singleton<ResMgr>
             // 比对客户端和应用内version.txt
             WWW www = new WWW(AppVersionURL);
             yield return www;
+            Debug.LogWarning("App Version : " + www.text);
             Version appVer = Version.CreateVersion(www.text);
             www = new WWW(DeviceVersionURL);
             yield return www;
+            Debug.LogWarning("Device Version : " + www.text);
             Version deviceVer = Version.CreateVersion(www.text);
 
             // 如果应用版本号大于设备版本号，则先用应用资源更新设备
@@ -179,9 +181,11 @@ public class ResMgr : Singleton<ResMgr>
     {
         WWW www = new WWW(DeviceVersionURL);
         yield return www;
+        Debug.LogWarning("Compare By Online Device Version : " + www.text);
         Version deviceVer = Version.CreateVersion(www.text);
         www = new WWW(OnlineVersionURL);
         yield return www;
+        Debug.LogWarning("Compare By Online Online Version : " + www.text);
         Version onlineVer = Version.CreateVersion(www.text);
 
         if (onlineVer.BigVersion > deviceVer.BigVersion ||
@@ -242,12 +246,16 @@ public class ResMgr : Singleton<ResMgr>
         {
             string assetbundle = downloadAssetBundleList[i];
             Debug.LogWarning("-------------------Download : " + assetbundle);
-            www = new WWW(string.Format(AppURL + assetbundle));
+            www = new WWW(string.Format(OnlineURL + assetbundle));
             yield return www;
-            File.WriteAllBytes(DeviceUpdatePath + assetbundle, www.bytes);
-            www = new WWW(string.Format("{0}{1}.manifest", AppURL, assetbundle));
+            string assetbundlePath = DeviceUpdatePath + assetbundle;
+            File.Delete(assetbundlePath);
+            File.WriteAllBytes(assetbundlePath, www.bytes);
+            www = new WWW(string.Format("{0}{1}.manifest", OnlineURL, assetbundle));
             yield return www;
-            File.WriteAllBytes(string.Format("{0}{1}.manifest", DeviceUpdatePath, assetbundle), www.bytes);
+            string manifestPath = string.Format("{0}{1}.manifest", DeviceUpdatePath, assetbundle);
+            File.Delete(manifestPath);
+            File.WriteAllBytes(manifestPath, www.bytes);
         }
 
         // 下载AssetBundle

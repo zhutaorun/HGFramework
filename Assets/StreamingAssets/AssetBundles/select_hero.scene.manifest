@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2381201378
+CRC: 3668567844
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ab4dd3d45ef16ef3dfe8190e36d6e5f4
+    Hash: 5034ecce4b3152ab47986cc28c7a84d8
   TypeTreeHash:
     serializedVersion: 2
     Hash: a1c17b37bee078f30ab2b26f8a26ce26
@@ -70,5 +70,5 @@ ClassTypes:
 Assets:
 - Assets/Scene/select_hero.unity
 Dependencies:
-- D:/GitHub/HGFramework/Assets/../AssetBundles/PC/AssetBundles/wooden.atlas
-- D:/GitHub/HGFramework/Assets/../AssetBundles/PC/AssetBundles/msyh.font
+- D:/GitHub/HGFramework/Assets/../AssetBundles/Android/AssetBundles/wooden.atlas
+- D:/GitHub/HGFramework/Assets/../AssetBundles/Android/AssetBundles/msyh.font

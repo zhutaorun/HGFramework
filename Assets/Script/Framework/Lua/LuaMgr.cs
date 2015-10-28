@@ -26,8 +26,9 @@ public class LuaMgr : Singleton<LuaMgr>
     public IEnumerator Init()
     {
         this.luaDict = new Dictionary<string, byte[]>();
-        // 这样会导致每帧只加载一个脚本文件，效率太低，可考虑将所有脚本打包在一起
+        // 每帧只加载一个脚本文件，效率太低，可考虑将所有脚本打包在一起
 #if ASSETBUNDLE
+        Debug.LogWarning("Device URL : " + ResMgr.DeviceURL);
         WWW www = new WWW(ResMgr.DeviceURL + "script.lua");
         yield return www;
         AssetBundle scriptAssetBundle = www.assetBundle;
@@ -39,7 +40,7 @@ public class LuaMgr : Singleton<LuaMgr>
             if (string.IsNullOrEmpty(lua))
                 continue;
             string luaAssetBundlePath = string.Format("Assets/LuaProject/{0}.txt", lua);
-            Debug.Log(luaAssetBundlePath);
+            //Debug.Log(luaAssetBundlePath);
             TextAsset asset = scriptAssetBundle.LoadAsset(luaAssetBundlePath) as TextAsset;
             this.luaDict[lua] = asset.bytes;
         }
@@ -89,7 +90,9 @@ public class LuaMgr : Singleton<LuaMgr>
         this.luaSvr.init(
             (progress) =>
             {
-                Debug.Log("BindProgress : " + progress);
+                //Debug.Log("BindProgress : " + progress);
+                // TODO 输出绑定加载进度
+
             },
             () =>
             {
