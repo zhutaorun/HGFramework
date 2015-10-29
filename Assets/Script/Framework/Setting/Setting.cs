@@ -14,10 +14,12 @@ public static class Setting
 
     public static void Load()
     {
-#if UNITY_STANDALONE_WIN
-        DevicePersistentPath = "D:/UpdatePath";
+#if UNITY_EDITOR
+        DevicePersistentPath = Application.dataPath + "/../PersistentPath";
+#elif UNITY_STANDALONE_WIN
+        DevicePersistentPath = Application.dataPath + "/PersistentPath";
 #elif UNITY_STANDALONE_OSX
-        DevicePersistentPath = "~/Desktop/UpdatePath";
+        DevicePersistentPath = Application.dataPath + "/PersistentPath";
 #else
         DevicePersistentPath = Application.persistentDataPath;
 #endif

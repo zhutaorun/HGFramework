@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1073374819
+CRC: 1643874493
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 33e4fd19c0f7199b8aef9cafd0f00630
+    Hash: 54b0e7ac85c4ab1a4dd9293254b7a277
   TypeTreeHash:
     serializedVersion: 2
     Hash: 8043686eb7e2ad751d03e7d23609ca76
@@ -70,5 +70,5 @@ ClassTypes:
 Assets:
 - Assets/Scene/fight.unity
 Dependencies:
-- D:/GitHub/HGFramework/Assets/../AssetBundles/Android/AssetBundles/wooden.atlas
-- D:/GitHub/HGFramework/Assets/../AssetBundles/Android/AssetBundles/msyh.font
+- D:/GitHub/HGFramework/Assets/../AssetBundles/PC/AssetBundles/wooden.atlas
+- D:/GitHub/HGFramework/Assets/../AssetBundles/PC/AssetBundles/msyh.font

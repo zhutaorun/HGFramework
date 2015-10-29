@@ -1,4 +1,8 @@
-﻿--工具类
+﻿local GameObject = UnityEngine.GameObject;
+local Transform = UnityEngine.Transform;
+local Debug = UnityEngine.Debug;
+
+--工具类
 Utility = {};
 
 --设置父子关系

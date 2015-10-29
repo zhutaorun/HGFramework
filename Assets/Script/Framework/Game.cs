@@ -65,7 +65,7 @@ public class Game : MonoSingleton<Game>
             this.onGUI();
     }
 
-    void OnDestroy()
+    protected override void OnDestroy()
     {
         if (this.onDestroy != null)
             this.onDestroy();

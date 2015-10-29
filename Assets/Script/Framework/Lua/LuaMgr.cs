@@ -67,6 +67,7 @@ public class LuaMgr : Singleton<LuaMgr>
             www = null;
         }
 #else
+        // 只是为了减少Debug模式下加载时间
         // 简化PC及Editor平台加载lua步骤
         LuaPathPrefix = Application.streamingAssetsPath + "/LuaProject/";
         string[] luas = File.ReadAllLines(LuaPathPrefix + "luas.txt");

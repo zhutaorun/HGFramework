@@ -154,7 +154,7 @@ public class NetMgr : Singleton<NetMgr>
                         this.mSocket.Send(data);
                         stream.Close();
                     }
-                    catch (System.Exception e)
+                    catch (System.Exception)
                     {
                         Disconnect();
                     }
