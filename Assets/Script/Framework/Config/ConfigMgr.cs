@@ -29,9 +29,8 @@ public class ConfigMgr : Singleton<ConfigMgr>
         }
         Debug.Log("Config Init OK!");
 #else
-#if UNITY_ANDROID || UNITY_IOS
-        string configPathPrefix = "jar:file://" + Application.dataPath + "!/assets/Config/";
-        //string configPathPrefix = "file://" + Application.dataPath + "/StreamingAssets/Config/";
+#if UNITY_ANDROID
+        configPathPrefix = "jar:file://" + Application.dataPath + "!/assets/Config/";
         WWW www = new WWW(configPathPrefix + "configs.txt");
         yield return www;
         string[] configs = www.text.Split('\n');
@@ -53,6 +52,31 @@ public class ConfigMgr : Singleton<ConfigMgr>
                 Debug.Log("Load Config " + config + " " + www.bytes.Length);
                 www.Dispose();
                 www = null; 
+            }
+        }
+#elif UNITY_IOS
+        string configPathPrefix = "file://" + Application.streamingAssetsPath + "/Config/";
+        WWW www = new WWW(configPathPrefix + "configs.txt");
+        yield return www;
+        string[] configs = www.text.Split('\n');
+        Debug.Log("Configs Count : " + configs.Length);
+        for (int i = 0; i < configs.Length; ++i)
+        {
+            string config = configs[i];
+            string path = configPathPrefix + config;
+            Debug.Log(path);
+            www = new WWW(path);
+            yield return www;
+            if (!string.IsNullOrEmpty(www.error))
+            {
+                Debug.LogError(www.error);
+            }
+            else
+            {
+                this.configDict[config] = www.bytes;
+                Debug.Log("Load Config " + config + " " + www.bytes.Length);
+                www.Dispose();
+                www = null;
             }
         }
 #else

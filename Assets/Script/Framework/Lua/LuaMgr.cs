@@ -45,9 +45,28 @@ public class LuaMgr : Singleton<LuaMgr>
             this.luaDict[lua] = asset.bytes;
         }
 #else
-#if UNITY_ANDROID || UNITY_IOS
-        LuaPathPrefix = Application.streamingAssetsPath + "/LuaProject/";
-        //LuaPathPrefix = "file://" + Application.dataPath + "/StreamingAssets/LuaProject/";
+#if UNITY_ANDROID 
+        LuaPathPrefix = "jar:file://" + Application.dataPath + "!/assets/LuaProject/";
+        WWW www = new WWW(LuaPathPrefix + "luas.txt");
+        yield return www;
+
+        // 预加载lua文件至内存
+        string[] luas = www.text.Split('\n');
+        Debug.Log("Luas Count : " + luas.Length);
+        for (int i = 0; i < luas.Length; ++i)
+        {
+            string luaPath = luas[i].Trim();
+            if (string.IsNullOrEmpty(luaPath))
+                continue;
+            www = new WWW(LuaPathPrefix + luaPath);
+            yield return www;
+            this.luaDict[luaPath] = www.bytes;
+            //Debug.Log("Load " + luaPath);
+            www.Dispose();
+            www = null;
+        }
+#elif UNITY_IOS
+        LuaPathPrefix = "file://" + Application.streamingAssetsPath + "/LuaProject/";
         WWW www = new WWW(LuaPathPrefix + "luas.txt");
         yield return www;
 
